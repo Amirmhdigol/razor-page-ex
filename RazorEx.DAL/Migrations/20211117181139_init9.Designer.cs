@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RazorEx.DAL.Context;
 
 namespace RazorEx.DAL.Migrations
 {
     [DbContext(typeof(RXContext))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20211117181139_init9")]
+    partial class init9
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,11 +28,9 @@ namespace RazorEx.DAL.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasColumnType("varchar(30)");
 
                     b.Property<string>("RePassword")
-                        .IsRequired()
                         .HasColumnType("varchar(30)");
 
                     b.Property<string>("UserName")

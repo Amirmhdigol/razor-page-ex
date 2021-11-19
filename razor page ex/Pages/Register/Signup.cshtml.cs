@@ -24,11 +24,12 @@ namespace razor_page_ex.Pages.Register
         [MaxLength(25, ErrorMessage = "Name cannot be greater than 25")]
         [MinLength(4, ErrorMessage = "Name cannot be less than 4")]
         public string UserName { get; set; }
-
+        
         [Required]
         [DataType(DataType.Password)]
-        [Range(6,20,ErrorMessage ="Enter between 6 and 20 character")]
-        public int Password { get; set; }
+        [MaxLength(25, ErrorMessage = "password cannot be greater than 25")]
+        [MinLength(6, ErrorMessage = "password cannot be less than 6")]
+        public string Password { get; set; }
 
         /// <summary>
         /// the model state check these data annotations Modelstate.IsValid down here
@@ -36,7 +37,7 @@ namespace razor_page_ex.Pages.Register
         [Required] 
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Password and Confirmation Password must match.")]
-        public int RepeatPassword { get; set; }
+        public string RepeatPassword { get; set; }
 
         public void OnGet()
         {

@@ -10,7 +10,7 @@ namespace RazorEx.DAL.Entities
     {
         public int UserID { get; set; }
         public string UserName { get; set; }
-        public int Password { get; set; }
-        public int RePassword { get; set; }
+        public string Password { get; set; }
+        public string RePassword { get; set; }
     }
 }
