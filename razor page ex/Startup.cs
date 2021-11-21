@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +35,19 @@ namespace razor_page_ex
 
             services.AddRazorPages();
             services.AddScoped<ISignup,Signup>();
+            services.AddScoped<ISIgnIn,SignIn>();
+
+            services.AddAuthentication(option =>
+            {
+                option.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                option.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                option.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            }).AddCookie(option=>
+            {
+                option.LoginPath = "/Register/SignIn";
+                option.LogoutPath = "/Resgister/SignOut";
+                option.ExpireTimeSpan = TimeSpan.FromDays(30);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,10 +69,23 @@ namespace razor_page_ex
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllerRoute(
+                      name: "Adminstration",
+                      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                    );
+                    //endpoints.MapControllerRoute(
+                    //  name: "UserPanel",
+                    //  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                    //);
+                });
+
                 endpoints.MapRazorPages();
             });
         }
