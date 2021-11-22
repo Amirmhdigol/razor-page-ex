@@ -19,9 +19,11 @@ namespace RazorEx.DAL.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfigurations());
             base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

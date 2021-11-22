@@ -1,0 +1,80 @@
+﻿using RazorEx.DAL.Context;
+using RazorEX.BAL.Contracts;
+using RazorEX.BAL.DTOs.CategoryDTO;
+using RazorEX.BAL.Utilities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using RazorEx.DAL.Entities;
+
+namespace RazorEX.BAL.Services
+{
+    public class Category : ICategory
+    {
+        private readonly RXContext _rXContext;
+
+        public Category(RXContext rXContext)
+        {
+            _rXContext = rXContext;
+        }
+
+        public OperationResult CreateCategory(CreateCategoryDto command)
+        {
+            var category = new RazorEx.DAL.Entities.Category()
+            {
+                Title = command.Title,
+                IsDelete = false,
+                ParentId = command.ParentId,
+                Slug = command.Slug,
+                MetaTag = command.MetaTag,
+                MetaDescription = command.MetaDescription, 
+            };
+            _rXContext.Categories.Add(category);
+            _rXContext.SaveChanges();
+            return OperationResult.Success();
+        }
+
+        public OperationResult EditCategory(EditCategoryDto command)
+        {
+            var finded = _rXContext.Categories.FirstOrDefault(c=>c.Id == command.Id);
+
+            if (finded==null)
+                return OperationResult.NotFound();
+            
+            finded.Title = command.Title;
+            finded.MetaDescription = command.MetaDescription;
+            finded.MetaTag = command.MetaTag;
+            finded.Slug = command.Slug;
+
+            _rXContext.SaveChanges();
+            return OperationResult.Success();
+        }
+
+        public List<CategoryDto> GetAllCategory()
+        {
+            return _rXContext.Categories.Select(c => ToCategoryDTO.ToCatgoryDTO(c)).ToList();
+        }
+
+        public CategoryDto GetCategoryBy(int id)
+        {
+            var result = _rXContext.Categories.Find(id);
+
+            if (result == null)
+                return null;
+
+            return ToCategoryDTO.ToCatgoryDTO(result);
+        }
+
+        public CategoryDto GetCategoryBy(string slug)
+        {
+            var res = _rXContext.Categories.FirstOrDefault(a => a.Slug == slug);
+
+            if (res == null)
+                return null;
+
+            return ToCategoryDTO.ToCatgoryDTO(res);
+        }
+    }
+}

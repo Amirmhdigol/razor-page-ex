@@ -1,0 +1,45 @@
+﻿@model List<RazorEX.BAL.DTOs.CategoryDTO.CategoryDto>
+
+<body class=" bg-info" method="post">
+    <div class="container">
+        <h2 class="text-center text-succes h1 "></h2>
+        <hr>
+        <table class="table">
+            <thead class="text-warning">
+            <tbody>
+                <th>
+                    <p class="" style="color:darkred">عنوان :</p>
+                </th>
+                <th>
+                    <p class="" style="color:darkred">slug : </p>
+                </th>
+                <th>
+                    <p class="" style="color:darkred">MetaDescription : </p>
+                </th>
+                <th>
+                    <p class="" style="color:darkred">MetaTag : </p>
+                </th>
+            @foreach (var data in Model)
+                    {
+                <tr>
+                    <td>@data.Title</td>
+                    <td>@data.Slug</td>
+                    <td>@data.MetaTag</td>
+                    <td>@data.MetaDescription</td>
+
+                </tr>
+                    }
+           </tbody>
+        </table>
+        <a class="btn btn-success align-right" asp-area="Adminstration" asp-controller="Category" asp-action="Add">Add Task</a>
+        <br>
+    </div>
+</body>
+
+
+
+
+
+
+
+

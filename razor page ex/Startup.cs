@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RazorEx.DAL.Context;
+using RazorEx.DAL.Entities;
 using RazorEX.BAL.Contracts;
 using RazorEX.BAL.Services;
 using System;
@@ -34,15 +35,16 @@ namespace razor_page_ex
             });
 
             services.AddRazorPages();
-            services.AddScoped<ISignup,Signup>();
-            services.AddScoped<ISIgnIn,SignIn>();
+            services.AddScoped<ISignup, Signup>();
+            services.AddScoped<ISIgnIn, SignIn>();
+            services.AddScoped<ICategory, RazorEX.BAL.Services.Category>();
 
             services.AddAuthentication(option =>
             {
                 option.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 option.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 option.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            }).AddCookie(option=>
+            }).AddCookie(option =>
             {
                 option.LoginPath = "/Register/SignIn";
                 option.LogoutPath = "/Resgister/SignOut";
