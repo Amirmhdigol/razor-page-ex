@@ -6,30 +6,32 @@
         <hr>
         <table class="table">
             <thead class="text-warning">
-            <tbody>
-                <th>
-                    <p class="" style="color:darkred">عنوان :</p>
-                </th>
-                <th>
-                    <p class="" style="color:darkred">slug : </p>
-                </th>
-                <th>
-                    <p class="" style="color:darkred">MetaDescription : </p>
-                </th>
-                <th>
-                    <p class="" style="color:darkred">MetaTag : </p>
-                </th>
-            @foreach (var data in Model)
-                    {
                 <tr>
-                    <td>@data.Title</td>
-                    <td>@data.Slug</td>
-                    <td>@data.MetaTag</td>
-                    <td>@data.MetaDescription</td>
-
+                    <th>
+                        <p class="" style="color:darkred">عنوان :</p>
+                    </th>
+                    <th>
+                        <p class="" style="color:darkred">slug : </p>
+                    </th>
+                    <th>
+                        <p class="" style="color:darkred">MetaDescription : </p>
+                    </th>
+                    <th>
+                        <p class="" style="color:darkred">MetaTag : </p>
+                    </th>
                 </tr>
+            <tbody>
+                @foreach (var data in Model)
+                    {
+                    <tr>
+                        <td>@data.Title</td>
+                        <td>@data.Slug</td>
+                        <td>@data.MetaTag</td>
+                        <td>@data.MetaDescription</td>
+                        <td><a asp-area="Adminstration" asp-controller="Category" asp-action="Edit" asp-route-Id="@data.Id" class="btn btn-info btn-sm">ویرایش</a></td>
+                    </tr>
                     }
-           </tbody>
+            </tbody>
         </table>
         <a class="btn btn-success align-right" asp-area="Adminstration" asp-controller="Category" asp-action="Add">Add Task</a>
         <br>

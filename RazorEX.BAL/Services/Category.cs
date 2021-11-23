@@ -22,6 +22,9 @@ namespace RazorEX.BAL.Services
 
         public OperationResult CreateCategory(CreateCategoryDto command)
         {
+            if (IsSlugExist(command.Slug))
+                return OperationResult.Error("Slug Is Exist");
+
             var category = new RazorEx.DAL.Entities.Category()
             {
                 Title = command.Title,
@@ -39,10 +42,13 @@ namespace RazorEX.BAL.Services
         public OperationResult EditCategory(EditCategoryDto command)
         {
             var finded = _rXContext.Categories.FirstOrDefault(c=>c.Id == command.Id);
-
             if (finded==null)
                 return OperationResult.NotFound();
-            
+
+            if (command.Slug.ToSlug() != finded.Slug)
+                if (IsSlugExist(command.Slug))
+                    return OperationResult.Error("Slug Is Exist");
+
             finded.Title = command.Title;
             finded.MetaDescription = command.MetaDescription;
             finded.MetaTag = command.MetaTag;
@@ -75,6 +81,11 @@ namespace RazorEX.BAL.Services
                 return null;
 
             return ToCategoryDTO.ToCatgoryDTO(res);
+        }
+
+        public bool IsSlugExist(string slug)
+        {
+            return _rXContext.Categories.Any(c => c.Slug == slug.ToSlug());
         }
     }
 }

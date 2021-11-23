@@ -16,6 +16,6 @@ namespace RazorEX.BAL.Contracts
         List<CategoryDto> GetAllCategory();
         CategoryDto GetCategoryBy(int id);
         CategoryDto GetCategoryBy(string slug);
-
+        bool IsSlugExist(string slug);
     }
 }
