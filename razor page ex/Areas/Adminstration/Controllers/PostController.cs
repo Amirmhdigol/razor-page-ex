@@ -29,5 +29,17 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
             });
             return View(model : model);
         } 
+
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public IActionResult Add(string a)
+        {
+            return View();
+        }
     }
 }

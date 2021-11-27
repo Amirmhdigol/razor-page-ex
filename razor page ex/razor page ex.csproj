@@ -6,186 +6,1056 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Areas\wwwroot\css\site.css" />
-    <None Remove="Areas\wwwroot\favicon.ico" />
-    <None Remove="Areas\wwwroot\js\site.js" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
-    <None Remove="Areas\wwwroot\lib\bootstrap\LICENSE" />
-    <None Remove="Areas\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
-    <None Remove="Areas\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
-    <None Remove="Areas\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" />
-    <None Remove="Areas\wwwroot\lib\jquery-validation\dist\additional-methods.js" />
-    <None Remove="Areas\wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
-    <None Remove="Areas\wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
-    <None Remove="Areas\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
-    <None Remove="Areas\wwwroot\lib\jquery-validation\LICENSE.md" />
-    <None Remove="Areas\wwwroot\lib\jquery\dist\jquery.js" />
-    <None Remove="Areas\wwwroot\lib\jquery\dist\jquery.min.js" />
-    <None Remove="Areas\wwwroot\lib\jquery\dist\jquery.min.map" />
-    <None Remove="Areas\wwwroot\lib\jquery\LICENSE.txt" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\contents.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\colordialog\dialogs\colordialog.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\copyformatting\styles\copyformatting.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\dialog\styles\dialog.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\configfilename.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\emptyeditor.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\integration.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\integrations\easyimage.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\notifications.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\notificationsasync.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\paperformat.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\readonly.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\stylesheets.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\tokenfetching.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorscorrect.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorswrong.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\tokenwithouturl.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\wrongendpoint.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\flash\images\placeholder.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\forms\images\hiddenfield.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\icons.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\icons_hidpi.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\iframe\images\placeholder.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\image\images\noimage.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\link\images\anchor.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\link\images\hidpi\anchor.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\magicline\images\hidpi\icon-rtl.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\magicline\images\hidpi\icon.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\magicline\images\icon-rtl.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\magicline\images\icon.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\pagebreak\images\pagebreak.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\preview\images\pagebreak.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\preview\preview.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\preview\styles\screen.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\scayt\dialogs\dialog.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\scayt\skins\moono-lisa\scayt.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_address.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_blockquote.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_div.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_h1.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_h2.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_h3.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_h4.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_h5.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_h6.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_p.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_pre.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\angel_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\angel_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\angry_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\angry_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\broken_heart.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\broken_heart.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\confused_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\confused_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\cry_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\cry_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\devil_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\devil_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\embaressed_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\embarrassed_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\embarrassed_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\envelope.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\envelope.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\heart.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\heart.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\kiss.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\kiss.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\lightbulb.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\lightbulb.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\omg_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\omg_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\regular_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\regular_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\sad_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\sad_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\shades_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\shades_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\teeth_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\teeth_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\thumbs_down.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\thumbs_down.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\thumbs_up.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\thumbs_up.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\tongue_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\tongue_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\tounge_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\wink_smile.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\wink_smile.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\tableselection\styles\tableselection.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\templates\dialogs\templates.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\templates\templates\images\template1.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\templates\templates\images\template2.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\templates\templates\images\template3.gif" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\widget\images\handle.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\wsc\icons\hidpi\spellchecker.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\wsc\icons\spellchecker.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\plugins\wsc\skins\moono-lisa\wsc.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\css\samples.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\img\github-top.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\img\header-bg.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\img\header-separator.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\img\logo.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\img\navigation-tip.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\index.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\ajax.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\api.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\appendto.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\assets\inlineall\logo.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\assets\outputxhtml\outputxhtml.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\assets\sample.jpg" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\datafiltering.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\dialog\dialog.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\divreplace.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\enterkey\enterkey.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\htmlwriter\outputforflash.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\htmlwriter\outputhtml.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\index.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\inlineall.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\inlinebycode.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\inlinetextarea.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\jquery.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\magicline\magicline.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\readonly.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\replacebyclass.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\replacebycode.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\sample.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\tabindex.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\toolbar\toolbar.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\uicolor.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\uilanguages.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\wysiwygarea\fullpage.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\xhtmlstyle.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\css\fontello.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\font\fontello.eot" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\font\fontello.ttf" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\font\LICENSE.txt" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\index.html" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\dialog.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\dialog_ie.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\dialog_ie8.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\dialog_iequirks.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\editor.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\editor_gecko.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\editor_ie.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\editor_ie8.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\editor_iequirks.css" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\icons.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\icons_hidpi.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\arrow.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\close.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\hidpi\close.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\hidpi\lock-open.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\hidpi\lock.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\hidpi\refresh.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\lock-open.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\lock.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\refresh.png" />
+    <None Remove="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\spinner.gif" />
+    <None Remove="Areas\WWWROOT\css\site.css" />
+    <None Remove="Areas\WWWROOT\favicon.ico" />
+    <None Remove="Areas\WWWROOT\js\Custom.js" />
+    <None Remove="Areas\WWWROOT\js\site.js" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-grid.css" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-reboot.css" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap.css" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Remove="Areas\WWWROOT\lib\bootstrap\LICENSE" />
+    <None Remove="Areas\WWWROOT\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Remove="Areas\WWWROOT\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Remove="Areas\WWWROOT\lib\jquery-validation-unobtrusive\LICENSE.txt" />
+    <None Remove="Areas\WWWROOT\lib\jquery-validation\dist\additional-methods.js" />
+    <None Remove="Areas\WWWROOT\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Remove="Areas\WWWROOT\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Remove="Areas\WWWROOT\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Remove="Areas\WWWROOT\lib\jquery-validation\LICENSE.md" />
+    <None Remove="Areas\WWWROOT\lib\jquery\dist\jquery.js" />
+    <None Remove="Areas\WWWROOT\lib\jquery\dist\jquery.min.js" />
+    <None Remove="Areas\WWWROOT\lib\jquery\dist\jquery.min.map" />
+    <None Remove="Areas\WWWROOT\lib\jquery\LICENSE.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Areas\wwwroot\css\site.css">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\contents.css">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\favicon.ico">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\js\site.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\about\dialogs\logo_ckeditor.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\colordialog\dialogs\colordialog.css">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\copyformatting\styles\copyformatting.css">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\dialog\styles\dialog.css">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\configfilename.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\emptyeditor.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\integration.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\integrations\easyimage.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap.css">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\notifications.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\notificationsasync.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\paperformat.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\readonly.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\stylesheets.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\tokenfetching.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorscorrect.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorswrong.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\tokenwithouturl.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\wrongendpoint.html">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\flash\images\placeholder.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\forms\images\hiddenfield.gif">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\bootstrap\LICENSE">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\icons.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\icons_hidpi.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\iframe\images\placeholder.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\image\images\noimage.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\jquery-validation\dist\additional-methods.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\link\images\anchor.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\jquery-validation\dist\additional-methods.min.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\link\images\hidpi\anchor.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\jquery-validation\dist\jquery.validate.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\magicline\images\hidpi\icon-rtl.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\magicline\images\hidpi\icon.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\jquery-validation\LICENSE.md">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\magicline\images\icon-rtl.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\jquery\dist\jquery.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\magicline\images\icon.png">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\jquery\dist\jquery.min.js">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\pagebreak\images\pagebreak.gif">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\jquery\dist\jquery.min.map">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\preview\images\pagebreak.gif">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Areas\wwwroot\lib\jquery\LICENSE.txt">
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\preview\preview.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\preview\styles\screen.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\scayt\dialogs\dialog.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\scayt\dialogs\toolbar.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\scayt\skins\moono-lisa\scayt.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_address.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_blockquote.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_div.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_h1.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_h2.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_h3.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_h4.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_h5.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_h6.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_p.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\showblocks\images\block_pre.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\angel_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\angel_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\angry_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\angry_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\broken_heart.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\broken_heart.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\confused_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\confused_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\cry_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\cry_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\devil_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\devil_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\embaressed_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\embarrassed_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\embarrassed_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\envelope.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\envelope.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\heart.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\heart.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\kiss.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\kiss.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\lightbulb.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\lightbulb.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\omg_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\omg_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\regular_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\regular_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\sad_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\sad_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\shades_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\shades_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\teeth_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\teeth_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\thumbs_down.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\thumbs_down.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\thumbs_up.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\thumbs_up.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\tongue_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\tongue_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\tounge_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\whatchutalkingabout_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\wink_smile.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\smiley\images\wink_smile.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\tableselection\styles\tableselection.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\templates\dialogs\templates.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\templates\templates\images\template1.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\templates\templates\images\template2.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\templates\templates\images\template3.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\widget\images\handle.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\wsc\dialogs\ciframe.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\wsc\dialogs\tmpFrameset.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\wsc\dialogs\wsc.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\wsc\icons\hidpi\spellchecker.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\wsc\icons\spellchecker.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\plugins\wsc\skins\moono-lisa\wsc.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\css\samples.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\img\github-top.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\img\header-bg.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\img\header-separator.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\img\logo.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\img\navigation-tip.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\index.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\ajax.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\api.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\appendto.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\assets\inlineall\logo.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\assets\outputxhtml\outputxhtml.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\assets\sample.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\datafiltering.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\dialog\dialog.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\divreplace.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\enterkey\enterkey.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\htmlwriter\outputforflash.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\htmlwriter\outputhtml.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\index.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\inlineall.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\inlinebycode.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\inlinetextarea.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\jquery.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\magicline\magicline.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\readonly.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\replacebyclass.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\replacebycode.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\sample.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\tabindex.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\toolbar\toolbar.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\uicolor.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\uilanguages.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\wysiwygarea\fullpage.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\old\xhtmlstyle.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\css\fontello.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\font\fontello.eot">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\font\fontello.ttf">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\font\fontello.woff">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\font\LICENSE.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\index.html">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\dialog.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\dialog_ie.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\dialog_ie8.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\dialog_iequirks.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\editor.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\editor_gecko.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\editor_ie.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\editor_ie8.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\editor_iequirks.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\icons.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\icons_hidpi.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\arrow.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\close.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\hidpi\close.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\hidpi\lock-open.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\hidpi\lock.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\hidpi\refresh.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\lock-open.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\lock.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\refresh.png">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\ckeditor4\ckeditor\skins\moono-lisa\images\spinner.gif">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\css\site.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\favicon.ico">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\js\Custom.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\js\site.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-grid.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-grid.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-grid.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-grid.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-reboot.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-reboot.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-reboot.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap.min.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\css\bootstrap.min.css.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.bundle.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.bundle.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.bundle.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\dist\js\bootstrap.min.js.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\bootstrap\LICENSE">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\jquery-validation-unobtrusive\LICENSE.txt">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\jquery-validation\dist\additional-methods.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\jquery-validation\dist\additional-methods.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\jquery-validation\dist\jquery.validate.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\jquery-validation\dist\jquery.validate.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\jquery-validation\LICENSE.md">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\jquery\dist\jquery.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\jquery\dist\jquery.min.js">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\jquery\dist\jquery.min.map">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Areas\WWWROOT\lib\jquery\LICENSE.txt">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
@@ -214,6 +1084,478 @@
     <Folder Include="Areas\Adminstration\Data\" />
     <Folder Include="Areas\UserPanel\Data\" />
     <Folder Include="Areas\UserPanel\Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\admin\build\.DS_Store" />
+    <None Include="wwwroot\admin\build\grunt\.jshintrc" />
+    <None Include="wwwroot\admin\build\js\.jscsrc" />
+    <None Include="wwwroot\admin\build\js\.jshintrc" />
+    <None Include="wwwroot\admin\build\js\BoxRefresh.js" />
+    <None Include="wwwroot\admin\build\js\BoxWidget.js" />
+    <None Include="wwwroot\admin\build\js\ControlSidebar.js" />
+    <None Include="wwwroot\admin\build\js\DirectChat.js" />
+    <None Include="wwwroot\admin\build\js\Layout.js" />
+    <None Include="wwwroot\admin\build\js\PushMenu.js" />
+    <None Include="wwwroot\admin\build\js\TodoList.js" />
+    <None Include="wwwroot\admin\build\js\Tree.js" />
+    <None Include="wwwroot\admin\build\less\.csslintrc" />
+    <None Include="wwwroot\admin\build\less\.DS_Store" />
+    <None Include="wwwroot\admin\build\less\404_500_errors.less" />
+    <None Include="wwwroot\admin\build\less\AdminLTE-without-plugins.less" />
+    <None Include="wwwroot\admin\build\less\AdminLTE.less" />
+    <None Include="wwwroot\admin\build\less\alerts.less" />
+    <None Include="wwwroot\admin\build\less\bootstrap-social.less" />
+    <None Include="wwwroot\admin\build\less\boxes.less" />
+    <None Include="wwwroot\admin\build\less\buttons.less" />
+    <None Include="wwwroot\admin\build\less\callout.less" />
+    <None Include="wwwroot\admin\build\less\carousel.less" />
+    <None Include="wwwroot\admin\build\less\control-sidebar.less" />
+    <None Include="wwwroot\admin\build\less\core.less" />
+    <None Include="wwwroot\admin\build\less\datepicker.less" />
+    <None Include="wwwroot\admin\build\less\direct-chat.less" />
+    <None Include="wwwroot\admin\build\less\dropdown.less" />
+    <None Include="wwwroot\admin\build\less\forms.less" />
+    <None Include="wwwroot\admin\build\less\fullcalendar.less" />
+    <None Include="wwwroot\admin\build\less\header.less" />
+    <None Include="wwwroot\admin\build\less\info-box.less" />
+    <None Include="wwwroot\admin\build\less\invoice.less" />
+    <None Include="wwwroot\admin\build\less\labels.less" />
+    <None Include="wwwroot\admin\build\less\lockscreen.less" />
+    <None Include="wwwroot\admin\build\less\login_and_register.less" />
+    <None Include="wwwroot\admin\build\less\mailbox.less" />
+    <None Include="wwwroot\admin\build\less\miscellaneous.less" />
+    <None Include="wwwroot\admin\build\less\mixins.less" />
+    <None Include="wwwroot\admin\build\less\modal.less" />
+    <None Include="wwwroot\admin\build\less\navs.less" />
+    <None Include="wwwroot\admin\build\less\plugins.less" />
+    <None Include="wwwroot\admin\build\less\print.less" />
+    <None Include="wwwroot\admin\build\less\products.less" />
+    <None Include="wwwroot\admin\build\less\profile.less" />
+    <None Include="wwwroot\admin\build\less\progress-bars.less" />
+    <None Include="wwwroot\admin\build\less\select2.less" />
+    <None Include="wwwroot\admin\build\less\sidebar-mini.less" />
+    <None Include="wwwroot\admin\build\less\sidebar.less" />
+    <None Include="wwwroot\admin\build\less\skins\skin-black-light.less" />
+    <None Include="wwwroot\admin\build\less\skins\skin-black.less" />
+    <None Include="wwwroot\admin\build\less\skins\skin-blue-light.less" />
+    <None Include="wwwroot\admin\build\less\skins\skin-blue.less" />
+    <None Include="wwwroot\admin\build\less\skins\skin-green-light.less" />
+    <None Include="wwwroot\admin\build\less\skins\skin-green.less" />
+    <None Include="wwwroot\admin\build\less\skins\skin-purple-light.less" />
+    <None Include="wwwroot\admin\build\less\skins\skin-purple.less" />
+    <None Include="wwwroot\admin\build\less\skins\skin-red-light.less" />
+    <None Include="wwwroot\admin\build\less\skins\skin-red.less" />
+    <None Include="wwwroot\admin\build\less\skins\skin-yellow-light.less" />
+    <None Include="wwwroot\admin\build\less\skins\skin-yellow.less" />
+    <None Include="wwwroot\admin\build\less\skins\_all-skins.less" />
+    <None Include="wwwroot\admin\build\less\small-box.less" />
+    <None Include="wwwroot\admin\build\less\social-widgets.less" />
+    <None Include="wwwroot\admin\build\less\table.less" />
+    <None Include="wwwroot\admin\build\less\timeline.less" />
+    <None Include="wwwroot\admin\build\less\treeview.less" />
+    <None Include="wwwroot\admin\build\less\users-list.less" />
+    <None Include="wwwroot\admin\build\less\variables.less" />
+    <None Include="wwwroot\admin\build\scss\_bootstrap_variables.scss" />
+    <None Include="wwwroot\admin\build\scss\_bootstrap_variables_old2.scss" />
+    <None Include="wwwroot\admin\build\scss\_header.scss" />
+    <None Include="wwwroot\admin\build\scss\_variables.scss" />
+    <None Include="wwwroot\admin\dist\.DS_Store" />
+    <None Include="wwwroot\admin\dist\css\.DS_Store" />
+    <None Include="wwwroot\admin\dist\css\adminlte.css.map" />
+    <None Include="wwwroot\admin\dist\css\adminlte.min.css.map" />
+    <None Include="wwwroot\admin\dist\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\admin\dist\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\admin\dist\fonts\iranyekan\woff2\iranyekanwebbold%28fanum%29.woff2" />
+    <None Include="wwwroot\admin\dist\fonts\iranyekan\woff2\iranyekanweblight%28fanum%29.woff2" />
+    <None Include="wwwroot\admin\dist\fonts\iranyekan\woff2\iranyekanwebregular%28fanum%29.woff2" />
+    <None Include="wwwroot\admin\dist\img\.DS_Store" />
+    <None Include="wwwroot\admin\dist\js\.DS_Store" />
+    <None Include="wwwroot\admin\dist\js\adminlte.js" />
+    <None Include="wwwroot\admin\dist\js\adminlte.min.js" />
+    <None Include="wwwroot\admin\dist\js\demo.js" />
+    <None Include="wwwroot\admin\dist\js\pages\dashboard.js" />
+    <None Include="wwwroot\admin\dist\js\pages\dashboard2.js" />
+    <None Include="wwwroot\admin\dist\js\persian-date-0.1.8.min.js" />
+    <None Include="wwwroot\admin\dist\js\persian-date.js" />
+    <None Include="wwwroot\admin\dist\js\persian-datepicker-0.4.5.min.js" />
+    <None Include="wwwroot\admin\plugins\.DS_Store" />
+    <None Include="wwwroot\admin\plugins\bootstrap-slider\bootstrap-slider.js" />
+    <None Include="wwwroot\admin\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />
+    <None Include="wwwroot\admin\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.min.js" />
+    <None Include="wwwroot\admin\plugins\iCheck\.DS_Store" />
+    <None Include="wwwroot\admin\plugins\iCheck\icheck.js" />
+    <None Include="wwwroot\admin\plugins\iCheck\icheck.min.js" />
+    <None Include="wwwroot\admin\plugins\input-mask\.DS_Store" />
+    <None Include="wwwroot\admin\plugins\input-mask\jquery.inputmask.date.extensions.js" />
+    <None Include="wwwroot\admin\plugins\input-mask\jquery.inputmask.extensions.js" />
+    <None Include="wwwroot\admin\plugins\input-mask\jquery.inputmask.js" />
+    <None Include="wwwroot\admin\plugins\input-mask\jquery.inputmask.numeric.extensions.js" />
+    <None Include="wwwroot\admin\plugins\input-mask\jquery.inputmask.phone.extensions.js" />
+    <None Include="wwwroot\admin\plugins\input-mask\jquery.inputmask.regex.extensions.js" />
+    <None Include="wwwroot\admin\plugins\jQueryUI\jquery-ui.js" />
+    <None Include="wwwroot\admin\plugins\jQueryUI\jquery-ui.min.js" />
+    <None Include="wwwroot\admin\plugins\jvectormap\jquery-jvectormap-1.2.2.min.js" />
+    <None Include="wwwroot\admin\plugins\jvectormap\jquery-jvectormap-usa-en.js" />
+    <None Include="wwwroot\admin\plugins\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <None Include="wwwroot\admin\plugins\pace\pace.js" />
+    <None Include="wwwroot\admin\plugins\pace\pace.min.js" />
+    <None Include="wwwroot\admin\plugins\timepicker\bootstrap-timepicker.js" />
+    <None Include="wwwroot\admin\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\adapters\jquery.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\build-config.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\CHANGES.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\ckeditor.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\config.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\af.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\ar.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\az.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\bg.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\bn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\bs.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\ca.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\cs.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\cy.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\da.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\de-ch.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\de.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\el.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\en-au.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\en-ca.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\en-gb.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\en.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\eo.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\es-mx.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\es.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\et.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\eu.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\fa.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\fi.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\fo.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\fr-ca.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\fr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\gl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\gu.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\he.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\hi.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\hr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\hu.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\id.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\is.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\it.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\ja.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\ka.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\km.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\ko.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\ku.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\lt.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\lv.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\mk.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\mn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\ms.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\nb.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\nl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\no.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\oc.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\pl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\pt-br.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\pt.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\ro.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\ru.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\si.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\sk.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\sl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\sq.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\sr-latn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\sr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\sv.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\th.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\tr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\tt.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\ug.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\uk.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\vi.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\zh-cn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\lang\zh.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\LICENSE.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\af.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\az.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\de-ch.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\en-au.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\en-gb.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\es-mx.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\eu.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\fo.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\gl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\id.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\km.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\ko.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\oc.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\si.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\sr-latn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\sr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\tt.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\a11yhelp\dialogs\lang\zh.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\about\dialogs\about.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\colordialog\dialogs\colordialog.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\copyformatting\cursors\cursor-disabled.svg" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\copyformatting\cursors\cursor.svg" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\dialog\dialogDefinition.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\div\dialogs\div.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\CHANGELOG.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\LICENSE.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\plugindefinition.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\README.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\authentication.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\exportpdf.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\configfilename.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\emptyeditor.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\integration.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\integrations\easyimage.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\notifications.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\notificationsasync.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\paperformat.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\readonly.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\stylesheets.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\tokenfetching.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorscorrect.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\tokentwoeditorswrong.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\tokenwithouturl.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\manual\wrongendpoint.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\notification.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\resourcespaths.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\statistics.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\stylesheets.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\exportpdf\tests\_helpers\tools.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\find\dialogs\find.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\flash\dialogs\flash.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\forms\dialogs\button.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\forms\dialogs\checkbox.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\forms\dialogs\form.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\forms\dialogs\hiddenfield.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\forms\dialogs\radio.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\forms\dialogs\select.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\forms\dialogs\textarea.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\forms\dialogs\textfield.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\iframe\dialogs\iframe.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\image\dialogs\image.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\link\dialogs\anchor.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\link\dialogs\link.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\liststyle\dialogs\liststyle.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\pastefromgdocs\filter\default.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\pastefromlibreoffice\filter\default.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\pastefromword\filter\default.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\pastetools\filter\common.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\pastetools\filter\image.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\scayt\CHANGELOG.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\scayt\dialogs\options.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\scayt\LICENSE.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\scayt\README.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\smiley\dialogs\smiley.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\af.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\ar.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\az.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\bg.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\da.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\de-ch.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\en-au.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\en-ca.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\en-gb.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\es-mx.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\es.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\eu.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\gl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\hu.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\id.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\ja.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\km.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\ko.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\lt.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\oc.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\pt.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\ro.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\ru.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\si.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\sl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\sq.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\sr-latn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\sr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\th.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\tt.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\uk.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\vi.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\lang\zh.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\table\dialogs\table.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\templates\dialogs\templates.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\templates\templates\default.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\af.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\ar.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\bg.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\bn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\bs.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\ca.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\cs.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\cy.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\da.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\de.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\el.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\en-au.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\en-ca.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\en-gb.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\en.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\eo.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\es.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\et.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\eu.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\fa.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\fi.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\fo.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\fr-ca.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\fr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\gl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\gu.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\he.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\hi.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\hr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\hu.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\is.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\it.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\ja.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\ka.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\km.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\ko.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\ku.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\lt.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\lv.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\mk.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\mn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\ms.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\nb.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\nl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\no.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\pl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\pt-br.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\pt.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\ro.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\ru.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\sk.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\sl.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\sr-latn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\sr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\sv.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\th.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\tr.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\ug.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\uk.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\vi.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\zh-cn.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\lang\zh.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\LICENSE.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\plugin.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\plugins\wsc\README.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\README.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\img\logo.svg" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\js\sample.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\js\sf.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\old\assets\posteddata.php" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\old\assets\uilanguages\languages.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\old\dialog\assets\my_dialog.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\old\htmlwriter\assets\outputforflash\outputforflash.fla" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\old\htmlwriter\assets\outputforflash\outputforflash.swf" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\old\htmlwriter\assets\outputforflash\swfobject.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\old\sample.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\old\sample_posteddata.php" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\toolbarconfigurator\font\fontello.svg" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\toolbarconfigurator\js\abstracttoolbarmodifier.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\toolbarconfigurator\js\fulltoolbareditor.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\toolbarconfigurator\js\toolbarmodifier.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\toolbarconfigurator\js\toolbartextmodifier.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\toolbarconfigurator\lib\codemirror\javascript.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
+    <None Include="wwwroot\ckeditor4\ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\skins\moono-lisa\readme.md" />
+    <None Include="wwwroot\ckeditor4\ckeditor\styles.js" />
+    <None Include="wwwroot\ckeditor4\ckeditor\vendor\promise.js" />
   </ItemGroup>
 
 	
