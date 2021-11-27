@@ -1,0 +1,49 @@
+﻿@model RazorEX.BAL.DTOs.PostDTO.PostFilterDTO
+
+<body class=" bg-info" method="post">
+    <div class="container">
+        <h2 class="text-center text-succes h1 "></h2>
+        <hr>
+        <table class="table">
+            <thead class="text-warning">
+                <tr>
+                    <th>
+                       عنوان
+                    </th>
+                    <th>
+                        slug
+                    </th>
+                    <th>
+                        MetaDescription
+                    </th>
+                    <th>
+                        MetaTag
+                    </th>
+                </tr>
+            <tbody>
+                @foreach (var data in Model.Posts)
+                    {
+                    <tr>
+                        <td>@data.Title</td>
+                        <td>
+                              
+                        </td>
+                        <td>
+                            <a asp-area="Adminstration" asp-controller="Post" asp-action="Edit" class="btn btn-info btn-sm">ویرایش</a>
+                        </td>
+                    </tr>
+                    }
+            </tbody>
+        </table>
+        <a class="btn btn-success align-right" asp-area="Adminstration" asp-controller="Post" asp-action="Add">افزودن مقاله</a>
+        <br>
+    </div>
+</body>
+
+
+
+
+
+
+
+

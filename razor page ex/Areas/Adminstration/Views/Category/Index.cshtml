@@ -21,14 +21,31 @@
                     </th>
                 </tr>
             <tbody>
-                @foreach (var data in Model)
+                @foreach (var data in Model.Where(m => m.ParentId == null))
                     {
                     <tr>
                         <td>@data.Title</td>
                         <td>@data.Slug</td>
                         <td>@data.MetaTag</td>
                         <td>@data.MetaDescription</td>
-                        <td><a asp-area="Adminstration" asp-controller="Category" asp-action="Edit" asp-route-Id="@data.Id" class="btn btn-info btn-sm">ویرایش</a></td>
+                        <td>
+                                @if (Model.Any(r => r.ParentId == data.Id))
+                                {
+                                <ul>
+                                        @foreach (var subCategory in Model.Where(m => m.ParentId == data.Id))
+                                        {
+                                        <li>
+                                                @subCategory.Title 
+                                            <a asp-area="Adminstration" asp-controller="Category" asp-action="Edit" asp-route-id="@subCategory.Id" class="btn btn-info btn-sm">ویرایش</a>
+                                        </li>
+                                        }
+                                </ul>
+                                }
+                        </td>
+                        <td>
+                            <a asp-area="Adminstration" asp-controller="Category" asp-action="Edit" asp-route-Id="@data.Id" class="btn btn-info btn-sm">ویرایش</a>
+                            <a asp-area="Adminstration" asp-controller="Category" asp-action="Add" asp-route-ParentId="@data.Id" class="btn btn-succes btn-sm">افزودن زیر گروه</a>
+                        </td>
                     </tr>
                     }
             </tbody>

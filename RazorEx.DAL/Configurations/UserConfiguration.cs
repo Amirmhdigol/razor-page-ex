@@ -16,10 +16,8 @@ namespace RazorEx.DAL.Configurations
         {
             builder.Property(a => a.UserName).HasColumnType("varchar(30)");
             builder.Property(g => g.UserName).IsRequired();
-
             builder.Property(b => b.Password).HasColumnType("varchar(30)");
             builder.Property(g => g.Password).IsRequired();
-            
             builder.Property(b => b.RePassword).HasColumnType("varchar(30)");
             builder.Property(g => g.RePassword).IsRequired();
         }

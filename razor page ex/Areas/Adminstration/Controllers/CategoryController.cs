@@ -28,14 +28,16 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
             return View(model: Categories);
         }
 
-        public IActionResult Add()
+        [Route("/Adminstration/Category/Add/{ParentId?}")]
+        public IActionResult Add(int? parentId)
         {
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Add(CreateCategoryViewModel viewModel)
+        [HttpPost("/Adminstration/Category/Add/{ParentId?}")]
+        public IActionResult Add(int? ParentId ,CreateCategoryViewModel viewModel)
         {
+            viewModel.ParentId = ParentId;
             var result = _categoryservice.CreateCategory(viewModel.Map());
 
             if (result.Status != OperationResultStatus.Success)
@@ -43,7 +45,6 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
                 ModelState.AddModelError(nameof(viewModel.Slug), result.Message);
                 return View();
             }
-
             return RedirectToAction("Index");
         }
         
@@ -80,6 +81,5 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
             }
             return RedirectToAction("Index");
         }
-        
     }
 }

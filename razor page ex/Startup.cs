@@ -38,6 +38,7 @@ namespace razor_page_ex
             services.AddScoped<ISignup, Signup>();
             services.AddScoped<ISIgnIn, SignIn>();
             services.AddScoped<ICategory, RazorEX.BAL.Services.Category>();
+            services.AddTransient<IPost,RazorEX.BAL.Services.Post>();
 
             services.AddAuthentication(option =>
             {
