@@ -30,6 +30,9 @@ namespace RazorEX.BAL.Services
             {
                 Password = user.Password,
                 UserName = user.UserName,
+                Role = user.Role,
+                RegisterDate = user.CreationDate,
+                UserId = user.Id        
             };
             return userDto;
 

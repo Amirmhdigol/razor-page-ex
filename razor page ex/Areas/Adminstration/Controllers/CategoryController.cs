@@ -81,5 +81,11 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public IActionResult GetChildCategory(int parentid)
+        {
+            var category = _categoryservice.GetChildCategory(parentid);
+            return new JsonResult(category);
+        }
     }
 }

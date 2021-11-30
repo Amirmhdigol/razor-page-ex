@@ -14,6 +14,7 @@ namespace RazorEX.BAL.Contracts
         OperationResult CreateCategory(CreateCategoryDto command);
         OperationResult EditCategory(EditCategoryDto command);
         List<CategoryDto> GetAllCategory();
+        List<CategoryDto> GetChildCategory(int parentid);
         CategoryDto GetCategoryBy(int id);
         CategoryDto GetCategoryBy(string slug);
         bool IsSlugExist(string slug);

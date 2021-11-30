@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RazorEx.DAL.Entities
 {
-    public class Category : BaseEntities
+    public class Category : BaseEntity
     {
         [Required]
         public string Title { get; set; }
@@ -18,11 +18,11 @@ namespace RazorEx.DAL.Entities
         public string MetaDescription { get; set; }
         public int? ParentId { get; set; }
 
+
         [InverseProperty("Category")]
         public ICollection<Post> Posts { get; set; }
 
         [InverseProperty("SubCategory")]
         public ICollection<Post> SubPosts { get; set; }
-
     }
 }

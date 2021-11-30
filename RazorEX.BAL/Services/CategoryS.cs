@@ -11,11 +11,11 @@ using RazorEx.DAL.Entities;
 
 namespace RazorEX.BAL.Services
 {
-    public class Category : ICategory
+    public class CategoryS : ICategory
     {
         private readonly RXContext _rXContext;
 
-        public Category(RXContext rXContext)
+        public CategoryS(RXContext rXContext)
         {
             _rXContext = rXContext;
         }
@@ -32,7 +32,7 @@ namespace RazorEX.BAL.Services
                 ParentId = command.ParentId,
                 Slug = command.Slug,
                 MetaTag = command.MetaTag,
-                MetaDescription = command.MetaDescription, 
+                MetaDescription = command.MetaDescription,
             };
             _rXContext.Categories.Add(category);
             _rXContext.SaveChanges();
@@ -41,8 +41,8 @@ namespace RazorEX.BAL.Services
 
         public OperationResult EditCategory(EditCategoryDto command)
         {
-            var finded = _rXContext.Categories.FirstOrDefault(c=>c.Id == command.Id);
-            if (finded==null)
+            var finded = _rXContext.Categories.FirstOrDefault(c => c.Id == command.Id);
+            if (finded == null)
                 return OperationResult.NotFound();
 
             if (command.Slug.ToSlug() != finded.Slug)
@@ -81,6 +81,13 @@ namespace RazorEX.BAL.Services
                 return null;
 
             return ToCategoryDTO.ToCatgoryDTO(res);
+        }
+
+        public List<CategoryDto> GetChildCategory(int parentid)
+        {
+            return _rXContext.Categories.Where(n => n.ParentId == parentid)
+                .Select(c => ToCategoryDTO.ToCatgoryDTO(c)).ToList();
+
         }
 
         public bool IsSlugExist(string slug)

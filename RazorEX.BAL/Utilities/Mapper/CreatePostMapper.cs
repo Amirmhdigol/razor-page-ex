@@ -20,10 +20,12 @@ namespace RazorEX.BAL.Utilities.Mapper
                 Title = createPostDTO.Title,
                 UserId = createPostDTO.UserId,
                 Visit = 0,
-                IsDelete = false
+                IsDelete = false,
+                SubCategoryId = createPostDTO.SubCategoryId
+
             };
         }
-       
+
     }
 }
 

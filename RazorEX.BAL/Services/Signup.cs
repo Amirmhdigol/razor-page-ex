@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using RazorEx.DAL;
 using RazorEx.DAL.Context;
 using RazorEx.DAL.Entities;
+using static RazorEx.DAL.Entities.User;
 
 namespace RazorEX.BAL.Services
 {
@@ -33,7 +34,11 @@ namespace RazorEX.BAL.Services
             {
                 UserName = signupDTO.UserName,
                 Password = signupDTO.Password,
-                RePassword = signupDTO.RePassword
+                RePassword = signupDTO.RePassword,
+                IsDelete = false,
+                CreationDate = DateTime.Now,
+                Role = UserRole.User
+                
             });
             _rXContext.SaveChanges();
             return OperationResult.Success();

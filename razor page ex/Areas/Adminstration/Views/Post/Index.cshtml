@@ -8,25 +8,25 @@
             <thead class="text-warning">
                 <tr>
                     <th>عنوان</th>
+                    <th>عکس</th>
                     <th>slug</th>
-                    <th>MetaDescription</th>
-                    <th>MetaTag</th>
+                    <th>گروه </th>
+                    <th>عملبات</th>
                 </tr>
             <tbody>
-                @foreach (var data in Model.Posts)
+                @foreach  (var item in Model.Posts)
                     {
                     <tr>
-                        <td>@data.Title</td>
-                        <td>
-                        </td>
-                        <td>
-                            <a asp-area="Adminstration" asp-controller="Post" asp-action="Edit" class="btn btn-info btn-sm">ویرایش</a>
-                        </td>
+                        <td>@item.Title</td>
+                        <td><img style="max-width: 150px" src="wwwroot/images/posts" /></td>
+                        <td>@item.Slug</td>
+                        <td>@item.Category.Title</td>
+                        <td><a asp-area="Adminstration" asp-controller="Post" asp-action="Edit" asp-route-id="@item.PostId" class="btn btn-info btn-sm">ویرایش</a></td>
                     </tr>
                     }
             </tbody>
         </table>
-        <a class="btn btn-success align-right" asp-area="Adminstration" asp-controller="Post" asp-action="Add">افزودن مقاله</a>
+        <a class="btn btn-success align-right" asp-area="Adminstration" asp-controller="Category" asp-action="Add">Add Task</a>
         <br>
     </div>
 </body>

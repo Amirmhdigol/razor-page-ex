@@ -64,7 +64,7 @@ namespace razor_page_ex.Pages.Register
             List<Claim> claims = new()
             {
                 new Claim("test", "test"),
-                new Claim(ClaimTypes.NameIdentifier, user.UserID.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                 new Claim(ClaimTypes.Name,user.UserName)
             };
 

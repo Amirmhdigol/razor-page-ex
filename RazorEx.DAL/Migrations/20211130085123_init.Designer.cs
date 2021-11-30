@@ -10,8 +10,8 @@ using RazorEx.DAL.Context;
 namespace RazorEx.DAL.Migrations
 {
     [DbContext(typeof(RXContext))]
-    [Migration("20211125043722_init2")]
-    partial class init2
+    [Migration("20211130085123_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -130,7 +130,7 @@ namespace RazorEx.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(30)");
 
-                    b.Property<int>("UserID")
+                    b.Property<int>("Role")
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
@@ -145,19 +145,20 @@ namespace RazorEx.DAL.Migrations
             modelBuilder.Entity("RazorEx.DAL.Entities.Post", b =>
                 {
                     b.HasOne("RazorEx.DAL.Entities.Category", "Category")
-                        .WithMany()
+                        .WithMany("Posts")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("RazorEx.DAL.Entities.Category", "SubCategory")
-                        .WithMany()
-                        .HasForeignKey("SubCategoryId");
+                        .WithMany("SubPosts")
+                        .HasForeignKey("SubCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("RazorEx.DAL.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("Posts")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");
@@ -165,6 +166,18 @@ namespace RazorEx.DAL.Migrations
                     b.Navigation("SubCategory");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RazorEx.DAL.Entities.Category", b =>
+                {
+                    b.Navigation("Posts");
+
+                    b.Navigation("SubPosts");
+                });
+
+            modelBuilder.Entity("RazorEx.DAL.Entities.User", b =>
+                {
+                    b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
         }

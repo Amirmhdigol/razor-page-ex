@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace RazorEx.DAL.Entities
 {
-    public class Post : BaseEntities
+    public class Post: BaseEntity
     {
-        public int UserId { get; set; }
         public int CategoryId { get; set; }
         public int? SubCategoryId { get; set; }
+        public int UserId { get; set; }
         [Required]
         [MaxLength(300)]
         public string Title { get; set; }

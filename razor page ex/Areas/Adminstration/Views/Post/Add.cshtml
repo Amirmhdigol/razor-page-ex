@@ -37,15 +37,10 @@
             <div class="col-md-12">
                 @Html.EditorFor(m => m.Description)
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="ImageFile"></label>
-                    <input asp-for="ImageFile" class="form-control" />
-                    <span asp-validation-for="ImageFile" class="text-danger"></span>
-                </div>
-            </div>
         </div>
 
+@*        <input type="hidden" asp-for="UserId"/>
+*@
         <div class="col-md-6 ">
             <div class="form-group">
                 <label asp-for="CategoryId"></label>
@@ -64,16 +59,40 @@
             <div class="form-group">
                 <label asp-for="SubCategoryId"></label>
                 <select asp-for="SubCategoryId" class="form-control">
-                    <option value="0">انتخاب کنید</option>
-
+                    <option value="null">انتخاب کنید</option>
                 </select>
                 <span asp-validation-for="SubCategoryId"></span>
             </div>
         </div>
-
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="ImageFile"></label>
+                <input asp-for="ImageFile" class="form-control" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+        </div>
 
         <div class="box-footer">
             <button class="btn btn-success" type="submit">ثبت اطلاعات</button>
         </div>
     </form>
 </section>
+
+@section scripts{
+<script>
+    $("#CategoryId").change(function () {
+        var categoryId = $(this).val();
+        $.ajax({
+            url: "/adminstration/category/GetChildCategory?parentid=" + categoryId,
+            type: "get"
+        }).done(function (data) {
+            $("#SubCategoryId").html(`<option value='0'>انتخاب کنید</option>`);
+
+            for (var i in data) {
+                var category = data[i];
+                $("#SubCategoryId").append(`<option value='${category.id}'>${category.title}</option>`);
+            }
+        });
+    })
+</script>
+}
