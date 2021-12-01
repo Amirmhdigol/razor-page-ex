@@ -1556,6 +1556,15 @@
     <None Include="wwwroot\ckeditor4\ckeditor\skins\moono-lisa\readme.md" />
     <None Include="wwwroot\ckeditor4\ckeditor\styles.js" />
     <None Include="wwwroot\ckeditor4\ckeditor\vendor\promise.js" />
+    <None Include="wwwroot\css\style.css.map" />
+    <None Include="wwwroot\fonts\IRANSans\woff2\IRANSansWeb.woff2" />
+    <None Include="wwwroot\fonts\IRANSans\woff2\IRANSansWeb_Black.woff2" />
+    <None Include="wwwroot\fonts\IRANSans\woff2\IRANSansWeb_Bold.woff2" />
+    <None Include="wwwroot\fonts\IRANSans\woff2\IRANSansWeb_Light.woff2" />
+    <None Include="wwwroot\fonts\IRANSans\woff2\IRANSansWeb_Medium.woff2" />
+    <None Include="wwwroot\fonts\IRANSans\woff2\IRANSansWeb_UltraLight.woff2" />
+    <None Include="wwwroot\fonts\ui-icons.svg" />
+    <None Include="wwwroot\fonts\ui-icons.woff2" />
   </ItemGroup>
 
 	

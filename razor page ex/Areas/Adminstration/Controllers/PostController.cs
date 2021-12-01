@@ -24,14 +24,15 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
 
         public IActionResult Index(int PageId = 1, string Title = "", string CategorySlug = "")
         {
-            var model = _context.GetPostByFilter(new PostFilterParams()
+            var model =new PostFilterParams()
             {
                 Title = Title,
                 CategorySlug = CategorySlug,
                 PageId = PageId,
-                Take = 20,
-            });
-            return View(model: model);
+                Take = 10,
+            };
+            var model1 = _context.GetPostByFilter(model);
+            return View(model: model1);
         }
 
         public IActionResult Add()

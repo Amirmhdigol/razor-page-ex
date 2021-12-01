@@ -74,11 +74,14 @@ namespace RazorEX.BAL.Services
 
         public PostFilterDTO GetPostByFilter(PostFilterParams postFilterParams)
         {
-            var Result = _rXContext.Posts.Include(n => n.Category).Include(a => a.SubCategory)
-                .OrderBy(p => p.CreationDate).AsQueryable();
+            var Result = _rXContext.Posts
+                .Include(n => n.Category)
+                .Include(a => a.SubCategory)
+                .OrderByDescending(p => p.CreationDate)
+                .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(postFilterParams.CategorySlug))
-                Result = Result.Where(a => a.Category.Slug == postFilterParams.CategorySlug);
+                Result = Result.Where(a => a.Category.Slug.Contains(postFilterParams.CategorySlug));
 
             if (!string.IsNullOrWhiteSpace(postFilterParams.Title))
                 Result = Result.Where(a => a.Title.Contains(postFilterParams.Title));
