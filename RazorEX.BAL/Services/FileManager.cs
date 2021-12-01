@@ -11,6 +11,13 @@ namespace RazorEX.BAL.Services
 {
     public class FileManager : IFileManager
     {
+        public void DeleteFile(string fileName, string path)
+        {
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), path, fileName);
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+        }
+
         public string SaveFile(IFormFile formFile, string SavePath)
         {
             if (formFile == null)

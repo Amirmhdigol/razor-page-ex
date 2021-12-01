@@ -75,18 +75,37 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
                 Description = FindedPost.Description,
                 Slug = FindedPost.Slug,
                 SubCategoryId = FindedPost.SubCategoryId,
-                Title = FindedPost.Title
+                Title = FindedPost.Title,
             };
 
-            return View(model:model1);
+            return View(model: model1);
         }
 
         [HttpPost]
-        public IActionResult Edit(EditPostDTO edit)
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(int id, EditPostViewModel edit)
         {
+            if (!ModelState.IsValid)
+                return View(model:edit);
 
-            return View();
+            var result = _context.EditPost(new EditPostDTO()
+            {
+                CategoryId = edit.CategoryId,
+                Description = edit.Description,
+                ImageFile = edit.ImageFile,
+                Slug = edit.Slug,
+                SubCategoryId = edit.SubCategoryId == 0 ? null : edit.SubCategoryId,
+                Title = edit.Title,
+                PostId = id
+            });
+
+            if (result.Status != OperationResultStatus.Success)
+            {
+                ModelState.AddModelError(nameof(CreatepostViewModel.Slug), result.Message);
+                return View(model:edit);
+            }
+
+            return RedirectToAction("Index");
         }
-
     }
 }

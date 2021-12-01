@@ -60,10 +60,12 @@
                     <label asp-for="SubCategoryId"></label>
                     <select asp-for="SubCategoryId" class="form-control">
                         <option value="0">انتخاب کنید</option>
+
                         @foreach (var item in categories.Where(c => c.ParentId == Model.CategoryId))
                         {
                             <option value="@item.Id">@item.Title</option>
                         }
+
                     </select>
                     <span asp-validation-for="SubCategoryId"></span>
                 </div>

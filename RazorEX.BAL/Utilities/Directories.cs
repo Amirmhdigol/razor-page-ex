@@ -9,6 +9,7 @@ namespace RazorEX.BAL.Utilities
     public class Directories
     {
         public const string Post = "wwwroot/images/posts";
+        public static string GetPostImage(string imageName) => $"{Post.Replace("wwwroot", "")}/{imageName}";
     }
 }
         

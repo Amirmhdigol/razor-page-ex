@@ -1,4 +1,5 @@
-﻿@model RazorEX.BAL.DTOs.PostDTO.PostFilterDTO
+﻿@using RazorEX.BAL.Utilities
+@model RazorEX.BAL.DTOs.PostDTO.PostFilterDTO
 
 <body class=" bg-info" method="post">
     <div class="container">
@@ -18,7 +19,7 @@
                     {
                     <tr>
                         <td>@item.Title</td>
-                        <td><img style="max-width: 150px" src="wwwroot/images/posts" /></td>
+                        <td><img style="max-width: 150px" src="@Directories.GetPostImage(item.ImageName)" /></td>
                         <td>@item.Slug</td>
                         <td>@item.Category.Title</td>
                         <td><a asp-area="Adminstration" asp-controller="Post" asp-action="Edit" asp-route-id="@item.PostId" class="btn btn-info btn-sm">ویرایش</a></td>

@@ -23,7 +23,9 @@ namespace RazorEX.BAL.Utilities.Mapper
                 CreationDate = post.CreationDate,
                 Category = ToCategoryDTO.ToCatgoryDTO(post.Category),
                 ImageName = post.ImageName,
-                PostId = post.Id
+                PostId = post.Id,
+                SubCategoryId = post.SubCategoryId,
+                SubCategory = post.SubCategoryId == null ? null : ToCategoryDTO.ToCatgoryDTO(post.SubCategory)
             };
         }
     }

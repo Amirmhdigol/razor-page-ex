@@ -44,6 +44,14 @@ namespace RazorEX.BAL.Services
         public OperationResult EditPost(EditPostDTO command)
         {
             var FindedPost = _rXContext.Posts.FirstOrDefault(a => a.Id == command.PostId);
+
+            var oldImage = FindedPost.ImageName;
+            var newSlug = command.Slug.ToSlug();
+
+            if (FindedPost.Slug != newSlug)
+                if (IsSlugExist(newSlug))
+                    return OperationResult.Error("Slug تکراری است");
+
             if (FindedPost == null)
                 return OperationResult.NotFound();
 
@@ -51,8 +59,16 @@ namespace RazorEX.BAL.Services
             FindedPost.Title = command.Title;
             FindedPost.CategoryId = command.CategoryId;
             FindedPost.Slug = command.Slug.ToSlug();
+            FindedPost.SubCategoryId = command.SubCategoryId;
+
+            if (command.ImageFile != null)
+                FindedPost.ImageName = _fileManager.SaveFile(command.ImageFile , Directories.Post);
 
             _rXContext.Posts.Update(FindedPost);
+            _rXContext.SaveChanges();
+            if (command.ImageFile != null)
+                _fileManager.DeleteFile(oldImage, Directories.Post);
+
             return OperationResult.Success();
         }
 
@@ -84,9 +100,6 @@ namespace RazorEX.BAL.Services
                 .Include(c => c.SubCategory)
                 .Include(c => c.Category)
                 .FirstOrDefault(c => c.Id == postId); ;
-
-            if (FindedPost == null)
-                return null;
 
             return FindPostMapper.Map(FindedPost);
         }

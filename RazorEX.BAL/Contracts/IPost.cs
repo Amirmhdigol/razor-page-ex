@@ -14,9 +14,8 @@ namespace RazorEX.BAL.Contracts
         OperationResult CreatePost(CreatePostDTO command);
         OperationResult EditPost(EditPostDTO commmand);
         PostDTO GetPostById(int postId);
-        //PostFilterDto GetPostsByFilter(PostFilterParams filterParams);
+        PostFilterDTO GetPostByFilter(PostFilterParams filterParams);
         bool IsSlugExist(string slug);
-        PostFilterDTO GetPostByFilter(PostFilterParams postFilterParams);
     }
 }
 
