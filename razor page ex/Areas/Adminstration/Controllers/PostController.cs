@@ -108,5 +108,11 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(int Id)
+        {
+            _context.DeletePost(Id);
+            return RedirectToAction("Index");
+        }
     }
 }

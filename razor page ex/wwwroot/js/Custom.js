@@ -1,6 +1,11 @@
-﻿
-$(document).ready(function (){
+﻿$(document).ready(function (){
     LoadCkEditor4();
+    $.ajax({
+        url:"/index/PopularPosts",
+        type:"get"
+    }).done(function(data) {
+        $("#popular_posts").html(data);
+    });
 });
 
 

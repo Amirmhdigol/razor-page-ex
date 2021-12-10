@@ -17,9 +17,8 @@ namespace RazorEx.DAL.Entities
         public UserRole Role { get; set; }
        
         #region Relations
-
         public ICollection<Post> Posts { get; set; }
-
+        public ICollection<PostComment> PostComments { get; set; }
         #endregion
     }
 

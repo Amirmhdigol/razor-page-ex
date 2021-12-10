@@ -38,8 +38,9 @@ namespace razor_page_ex
             services.AddScoped<ISignup, Signup>();
             services.AddScoped<ISIgnIn, SignIn>();
             services.AddScoped<ICategory,CategoryS>();
-            services.AddTransient<IPost, PostSs>();
+            services.AddScoped<IPost, PostSs>();
             services.AddTransient<IFileManager,FileManager>();
+            services.AddTransient<IPostComment,PostComments>();
 
             services.AddAuthentication(option =>
             {
@@ -80,6 +81,7 @@ namespace razor_page_ex
             {
                 app.UseEndpoints(endpoints =>
                 {
+                    endpoints.MapRazorPages();
                     endpoints.MapControllerRoute(
                       name: "Adminstration",
                       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
@@ -90,7 +92,6 @@ namespace razor_page_ex
                     //);
                 });
 
-                endpoints.MapRazorPages();
             });
         }
     }

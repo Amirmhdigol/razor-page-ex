@@ -7,6 +7,7 @@ namespace RazorEX.BAL.DTOs.PostDTO
     {
         public int PostId { get; set; }
         public int UserId { get; set; }
+        public string UserName { get; set; }
         public int CategoryId { get; set; }
         public int? SubCategoryId { get; set; }
         public string Title { get; set; }

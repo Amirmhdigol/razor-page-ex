@@ -16,16 +16,17 @@ namespace RazorEX.BAL.Utilities.Mapper
             {
                 Description = post.Description,
                 CategoryId = post.CategoryId,
+                UserName = post.User?.UserName,
                 Slug = post.Slug,
                 Title = post.Title,
                 UserId = post.UserId,
                 Visit = post.Visit,
                 CreationDate = post.CreationDate,
-                Category = ToCategoryDTO.ToCatgoryDTO(post.Category),
+                Category = post.Category == null ? null : ToCategoryDTO.ToCatgoryDTO(post.Category),
                 ImageName = post.ImageName,
                 PostId = post.Id,
                 SubCategoryId = post.SubCategoryId,
-                SubCategory = post.SubCategoryId == null ? null : ToCategoryDTO.ToCatgoryDTO(post.SubCategory)
+                SubCategory = post.SubCategory == null ? null : ToCategoryDTO.ToCatgoryDTO(post.SubCategory)
             };
         }
     }

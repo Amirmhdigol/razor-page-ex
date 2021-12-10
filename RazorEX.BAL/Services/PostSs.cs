@@ -2,6 +2,7 @@
 using RazorEx.DAL.Context;
 using RazorEx.DAL.Entities;
 using RazorEX.BAL.Contracts;
+using RazorEX.BAL.DTOs.PostCommentsDTO;
 using RazorEX.BAL.DTOs.PostDTO;
 using RazorEX.BAL.Utilities;
 using RazorEX.BAL.Utilities.Mapper;
@@ -32,7 +33,7 @@ namespace RazorEX.BAL.Services
 
             var Post = CreatePostMapper.Map(command);
 
-            if (IsSlugExist(Post.Slug)) 
+            if (IsSlugExist(Post.Slug))
                 return OperationResult.Error("Slug تکراری است");
 
             Post.ImageName = _fileManager.SaveFile(command.ImageFile, Directories.Post);
@@ -62,7 +63,7 @@ namespace RazorEX.BAL.Services
             FindedPost.SubCategoryId = command.SubCategoryId;
 
             if (command.ImageFile != null)
-                FindedPost.ImageName = _fileManager.SaveFile(command.ImageFile , Directories.Post);
+                FindedPost.ImageName = _fileManager.SaveFile(command.ImageFile, Directories.Post);
 
             _rXContext.Posts.Update(FindedPost);
             _rXContext.SaveChanges();
@@ -70,6 +71,20 @@ namespace RazorEX.BAL.Services
                 _fileManager.DeleteFile(oldImage, Directories.Post);
 
             return OperationResult.Success();
+        }
+
+        public PostDTO GetPostBySlug(string slug)
+        {
+            var FindedPost = _rXContext.Posts
+              .Include(c => c.SubCategory)
+              .Include(c => c.Category)
+              .Include(v => v.User)
+              .FirstOrDefault(c => c.Slug == slug);
+
+            if (FindedPost == null)
+                return null;
+
+            return FindPostMapper.Map(FindedPost);
         }
 
         public PostFilterDTO GetPostByFilter(PostFilterParams postFilterParams)
@@ -110,6 +125,48 @@ namespace RazorEX.BAL.Services
         public bool IsSlugExist(string slug)
         {
             return _rXContext.Posts.Any(p => p.Slug == slug.ToSlug());
+        }
+
+        public List<PostDTO> GetRelatedPosts(int CategotyId)
+        {
+            var FindedPosts = _rXContext.Posts
+                .Where(a => a.CategoryId == CategotyId || a.SubCategoryId == CategotyId)
+                .OrderByDescending(a => a.CreationDate)
+                .Take(6)
+                .Select(a => FindPostMapper.Map(a)).ToList();
+
+            return FindedPosts;
+        }
+
+        public List<PostDTO> GetPopularPosts()
+        {
+            var FindedPosts = _rXContext.Posts
+                .Include(s => s.User)
+                .OrderByDescending(a => a.Visit)
+                .Take(4)
+                .Select(posts => FindPostMapper.Map(posts)).ToList();
+
+            return FindedPosts;
+        }
+
+        public OperationResult DeletePost(int Id)
+        {
+            var FindedPost = _rXContext.Posts
+                .Include(c => c.SubCategory)
+                .Include(c => c.Category)
+                .FirstOrDefault(c => c.Id == Id);
+
+            _rXContext.Posts.Remove(FindedPost);
+            _rXContext.SaveChanges();
+
+            return OperationResult.Success();
+        }
+
+        public void IncreaseVisit(int PostId)
+        {
+            var post = _rXContext.Posts.FirstOrDefault(a => a.Id == PostId);
+            post.Visit += 1;
+            _rXContext.SaveChanges();
         }
     }
 }

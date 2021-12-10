@@ -107,6 +107,38 @@ namespace RazorEx.DAL.Migrations
                     b.ToTable("Posts");
                 });
 
+            modelBuilder.Entity("RazorEx.DAL.Entities.PostComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PostComments");
+                });
+
             modelBuilder.Entity("RazorEx.DAL.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -166,6 +198,25 @@ namespace RazorEx.DAL.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("RazorEx.DAL.Entities.PostComment", b =>
+                {
+                    b.HasOne("RazorEx.DAL.Entities.Post", "Post")
+                        .WithMany("PostComments")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RazorEx.DAL.Entities.User", "User")
+                        .WithMany("PostComments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Post");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("RazorEx.DAL.Entities.Category", b =>
                 {
                     b.Navigation("Posts");
@@ -173,8 +224,15 @@ namespace RazorEx.DAL.Migrations
                     b.Navigation("SubPosts");
                 });
 
+            modelBuilder.Entity("RazorEx.DAL.Entities.Post", b =>
+                {
+                    b.Navigation("PostComments");
+                });
+
             modelBuilder.Entity("RazorEx.DAL.Entities.User", b =>
                 {
+                    b.Navigation("PostComments");
+
                     b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618

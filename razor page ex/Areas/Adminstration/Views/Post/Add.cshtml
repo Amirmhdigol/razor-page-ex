@@ -4,9 +4,6 @@
 @{
     var categories = _categoreyService.GetAllCategory();
 }
-@{
-    Layout = "_Layout";
-}
 <section class="content-header">
     <h1>
         @ViewData["title"]
@@ -59,7 +56,7 @@
             <div class="form-group">
                 <label asp-for="SubCategoryId"></label>
                 <select asp-for="SubCategoryId" class="form-control">
-                    <option value="null">انتخاب کنید</option>
+                    <option value="0">انتخاب کنید</option>
                 </select>
                 <span asp-validation-for="SubCategoryId"></span>
             </div>
