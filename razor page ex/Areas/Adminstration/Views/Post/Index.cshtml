@@ -29,6 +29,7 @@
                     <th>عکس</th>
                     <th>slug</th>
                     <th>گروه </th>
+                    <th>ویژه</th>
                     <th>عملبات</th>
                 </tr>
             <tbody>
@@ -39,9 +40,18 @@
                         <td><img style="max-width: 150px" src="@Directories.GetPostImage(item.ImageName)" /></td>
                         <td>@item.Slug</td>
                         <td>@item.Category.Title</td>
+                        <td>
+                                @if (item.IsSpecial)
+                                {
+                                <i class="fa fa-check text-success"></i>
+                                }
+                                else
+                                {
+                                <i class="fa fa-close text-danger"></i>
+                                }
+                        </td>
                         <td><a asp-area="Adminstration" asp-controller="Post" asp-action="Edit" asp-route-id="@item.PostId" class="btn btn-info btn-sm">ویرایش</a></td>
                         <td><a asp-area="Adminstration" asp-controller="Post" asp-action="Delete" asp-route-Id="@item.PostId" class="btn btn-danger btn-sm">حذف</a></td>
-
                     </tr>
                     }
             </tbody>
@@ -63,7 +73,6 @@
                     }
                     else
                     {
-
                         <li class="paginate_button previous disabled">
                             <a href="#">قبلی</a>
                         </li>

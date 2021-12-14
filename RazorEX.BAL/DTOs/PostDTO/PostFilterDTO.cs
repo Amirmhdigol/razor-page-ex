@@ -11,6 +11,7 @@ namespace RazorEX.BAL.DTOs.PostDTO
         public int PageCount { get; set; }
         public List<PostDTO> Posts { get; set; }
         public PostFilterParams FilterParams { get; set; }
+
     }
     public class PostFilterParams
     {

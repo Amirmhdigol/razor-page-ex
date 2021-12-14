@@ -54,6 +54,7 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
                 Description = viewModel.Description,
                 Slug = viewModel.Slug,
                 SubCategoryId = viewModel.SubCategoryId == 0 ? null : viewModel.SubCategoryId,
+                IsSpecial = viewModel.IsSpecial,
                 CategoryId = viewModel.CategoryId,
                 ImageFile = viewModel.ImageFile
             });
@@ -77,8 +78,8 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
                 Slug = FindedPost.Slug,
                 SubCategoryId = FindedPost.SubCategoryId,
                 Title = FindedPost.Title,
+                IsSpecial= FindedPost.IsSpecial
             };
-
             return View(model: model1);
         }
 
@@ -97,7 +98,8 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
                 Slug = edit.Slug,
                 SubCategoryId = edit.SubCategoryId == 0 ? null : edit.SubCategoryId,
                 Title = edit.Title,
-                PostId = id
+                PostId = id,
+                IsSpecial = edit.IsSpecial
             });
 
             if (result.Status != OperationResultStatus.Success)

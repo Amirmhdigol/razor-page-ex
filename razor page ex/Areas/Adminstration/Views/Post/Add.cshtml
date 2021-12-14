@@ -35,15 +35,20 @@
                 @Html.EditorFor(m => m.Description)
             </div>
         </div>
-
-@*        <input type="hidden" asp-for="UserId"/>
-*@
+        <div class="col-md-12">
+            <div class="form-check">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" asp-for="IsSpecial">
+                    <label class="custom-control-label" asp-for="IsSpecial"></label>
+                </div>
+                <span asp-validation-for="IsSpecial" class="text-danger"></span>
+            </div>
+        </div>
         <div class="col-md-6 ">
             <div class="form-group">
                 <label asp-for="CategoryId"></label>
                 <select asp-for="CategoryId" class="form-control">
                     <option value="null">انتخاب کنید</option>
-
                     @foreach (var item in categories.Where(c => c.ParentId == null))
                     {
                         <option value="@item.Id">@item.Title</option>

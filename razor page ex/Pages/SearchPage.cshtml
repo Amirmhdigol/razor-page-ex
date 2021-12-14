@@ -1,0 +1,69 @@
+﻿@page "{handler?}"
+@using RazorEX.BAL.Contracts
+@using RazorEX.BAL.DTOs.CategoryDTO
+@using RazorEX.BAL.Utilities
+@model razor_page_ex.Pages.SearchPageModel
+@inject ICategory category;
+@{
+    CategoryDto FiCategory = null;
+    var search = "";
+
+    if (!string.IsNullOrWhiteSpace(Model.Posts.FilterParams.CategorySlug))
+    {
+        FiCategory = category.GetCategoryBy(Model.Posts.FilterParams.CategorySlug);
+
+        if (FiCategory != null)
+        {
+            search = FiCategory.Title;
+        }
+        else
+        {
+            search = Model.Posts.FilterParams.Title ?? "مقالات سایت";
+        }
+    }
+}
+<div class="main-container container pt-40" id="main-container">
+    <div class="row">
+        <div class="col-lg-8 blog__content mb-72">
+
+            @if (@search != null)
+            {
+                <h1 class="page-title">نتایج جستجو برای: @search</h1>
+            }
+            <div id="ajaxSearch">
+                <partial name="Shared/_SearchView" model="Model.Posts" />
+            </div>
+        </div>
+
+        <aside class="col-lg-4 sidebar sidebar--right" id="popular_posts">
+        </aside>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        function ajaxPagination(pageId) {
+            const params = new URLSearchParams(window.location.search);
+            var categorySlug = '';
+            var q = '';
+            if (params.has('categorySlug')) {
+                categorySlug = params.get("categorySlug");
+            }
+            if (params.has('q')) {
+                q = params.get("q");
+            }
+            $.ajax({
+                url: `/searchpage/Pagination?pageId=${pageId}&q=${q}&categorySlug=${categorySlug}`,
+                type: "get",
+                beforeSend: function () {
+                    $(".loading").show();
+                },
+                complete: function () {
+                    $(".loading").hide();
+                }
+            }).done(function (data) {
+                $("#ajaxSearch").html(data);
+            });
+        }
+    </script>
+}

@@ -21,6 +21,7 @@ namespace RazorEX.BAL.Utilities.Mapper
                 Title = post.Title,
                 UserId = post.UserId,
                 Visit = post.Visit,
+                IsSpecial = post.IsSpecial,
                 CreationDate = post.CreationDate,
                 Category = post.Category == null ? null : ToCategoryDTO.ToCatgoryDTO(post.Category),
                 ImageName = post.ImageName,

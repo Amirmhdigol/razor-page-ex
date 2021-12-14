@@ -21,8 +21,8 @@ namespace RazorEX.BAL.Utilities.Mapper
                 UserId = createPostDTO.UserId,
                 Visit = 0,
                 IsDelete = false,
-                SubCategoryId = createPostDTO.SubCategoryId
-
+                SubCategoryId = createPostDTO.SubCategoryId,
+                IsSpecial = createPostDTO.IsSpecial
             };
         }
 

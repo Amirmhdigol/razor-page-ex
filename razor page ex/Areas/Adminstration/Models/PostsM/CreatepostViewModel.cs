@@ -32,6 +32,10 @@ namespace razor_page_ex.Areas.Adminstration.Models.PostsM
         [UIHint("Ckeditor4")]
         public string Description { get; set; }
 
+        [Display(Name = "پست ویژه")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        public bool IsSpecial { get; set; }
+
         [Display(Name = "عکس")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public IFormFile ImageFile { get; set; }

@@ -23,6 +23,7 @@ namespace RazorEx.DAL.Entities
         public string Description { get; set; }
         public string ImageName { get; set; }
         public int Visit { get; set; }
+        public bool IsSpecial { get; set; }
 
         [ForeignKey("UserId")]
         public User User { get; set; }

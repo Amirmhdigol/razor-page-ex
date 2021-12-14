@@ -61,6 +61,7 @@ namespace RazorEX.BAL.Services
             FindedPost.CategoryId = command.CategoryId;
             FindedPost.Slug = command.Slug.ToSlug();
             FindedPost.SubCategoryId = command.SubCategoryId;
+            FindedPost.IsSpecial = command.IsSpecial;
 
             if (command.ImageFile != null)
                 FindedPost.ImageName = _fileManager.SaveFile(command.ImageFile, Directories.Post);
@@ -96,7 +97,8 @@ namespace RazorEX.BAL.Services
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(postFilterParams.CategorySlug))
-                Result = Result.Where(a => a.Category.Slug.Contains(postFilterParams.CategorySlug));
+                Result = Result.Where(a => a.Category.Slug == postFilterParams.CategorySlug 
+                || a.SubCategory.Slug == postFilterParams.CategorySlug);
 
             if (!string.IsNullOrWhiteSpace(postFilterParams.Title))
                 Result = Result.Where(a => a.Title.Contains(postFilterParams.Title));
