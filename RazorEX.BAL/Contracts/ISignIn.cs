@@ -1,4 +1,5 @@
 ﻿using RazorEX.BAL.DTOs;
+using RazorEX.BAL.DTOs.UsersDTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static RazorEx.DAL.Entities.User;
 
-namespace RazorEX.BAL.DTOs
+namespace RazorEX.BAL.DTOs.UsersDTO
 {
     public class UserDTO
     {

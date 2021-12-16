@@ -1,5 +1,64 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model razor_page_ex.Areas.Adminstration.Models.UserM.EditUserViewModel
+@using RazorEX.BAL.Contracts
+@using RazorEX.BAL.Services;
+
+<section class="content-header">
+    <h1>
+        @ViewData["title"]
+    </h1>
+    <ol class="breadcrumb">
+        <li><a asp-area="Adminstration" asp-controller="Home" asp-action="Index"><i class="fa fa-dashboard"></i> خانه</a></li>
+        <li><a asp-area="Adminstration" asp-controller="Post" asp-action="Index">مقالات</a></li>
+        <li class="active">@ViewData["title"]</li>
+    </ol>
+</section>
+<section class="content">
+    <form class="box box-danger" method="post" asp-area="Adminstration" asp-controller="User" asp-action="Edit">
+        <div class="box-body row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="FullName"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Role"></label>
+                    <input asp-for="Role" class="form-control" />
+                    <span asp-validation-for="Role" class="text-danger"></span>
+                </div>
+            </div>
+            </>
+            <div class="box-footer">
+                <button class="btn btn-success" type="submit">ثبت اطلاعات</button>
+            </div>
+        </div>
+    </form>
+</section>
+
+@*@section scripts{
+<script>
+    $("#CategoryId").change(function () {
+        var categoryId = $(this).val();
+        $.ajax({
+            url: "/admin/category/GetChildCategories?parentId=" + categoryId,
+            type: "get"
+        }).done(function (data) {
+            $("#SubCategoryId").html(`<option value='0'>انتخاب کنید</option>`);
+
+            for (var i in data) {
+                var category = data[i];
+                $("#SubCategoryId").append(`<option value='${category.id}'>${category.title}</option>`);
+            }
+        });
+    })
+</script>
+*@}

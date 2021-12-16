@@ -42,6 +42,7 @@ namespace razor_page_ex
             services.AddTransient<IFileManager, FileManager>();
             services.AddTransient<IPostComment, PostComments>();
             services.AddTransient<IMainPage, MainPage>();
+            services.AddTransient<IUser, UserService>();
             services.AddAuthorization(option =>
             {
                 option.AddPolicy("AdminPolicy",
