@@ -1,4 +1,12 @@
-﻿@model List<RazorEX.BAL.DTOs.CategoryDTO.CategoryDto>
+﻿
+@model List<RazorEX.BAL.DTOs.CategoryDTO.CategoryDto>
+@{
+    if (User.Identity.IsAuthenticated)
+    {
+        ViewData["UserName"] =  $" سلام {User.Identity.Name}";
+    }
+}
+
 <header class="nav">
     <div class="nav__holder nav--sticky">
         <div class="container relative">
@@ -52,7 +60,8 @@
                             </form>
                         </div>
                     </div>
-                </div> <!-- end nav right -->
+                </div>
+                        <h5 style="margin-top:10px;margin-right:10px;color:dodgerblue">@ViewData["UserName"]</h5>
             </div> <!-- end flex-parent -->
         </div> <!-- end container -->
     </div>

@@ -11,9 +11,7 @@ using System.Threading.Tasks;
 
 namespace razor_page_ex.Areas.Adminstration.Controllers
 {
-    [Area("Adminstration")]
-    [Authorize]
-    public class PostController : Controller
+    public class PostController : AdminBase
     {
         private readonly IPost _context;
 

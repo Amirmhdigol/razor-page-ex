@@ -63,9 +63,9 @@ namespace razor_page_ex.Pages.Register
 
             List<Claim> claims = new()
             {
-                new Claim("test", "test"),
                 new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
-                new Claim(ClaimTypes.Name,user.UserName)
+                new Claim(ClaimTypes.Name,user.UserName),
+                new Claim(ClaimTypes.Role,user.Role.ToString())
             };
 
             var Identity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);

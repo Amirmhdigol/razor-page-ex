@@ -23,7 +23,7 @@ namespace razor_page_ex.Pages
                 CategorySlug = CategorySlug,
                 PageId = PageId,
                 Title = q,
-                Take = 2
+                Take = 4
             });
         }
 
@@ -33,7 +33,7 @@ namespace razor_page_ex.Pages
             {
                 CategorySlug = categorySlug,
                 PageId = pageId,
-                Take = 2,
+                Take = 4,
                 Title = q
             });
             return Partial("_SearchView", model);

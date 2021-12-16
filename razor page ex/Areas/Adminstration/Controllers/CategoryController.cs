@@ -12,8 +12,7 @@ using RazorEX.BAL.Utilities;
 
 namespace razor_page_ex.Areas.Adminstration.Controllers
 {
-    [Area("Adminstration")]
-    public class CategoryController : Controller
+    public class CategoryController : AdminBase
     {
         private readonly ICategory _categoryservice;
 

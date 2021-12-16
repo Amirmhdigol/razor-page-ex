@@ -37,11 +37,16 @@ namespace razor_page_ex
             services.AddRazorPages();
             services.AddScoped<ISignup, Signup>();
             services.AddScoped<ISIgnIn, SignIn>();
-            services.AddScoped<ICategory,CategoryS>();
+            services.AddScoped<ICategory, CategoryS>();
             services.AddScoped<IPost, PostSs>();
-            services.AddTransient<IFileManager,FileManager>();
-            services.AddTransient<IPostComment,PostComments>();
-
+            services.AddTransient<IFileManager, FileManager>();
+            services.AddTransient<IPostComment, PostComments>();
+            services.AddTransient<IMainPage, MainPage>();
+            services.AddAuthorization(option =>
+            {
+                option.AddPolicy("AdminPolicy",
+                builder => builder.RequireRole("Admin"));
+            });
             services.AddAuthentication(option =>
             {
                 option.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -52,6 +57,7 @@ namespace razor_page_ex
                 option.LoginPath = "/Register/SignIn";
                 option.LogoutPath = "/Resgister/SignOut";
                 option.ExpireTimeSpan = TimeSpan.FromDays(30);
+                option.AccessDeniedPath = "/";
             });
         }
 
