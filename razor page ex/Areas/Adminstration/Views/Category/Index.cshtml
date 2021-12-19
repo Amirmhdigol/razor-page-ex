@@ -1,60 +1,58 @@
 ﻿@model List<RazorEX.BAL.DTOs.CategoryDTO.CategoryDto>
 
-<body class=" bg-info" method="post">
-    <div class="container">
-        <h2 class="text-center text-succes h1 "></h2>
-        <hr>
-        <table class="table">
-            <thead class="text-warning">
-                <tr>
-                    <th>
-                        <p class="" style="color:darkred">عنوان :</p>
-                    </th>
-                    <th>
-                        <p class="" style="color:darkred">slug : </p>
-                    </th>
-                    <th>
-                        <p class="" style="color:darkred">MetaDescription : </p>
-                    </th>
-                    <th>
-                        <p class="" style="color:darkred">MetaTag : </p>
-                    </th>
-                </tr>
-            <tbody>
-                @foreach (var data in Model.Where(m => m.ParentId == null))
-                    {
+<section class="content-header">
+    <h1>
+        @ViewData["title"]
+    </h1>
+    <ol class="breadcrumb">
+        <li><a asp-area="Admin" asp-controller="Category" asp-action="Index"><i class="fa fa-dashboard"></i> خانه</a></li>
+        <li class="active">@ViewData["title"]</li>
+    </ol>
+</section>
+<section class="content">
+    <a class="btn btn-success" style="margin-bottom: 5px" asp-area="Adminstration" asp-controller="Category" asp-action="Add">افزودن گروه جدید</a>
+    <div class="box box-primary ">
+        <div class="box-body p-0">
+            <table class="table table-bordered table-hover">
+                <thead>
                     <tr>
-                        <td>@data.Title</td>
-                        <td>@data.Slug</td>
-                        <td>@data.MetaTag</td>
-                        <td>@data.MetaDescription</td>
-                        <td>
-                                @if (Model.Any(r => r.ParentId == data.Id))
-                                {
-                                <ul>
-                                        @foreach (var subCategory in Model.Where(m => m.ParentId == data.Id))
-                                        {
-                                        <li>
-                                                @subCategory.Title 
-                                            <a asp-area="Adminstration" asp-controller="Category" asp-action="Edit" asp-route-id="@subCategory.Id" class="btn btn-info btn-sm">ویرایش</a>
-                                        </li>
-                                        }
-                                </ul>
-                                }
-                        </td>
-                        <td>
-                            <a asp-area="Adminstration" asp-controller="Category" asp-action="Edit" asp-route-Id="@data.Id" class="btn btn-info btn-sm">ویرایش</a>
-                            <a asp-area="Adminstration" asp-controller="Category" asp-action="Add" asp-route-ParentId="@data.Id" class="btn btn-succes btn-sm">افزودن زیر گروه</a>
-                        </td>
+                        <th>عنوان</th>
+                        <th>زیرگروه</th>
+                        <th>عملیات</th>
                     </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Where(m => m.ParentId == null))
+                    {
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>
+                                @if (Model.Any(r => r.ParentId == item.Id))
+                                {
+                                    <ul>
+                                        @foreach (var subCategory in Model.Where(m => m.ParentId == item.Id))
+                                        {
+                                            <li>
+                                                @subCategory.Title
+                                                <a asp-area="Adminstration" asp-controller="Category" asp-action="Edit" asp-route-id="@subCategory.Id" class="btn btn-info btn-sm">ویرایش</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                                <ul>
+                                </ul>
+                            </td>
+                            <td>
+                                <a asp-area="Adminstration" asp-controller="Category" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info btn-sm">ویرایش</a>
+                                <a asp-area="Adminstration" asp-controller="Category" asp-action="Add" asp-route-parentId="@item.Id" class="btn btn-success btn-sm">افزودن زیرگروه</a>
+                            </td>
+                        </tr>
                     }
-            </tbody>
-        </table>
-        <a class="btn btn-success align-right" asp-area="Adminstration" asp-controller="Category" asp-action="Add">Add Task</a>
-        <br>
+                </tbody>
+            </table>
+        </div>
     </div>
-</body>
-
+</section>
 
 
 

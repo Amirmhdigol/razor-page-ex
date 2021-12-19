@@ -22,6 +22,16 @@
         }
     }
 }
+@section MetaTags
+{
+    @if (category != null)
+    {
+        <meta name="description" content="@FiCategory.MetaDescription">
+        <meta name="og:description" content="@FiCategory.MetaDescription">
+        <meta name="twitter:description" content="@FiCategory.MetaDescription">
+        <meta name="keywords" content="@FiCategory.MetaTag">
+    }
+}
 <div class="main-container container pt-40" id="main-container">
     <div class="row">
         <div class="col-lg-8 blog__content mb-72">

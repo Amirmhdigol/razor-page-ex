@@ -9,6 +9,7 @@ namespace RazorEX.BAL.Contracts
 {
     public interface IFileManager
     {
+        public string SaveFile2(IFormFile file , string SavePath);
         public string SaveFile(IFormFile formFile, string SavePath);
         void DeleteFile(string fileName, string path);
     }

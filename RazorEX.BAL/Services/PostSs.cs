@@ -36,7 +36,7 @@ namespace RazorEX.BAL.Services
             if (IsSlugExist(Post.Slug))
                 return OperationResult.Error("Slug تکراری است");
 
-            Post.ImageName = _fileManager.SaveFile(command.ImageFile, Directories.Post);
+            Post.ImageName = _fileManager.SaveFile2(command.ImageFile, Directories.Post);
             _rXContext.Posts.Add(Post);
             _rXContext.SaveChanges();
             return OperationResult.Success();
@@ -64,7 +64,7 @@ namespace RazorEX.BAL.Services
             FindedPost.IsSpecial = command.IsSpecial;
 
             if (command.ImageFile != null)
-                FindedPost.ImageName = _fileManager.SaveFile(command.ImageFile, Directories.Post);
+                FindedPost.ImageName = _fileManager.SaveFile2(command.ImageFile, Directories.Post);
 
             _rXContext.Posts.Update(FindedPost);
             _rXContext.SaveChanges();
@@ -104,14 +104,15 @@ namespace RazorEX.BAL.Services
                 Result = Result.Where(a => a.Title.Contains(postFilterParams.Title));
 
             var skip = (postFilterParams.PageId - 1) * postFilterParams.Take;
-            var pagecount = Result.Count() / postFilterParams.Take;
-
-            return new PostFilterDTO()
+            var model = new PostFilterDTO()
             {
-                Posts = Result.Skip(skip).Take(postFilterParams.Take).Select(post => FindPostMapper.Map(post)).ToList(),
+                Posts = Result.Skip(skip).Take(postFilterParams.Take)
+                                .Select(post => FindPostMapper.Map(post)).ToList(),
                 FilterParams = postFilterParams,
-                PageCount = pagecount
             };
+            model.GeneratePaging(Result, postFilterParams.Take, postFilterParams.PageId);
+
+            return model;
         }
 
         public PostDTO GetPostById(int postId)

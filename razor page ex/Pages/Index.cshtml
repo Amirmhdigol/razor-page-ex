@@ -70,7 +70,7 @@
                                             <a href="#">@item.UserName</a>
                                         </li>
                                         <li class="entry__meta-date">
-                                            @*@item.CreationDate.GetTimeAgo()*@
+                                            @item.CreationDate.GetTimeAgo()
                                         </li>
                                     </ul>
                                 </div>
@@ -108,7 +108,7 @@
                                         <a href="#">@bigPost.UserName</a>
                                     </li>
                                     <li class="entry__meta-date">
-                                        @bigPost.CreationDate.ToShortDateString()
+                                        @bigPost.CreationDate.GetTimeAgo()
                                     </li>
                                 </ul>
                             </div>

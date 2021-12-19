@@ -19,3 +19,16 @@ function LoadCkEditor4() {
             customConfig: '/ckeditor4/ckeditor/config.js'
         });
 }
+function changePage(pageId) {
+    var url = new URL(window.location.href);
+    var search_params = url.searchParams;
+
+    // Change PageId
+    search_params.set('PageId', pageId);
+    url.search = search_params.toString();
+
+    // the new url string
+    var new_url = url.toString();
+
+    window.location.replace(new_url);
+}

@@ -1,7 +1,28 @@
 ﻿@page "{slug}"
 @model razor_page_ex.Pages.PostModel
 @using RazorEX.BAL.Utilities;
-@{}
+@{
+    var shortDescription = Model.Post.Description.ConvertHtmlToText();
+    if (shortDescription.Length > 300)
+    {
+        shortDescription = shortDescription.Substring(0, 200);
+    }
+    var imageType = @System.IO.Path.GetExtension(Model.Post.ImageName).Replace(".", "");
+    var imageUrl = @Directories.GetPostImage(Model.Post.ImageName);
+}
+@section MetaLink{
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+@section MetaTags
+{
+<meta property="og:type" content="article">
+<meta name="description" content="@shortDescription">
+<meta name="og:description" content="@shortDescription">
+<meta name="twitter:description" content="@shortDescription">
+<meta property="og:image" content="@imageUrl">
+<meta property="og:image:type" content="image/@imageType">
+<meta name="twitter:image" content="@imageUrl">
+}
 <div class="Siner">
     <ul class="breadcrumbs">
         <li class="breadcrumbs__item">
@@ -40,7 +61,7 @@
                                     <a href="#">@Model.Post.UserName</a>
                                 </li>
                                 <li class="entry__meta-date">
-                                    @Model.Post.CreationDate.Date
+                                    @Model.Post.CreationDate.ToPersianDate("ds dd ms Y")
                                 </li>
                             </ul>
                             <ul class="entry__meta">
@@ -150,7 +171,7 @@
                                 <span asp-validation-for="Text"></span>
                             </p>
                             <p class="comment-form-submit">
-                                <input type="submit" class="btn btn-lg btn-color btn-button" value="ارسال دیدگاه" >
+                                <input type="submit" class="btn btn-lg btn-color btn-button" value="ارسال دیدگاه">
                             </p>
                         </form>
                     </div>
@@ -160,7 +181,7 @@
                     <div class="alert alert-danger">برای ثبت نظر باید ثبت نام کنید </div>
                 }
             </div> <!-- end content box -->
-        </div> 
+        </div>
         <aside class="col-lg-4 sidebar sidebar--right" id="popular_posts">
         </aside>
     </div>

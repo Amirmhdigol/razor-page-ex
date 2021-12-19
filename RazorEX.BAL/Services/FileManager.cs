@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using RazorEX.BAL.Contracts;
+using RazorEX.BAL.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace RazorEX.BAL.Services
 {
@@ -35,6 +37,19 @@ namespace RazorEX.BAL.Services
             formFile.CopyTo(stream);
            
             return FileName;
+        }
+
+        public string SaveFile2(IFormFile file , string FileSavepath)
+        {
+            if (file == null)
+                throw new Exception("file is null");
+
+            var isImage = file.Validate();
+
+            if (!isImage)
+                throw new Exception("Not an Image");
+
+            return SaveFile(file, FileSavepath);
         }
     }
 }

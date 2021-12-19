@@ -1,93 +1,62 @@
 ﻿@model RazorEX.BAL.DTOs.UserDTO.UserFilterDTO
 @using RazorEX.BAL.Utilities
 
-<body class=" bg-info" method="post">
-    <div class="container">
-        <h2 class="text-center text-succes h1 "></h2>
-        <hr>
-        <div class="box box-danger">
-            <div class="box-body">
-                <form>
-                    <div class="box-header">
-                        <button type="submit" class="btn btn-info pull-left">فیلتر </button>
+<section class="content-header">
+    <h1>
+        @ViewData["title"]
+    </h1>
+    <ol class="breadcrumb">
+        <li><a asp-area="Adminstration" asp-controller="user" asp-action="Index"><i class="fa fa-dashboard"></i> خانه</a></li>
+        <li class="active">@ViewData["title"]</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-danger">
+        <div class="box-body">
+            <form>
+                <div class="box-header">
+                    <button type="submit" class="btn btn-info pull-left">فیلتر </button>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <input class="form-control" type="text" value="@Model.UserName" placeholder="عنوان" name="UserName" />
                     </div>
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <input class="form-control" type="text" value="@Model.UserName" placeholder="نام کاربری" name="UserName" />
-                        </div>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-
-        <table class="table">
-            <thead class="text-warning">
-                <tr>
-                    <th>آیدی</th>
-                    <th>نام کاربری</th>
-                    <th>رمز عبور</th>
-                    <th>تاریخ ثبت نام </th>
-                    <th>نقش</th>
-                    <th>عملبات</th>
-                </tr>
-            <tbody>
-                @foreach (var item in Model.Users)
-                    {
-                    <tr>
-                        <td>@item.UserId</td>
-                        <td>@item.UserName</td>
-                        <td>@item.Password</td>
-                        <td>@item.RegisterDate.ToShortDateString()</td>
-                        <td>@item.Role</td>
-
-                        <td><a asp-area="Adminstration" asp-controller="User" asp-action="Edit" asp-route-UId="@item.UserId" class="btn btn-info btn-sm">ویرایش</a></td>
-                        <td><a asp-area="Adminstration" asp-controller="User" asp-action="Delete" asp-route-Id="@item.UserId" class="btn btn-danger btn-sm">حذف</a></td>
-                    </tr>
-                    }
-            </tbody>
-        </table>
-        <a class="btn btn-success align-right" asp-page="/Register/SiguUp">Add Task</a>
-        <br>
     </div>
-
-    @*    @if (Model.PageCount > 1)
-        {
-        <div class="box-footer">
-        <div style="padding:10px">
-        <ul class="pagination" style="display: inline-block">
-        @if (Model.FilterParams.PageId > 1)
-        {
-        <li class="paginate_button previous">
-        <a onclick="changePage(@(Model.FilterParams.PageId-1))" href="#">قبلی</a>
-        </li>
-        }
-        else
-        {
-        <li class="paginate_button previous disabled">
-        <a href="#">قبلی</a>
-        </li>
-        }
-
-        @for (var i = 1; i <= Model.PageCount; i++)
-        {
-        <li class="paginate_button @(i == Model.FilterParams.PageId ? "active" : null)">
-        <a onclick="changePage(@i)" href="javascript:void(0)">@i</a>
-        </li>
-        }
-        @if (Model.PageCount > Model.FilterParams.PageId)
-        {
-        <li class="paginate_button next">
-        <a onclick="changePage(@(Model.FilterParams.PageId+1))" href="#">بعدی</a>
-        </li>
-        }
-        else
-        {
-        <li class="paginate_button next disabled">
-        <a href="javascript:void(0)">بعدی</a>
-        </li>
-        }
-        </ul>
+    <a class="btn btn-success align-right" asp-page="/Register/SiguUp">Add User</a>
+    <div class="box box-primary ">
+        <div class="box-body p-0">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>آیدی</th>
+                        <th>نام کاربری</th>
+                        <th>رمز عبور</th>
+                        <th>تاریخ ثبت نام </th>
+                        <th>نقش</th>
+                        <th>عملبات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Users)
+                    {
+                        <tr>
+                            <td>@item.UserId</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Password</td>
+                            <td>@item.RegisterDate.ToShortDateString()</td>
+                            <td>@item.Role</td>
+                            <td>
+                                <a asp-area="Adminstration" asp-controller="User" asp-action="Edit" asp-route-UId="@item.UserId" class="btn btn-info btn-sm">ویرایش</a>
+                                <a asp-area="Adminstration" asp-controller="User" asp-action="Delete" asp-route-Id="@item.UserId" class="btn btn-danger btn-sm">حذف</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
-        </div>
-    *@
-</body>
+        <partial name="_pagination" model="Model" />
+    </div>
+</section>

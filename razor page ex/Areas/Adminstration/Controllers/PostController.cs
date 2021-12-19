@@ -27,7 +27,7 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
                 Title = Title,
                 CategorySlug = CategorySlug,
                 PageId = PageId,
-                Take = 10,
+                Take = 2,
             };
             var model1 = _context.GetPostByFilter(model);
             return View(model: model1);

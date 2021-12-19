@@ -76,6 +76,8 @@ namespace razor_page_ex
                 app.UseHsts();
             }
 
+            app.UseExceptionHandler("/ErrorHandler/500");
+            app.UseStatusCodePagesWithReExecute("/ErrorHandler/{0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

@@ -18,7 +18,7 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
 
         public IActionResult Index(int PageId = 1, string UserName = "")
         {
-            var IndexPageModel = _userService.GetUsersByFilter(PageId, 10, UserName);
+            var IndexPageModel = _userService.GetUsersByFilter(PageId, 3, UserName);
             return View(model: IndexPageModel);
         }
 

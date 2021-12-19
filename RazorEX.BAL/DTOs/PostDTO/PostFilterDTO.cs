@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RazorEX.BAL.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace RazorEX.BAL.DTOs.PostDTO
 {
-    public class PostFilterDTO
+    public class PostFilterDTO : BasePagination
     {
-        public int PageCount { get; set; }
+        //public int PageCount { get; set; }
         public List<PostDTO> Posts { get; set; }
         public PostFilterParams FilterParams { get; set; }
 

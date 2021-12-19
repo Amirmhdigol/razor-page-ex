@@ -95,6 +95,7 @@ namespace RazorEX.BAL.Services
                 .Include(a=>a.Posts)
                 .Include(a=>a.PostComments)
                 .OrderByDescending(a => a.CreationDate)
+                .Where(a => !a.IsDelete)
                 .AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(UserName))
@@ -102,13 +103,19 @@ namespace RazorEX.BAL.Services
                     .Where(a => a.UserName.Contains(UserName));
 
             var skip = (pageId - 1) * take;
-            var pagecount = result.Count() / take;
-
-            return new UserFilterDTO()
+            var model = new UserFilterDTO()
             {
-                UserName = UserName,
-                Users = result.Skip(skip).Take(take).Select(user => user.Map()).ToList()
+                Users = result.Skip(skip).Take(take).Select(user => new UserDTO()
+                {
+                    Password = user.Password,
+                    Role = user.Role,
+                    UserName = user.UserName,
+                    RegisterDate = user.CreationDate,
+                    UserId = user.Id,
+                }).ToList()
             };
+            model.GeneratePaging(result, take, pageId);
+            return model;
         }
     }
 

@@ -30,6 +30,7 @@ namespace razor_page_ex.Pages
 
         public void OnGet()
         {
+            //throw new Exception();
             MainPageData = _mainpage.GetData();
         }
         
