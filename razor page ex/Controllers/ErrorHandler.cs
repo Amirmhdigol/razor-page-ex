@@ -18,4 +18,4 @@ namespace razor_page_ex.Controllers
             return View("NotFound");
         }
     }
-}
+}   

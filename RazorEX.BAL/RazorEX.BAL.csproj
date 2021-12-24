@@ -8,6 +8,7 @@
     <ProjectReference Include="..\RazorEx.DAL\RazorEx.DAL.csproj" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,6 +20,10 @@
 	  </PackageReference>
 	  <PackageReference Include="System.Collections" Version="4.3.0" />
 	  <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Utilities\Sender\" />
   </ItemGroup>
 
 </Project>

@@ -11,6 +11,7 @@ using RazorEx.DAL;
 using RazorEx.DAL.Context;
 using RazorEx.DAL.Entities;
 using static RazorEx.DAL.Entities.User;
+using RazorEX.BAL.DTOs.UsersDTO;
 
 namespace RazorEX.BAL.Services
 {
@@ -23,25 +24,40 @@ namespace RazorEX.BAL.Services
            _rXContext = rXContext;
         }
 
-        public OperationResult Register(SignupDTO signupDTO)
+        public bool ActiveAccount(string activeCode)
         {
-            var isUserNameExist = _rXContext.Users.Any(u => u.UserName == signupDTO.UserName);
+            var user = _rXContext.Users.SingleOrDefault(u => u.ActiveCode == activeCode);
+            if (user == null || user.IsActive)
+                return false;
+
+            user.IsActive = true;
+            user.ActiveCode = NameGenerator.GenerateUniqCode();
+            _rXContext.SaveChanges();
+
+            return true;
+        }
+
+        public int Register(User user)
+        {
+            var isUserNameExist = _rXContext.Users.Any(u => u.UserName == user.UserName);
 
             if (isUserNameExist)
-                return OperationResult.Error("نام کاربری تکراری است");
+                throw new Exception();
 
-            _rXContext.Users.Add(new User()
-            {
-                UserName = signupDTO.UserName,
-                Password = signupDTO.Password,
-                RePassword = signupDTO.RePassword,
-                IsDelete = false,
-                CreationDate = DateTime.Now,
-                Role = UserRole.User
-                
-            });
+            //var AddedUser = _rXContext.Users.Add(new User()
+            //{
+            //    UserName = user.UserName,
+            //    Password = user.Password,
+            //    RePassword = user.RePassword,
+            //   IsDelete = false,
+            //    CreationDate = DateTime.Now,
+            //    IsActive = false,
+            //    Role = UserRole.User,
+            //    ActiveCode = NameGenerator.GenerateUniqCode()
+            //});
+            _rXContext.Users.Add(user);
             _rXContext.SaveChanges();
-            return OperationResult.Success();
+            return user.Id;
         }
     }
 }

@@ -15,7 +15,9 @@ namespace RazorEx.DAL.Entities
         public string Password { get; set; }
         public string RePassword { get; set; } 
         public UserRole Role { get; set; }
-       
+        public string ActiveCode { get; set; }
+        public bool IsActive { get; set; }
+
         #region Relations
         public ICollection<Post> Posts { get; set; }
         public ICollection<PostComment> PostComments { get; set; }

@@ -3,7 +3,7 @@
 @{
     if (User.Identity.IsAuthenticated)
     {
-        ViewData["UserName"] =  $" سلام {User.Identity.Name}";
+        ViewData["UserName"] =  $"پنل کاربری سلام {User.Identity.Name}";
     }
 }
 
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                 </div>
-                        <h5 style="margin-top:10px;margin-right:10px;color:dodgerblue">@ViewData["UserName"]</h5>
+                        <a asp-area="Userpanel" asp-controller="userpanel" asp-action="index" style="margin-top:10px;margin-right:10px;color:dodgerblue" >@ViewData["UserName"]</a>
             </div> <!-- end flex-parent -->
         </div> <!-- end container -->
     </div>

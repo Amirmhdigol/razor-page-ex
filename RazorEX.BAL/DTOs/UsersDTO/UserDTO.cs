@@ -15,5 +15,7 @@ namespace RazorEX.BAL.DTOs.UsersDTO
         public string Password { get; set; }
         public UserRole Role { get; set; }
         public DateTime RegisterDate { get; set; }
+        public string ActiveCode { get; set; }
+        public bool IsActive { get; set; }
     }
 }

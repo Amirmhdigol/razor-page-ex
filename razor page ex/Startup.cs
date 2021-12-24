@@ -10,6 +10,7 @@ using RazorEx.DAL.Context;
 using RazorEx.DAL.Entities;
 using RazorEX.BAL.Contracts;
 using RazorEX.BAL.Services;
+using RazorEX.BAL.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,7 @@ namespace razor_page_ex
             services.AddTransient<IPostComment, PostComments>();
             services.AddTransient<IMainPage, MainPage>();
             services.AddTransient<IUser, UserService>();
+            services.AddTransient<IViewRenderService, RenderViewToString>();
             services.AddAuthorization(option =>
             {
                 option.AddPolicy("AdminPolicy",
@@ -76,8 +78,8 @@ namespace razor_page_ex
                 app.UseHsts();
             }
 
-            app.UseExceptionHandler("/ErrorHandler/500");
-            app.UseStatusCodePagesWithReExecute("/ErrorHandler/{0}");
+            //app.UseExceptionHandler("/ErrorHandler/500");
+            //app.UseStatusCodePagesWithReExecute("/ErrorHandler/{0}");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -95,10 +97,10 @@ namespace razor_page_ex
                       name: "Adminstration",
                       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
                     );
-                    //endpoints.MapControllerRoute(
-                    //  name: "UserPanel",
-                    //  pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                    //);
+                    endpoints.MapControllerRoute(
+                      name: "UserPanel",
+                      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                    );
                 });
 
             });

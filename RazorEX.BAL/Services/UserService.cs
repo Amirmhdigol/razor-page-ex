@@ -42,7 +42,7 @@ namespace RazorEX.BAL.Services
         {
             return _context.Users.Any(p => p.UserName == Username);
         }
-        
+
         public OperationResult EditUser(EditUserDTO command)
         {
             var FindedUser = _context.Users.FirstOrDefault(a => a.Id == command.UserId);
@@ -92,8 +92,8 @@ namespace RazorEX.BAL.Services
         public UserFilterDTO GetUsersByFilter(int pageId, int take, string UserName)
         {
             var result = _context.Users
-                .Include(a=>a.Posts)
-                .Include(a=>a.PostComments)
+                .Include(a => a.Posts)
+                .Include(a => a.PostComments)
                 .OrderByDescending(a => a.CreationDate)
                 .Where(a => !a.IsDelete)
                 .AsQueryable();
@@ -116,6 +116,43 @@ namespace RazorEX.BAL.Services
             };
             model.GeneratePaging(result, take, pageId);
             return model;
+        }
+
+        public UserDTO GetUserByUserName(string UserName)
+        {
+            var FindedUser = _context.Users.FirstOrDefault(a => a.UserName == UserName);
+
+            if (FindedUser == null)
+                return null;
+
+            var MaptoDTO = new UserDTO()
+            {
+                UserName = FindedUser.UserName,
+                UserId = FindedUser.Id,
+                RegisterDate = FindedUser.CreationDate,
+                Role = FindedUser.Role
+            };
+            return MaptoDTO;
+        }
+
+        public OperationResult EditUserFromUserPanel(EditUserDTO command)
+        {
+            var FindedUser = _context.Users.FirstOrDefault(a => a.Id == command.UserId);
+            var newUserName = command.FullName;
+
+            if (FindedUser == null)
+                return OperationResult.NotFound();
+
+            if (FindedUser.UserName != newUserName)
+                if (IsUserNameExist(newUserName))
+                    return OperationResult.Error("Username تکراری است");
+
+            FindedUser.UserName = command.FullName;
+            FindedUser.Password = command.Password;
+
+            _context.Users.Update(FindedUser);
+            _context.SaveChanges();
+            return OperationResult.Success();
         }
     }
 

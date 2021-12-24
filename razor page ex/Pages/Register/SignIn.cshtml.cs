@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorEX.BAL.Contracts;
 using RazorEX.BAL.DTOs;
+using RazorEX.BAL.Utilities;
 
 namespace razor_page_ex.Pages.Register
 {
@@ -25,7 +26,7 @@ namespace razor_page_ex.Pages.Register
             _sIgnIn = SIgnIn;
         }
 
-        [Required(ErrorMessage ="REQUIRED")]
+        [Required(ErrorMessage = "REQUIRED")]
         [MaxLength(25, ErrorMessage = "Name cannot be greater than 25")]
         [MinLength(4, ErrorMessage = "Name cannot be less than 4")]
         public string UserName { get; set; }
@@ -35,12 +36,15 @@ namespace razor_page_ex.Pages.Register
         [MaxLength(25, ErrorMessage = "password cannot be greater than 25")]
         [MinLength(6, ErrorMessage = "password cannot be less than 6")]
         public string Password { get; set; }
+        public bool? EeditProfile { get; set; }
 
-
-        public void OnGet()
+        public void OnGet(bool EditProfile = false)
         {
+            EeditProfile = EditProfile;
         }
-
+        [BindProperty]
+        public bool IsActive { get; set; }
+        public bool IsSuccess { get; set; }
         public IActionResult OnPost()
         {
             if (ModelState.IsValid == false)
@@ -48,37 +52,43 @@ namespace razor_page_ex.Pages.Register
                 return Page();
             }
 
-            var user = _sIgnIn.SignIn(new SignInDTO()
+            var user = _sIgnIn.SignIn(new RazorEx.DAL.Entities.User()
             {
                 Password = Password,
-                UserName = UserName
-                
-            }); 
+                UserName = UserName,
+                IsActive = IsActive,
+            });
 
             if (user == null)
             {
                 ModelState.AddModelError("UserName", "کاربری با مشخصات وارد شده یافت نشد");
                 return Page();
             }
-
-            List<Claim> claims = new()
+            if (user.IsActive == true)
             {
-                new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
-                new Claim(ClaimTypes.Name,user.UserName),
-                new Claim(ClaimTypes.Role,user.Role.ToString())
-            };
+                //ToDO Login User
+                List<Claim> claims = new()
+                {
+                    new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
+                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(ClaimTypes.Role, user.Role.ToString())
+                };
+                var Identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(Identity);
+                var properties = new AuthenticationProperties()
+                {
+                    IsPersistent = true
+                };
+                HttpContext.SignInAsync(principal, properties);
 
-            var Identity = new ClaimsIdentity(claims,CookieAuthenticationDefaults.AuthenticationScheme);
-            var principal = new ClaimsPrincipal(Identity);
-            var properties = new AuthenticationProperties()
+                IsSuccess = true;
+                return RedirectToPage("../Index");
+            }
+            else
             {
-                IsPersistent = true 
-            };
-            HttpContext.SignInAsync(principal,properties);
-
-            return RedirectToPage("../Index");
-
+                ModelState.AddModelError("Username", "حساب کاربری شما فعال نمی باشد");
+            }
+            return Page();
         }
-
     }
 }

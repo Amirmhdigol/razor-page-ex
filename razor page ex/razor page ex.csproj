@@ -1084,8 +1084,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Adminstration\Data\" />
-    <Folder Include="Areas\UserPanel\Data\" />
-    <Folder Include="Areas\UserPanel\Models\" />
   </ItemGroup>
 
   <ItemGroup>

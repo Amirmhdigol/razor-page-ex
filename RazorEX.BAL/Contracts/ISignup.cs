@@ -1,4 +1,6 @@
-﻿using RazorEX.BAL.DTOs;
+﻿using RazorEx.DAL.Entities;
+using RazorEX.BAL.DTOs;
+using RazorEX.BAL.DTOs.UsersDTO;
 using RazorEX.BAL.Utilities;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,7 @@ namespace RazorEX.BAL.Contracts
 {
     public interface ISignup
     {
-          public OperationResult Register(SignupDTO signupDTO);
-
+          public int Register(User user);
+          public bool ActiveAccount(string activeCode);
     }
 }

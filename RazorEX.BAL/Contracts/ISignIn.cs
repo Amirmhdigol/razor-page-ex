@@ -1,4 +1,5 @@
-﻿using RazorEX.BAL.DTOs;
+﻿using RazorEx.DAL.Entities;
+using RazorEX.BAL.DTOs;
 using RazorEX.BAL.DTOs.UsersDTO;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace RazorEX.BAL.Contracts
 {
     public interface ISIgnIn
     {
-        public UserDTO SignIn(SignInDTO signInDTO);
+        public UserDTO SignIn(User signInDTO);
     }
 }
