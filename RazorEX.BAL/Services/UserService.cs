@@ -148,10 +148,34 @@ namespace RazorEX.BAL.Services
                     return OperationResult.Error("Username تکراری است");
 
             FindedUser.UserName = command.FullName;
-            FindedUser.Password = command.Password;
+            //FindedUser.Password = command.Password;
 
             _context.Users.Update(FindedUser);
             _context.SaveChanges();
+            return OperationResult.Success();
+        }
+
+        public bool CheckOldPassExist(string UserName , string oldpassword)
+        {
+            return _context.Users.Any(a => a.UserName == UserName && a.Password == oldpassword);
+        }
+        public OperationResult EditPassUserpanel(EditPassDTO command)
+        {
+            var Checkoldpass = CheckOldPassExist(command.UserName,command.OldPassword);
+
+            if (!Checkoldpass)
+                return OperationResult.Error("رمز عبور اشتباه است");
+
+            var user = _context.Users.FirstOrDefault(a=>a.UserName == command.UserName);
+
+            if (user != null)
+                user.Password = command.Password;
+            else
+                return OperationResult.NotFound();
+
+            _context.Users.Update(user);
+            _context.SaveChanges();
+
             return OperationResult.Success();
         }
     }

@@ -32,6 +32,7 @@ namespace RazorEx.DAL.Context
         public DbSet<Category> Categories { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<PostComment> PostComments { get; set; }
-
+        public DbSet<Wallet> Wallets { get; set; }
+        public DbSet<WalletType> WalletTypes { get; set; }
     }
 }

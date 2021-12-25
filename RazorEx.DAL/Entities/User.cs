@@ -9,6 +9,10 @@ namespace RazorEx.DAL.Entities
 {
     public class User:BaseEntity
     {
+        public User()
+        {
+
+        }
         [Required]
         public string UserName { get; set; }
         [Required]
@@ -19,8 +23,9 @@ namespace RazorEx.DAL.Entities
         public bool IsActive { get; set; }
 
         #region Relations
-        public ICollection<Post> Posts { get; set; }
-        public ICollection<PostComment> PostComments { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<PostComment> PostComments { get; set; }
+        public virtual ICollection<Wallet> Wallets { get; set; }
         #endregion
     }
 

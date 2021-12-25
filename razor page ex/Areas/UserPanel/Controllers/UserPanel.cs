@@ -41,7 +41,7 @@ namespace razor_page_ex.Areas.UserPannel.Controllers
             var model = new EditUserFromUserPanelViewModel()
             {
                 UserName = FindedUser.UserName,
-                Password = FindedUser.Password,
+                //Password = FindedUser.Password,
                 UserId = id
             };
 
@@ -58,7 +58,7 @@ namespace razor_page_ex.Areas.UserPannel.Controllers
             var Operation = _user.EditUserFromUserPanel(new EditUserDTO()
             {
                 FullName = viewModel.UserName,
-                Password = viewModel.Password,
+                //Password = viewModel.Password,
                 UserId = id
             });
 
@@ -74,6 +74,35 @@ namespace razor_page_ex.Areas.UserPannel.Controllers
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return LocalRedirect("/Register/SignIn");
+        }
+
+        public IActionResult EditPass()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditPass(EditPassViewModel viewModel)
+        {
+            string CurrentUser = User.Identity.Name;
+
+            if (!ModelState.IsValid)
+                return View(viewModel);
+
+            var Edit = _user.EditPassUserpanel(new EditPassDTO()
+            {
+                OldPassword = viewModel.OldPassword,
+                Password = viewModel.Password,
+                UserName = CurrentUser,
+            });
+
+            if (Edit.Status != OperationResultStatus.Success)
+            {
+                ModelState.AddModelError("OldPassword",Edit.Message);
+                return View(viewModel);
+            }
+            return LocalRedirect("/Register/SignIn?EditProfile=true");
         }
     }
 }

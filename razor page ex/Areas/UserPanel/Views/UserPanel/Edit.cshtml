@@ -1,6 +1,15 @@
 ﻿@model razor_page_ex.Areas.UserPanel.Models.EditUserFromUserPanelViewModel
 
 <section class="content">
+    <div class="container">
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-page="/Index"> صفحه اصلی </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> تغییر نام کاربری </li>
+        </ul>
+    </nav>
+</div>
+
     <form class="box box-danger" method="post" asp-area="userpanel" asp-controller="userpanel" asp-action="Edit" enctype="multipart/form-data">
         <div class="box-body row">
             <div class="col-md-6">
@@ -8,13 +17,6 @@
                     <label asp-for="UserName"></label>
                     <input asp-for="UserName" class="form-control" />
                     <span asp-validation-for="UserName" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" class="form-control" />
-                    <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
             </div>
             </>

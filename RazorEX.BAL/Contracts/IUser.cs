@@ -17,5 +17,6 @@ namespace RazorEX.BAL.Contracts
         UserDTO GetUserByUserName(string UserName);
         UserFilterDTO GetUsersByFilter(int pageId, int take, string UserName);
         bool IsUserNameExist(string Username);
+        OperationResult EditPassUserpanel(EditPassDTO command);
     }
 }

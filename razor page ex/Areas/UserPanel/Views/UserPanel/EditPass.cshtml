@@ -1,0 +1,41 @@
+﻿@model razor_page_ex.Areas.UserPanel.Models.EditPassViewModel
+
+<section class="content">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-page="/Index"> صفحه اصلی </a></li>
+                <li class="breadcrumb-item active" aria-current="page"> تغییر رمز عبور </li>
+            </ul>
+        </nav>
+    </div>
+
+    <form class="box box-danger" method="post" asp-area="userpanel" asp-controller="userpanel" asp-action="Editpass" enctype="multipart/form-data">
+        <div class="box-body row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="OldPassword"></label>
+                    <input asp-for="OldPassword" class="form-control" />
+                    <span asp-validation-for="OldPassword" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="RePassword"></label>
+                            <input asp-for="RePassword" class="form-control" />
+                            <span asp-validation-for="RePassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <button class="btn btn-success" type="submit">ثبت اطلاعات</button>
+            </div>
+        </div>
+    </form>
+</section>
