@@ -1,0 +1,86 @@
+﻿@model RazorEX.BAL.DTOs.UsersDTO.UserDTO
+@using RazorEX.BAL.Contracts
+@using RazorEX.BAL.DTOs.UsersDTO
+@using RazorEX.BAL.Utilities
+@inject IUser _userservice;
+@{
+    //var id = Model.UserId;
+    ViewData["Title"] = User.Identity.Name + "  کیف پول   ";
+}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-page="/Index"> صفحه اصلی </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> کیف پول </li>
+        </ul>
+    </nav>
+</div>
+<main>
+    <div class="container">
+        <div class="user-account">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <aside>
+                        <div class="avatar-layer">
+                            <div class="img-layer">
+                                <a href="" class="change-image"><i class="zmdi zmdi-edit"></i></a>
+                                <img src="/wwwroot/images/posts/posts2324dbf3-8a00-4cf0-80fd-e7ab57f2207dbackiee-90779">
+                            </div>
+                            <div class="detail">
+                                <span>@Model.UserName</span>
+                            </div>
+                        </div>
+                        <partial name="_PanelSideBar" />
+                    </aside>
+                </div>
+                <div class="col-md-9 col-sm-8 col-xs-12">
+                    <section class="user-account-content">
+                        <header><h1> داشبورد </h1></header>
+                        <div class="inner">
+                            <div class="account-information">
+                                <h3> اطلاعات کیف پول </h3>
+                                <ul>
+                                    <li> <i class=""></i> نام کاربری :  @Model.UserName </li>
+                                    <li> <i class="zmdi zmdi-account"></i> موجودی حساب : @_userservice.UserWalletBalance(User.Identity.Name).ToString("#,0 تومان") تومان </li>
+                                    <li>
+                                        <i class="zmdi zmdi-account"></i>
+                                        <a asp-area="UserPanel" asp-controller="Wallet" asp-action="ChargeWallet"> شارژ حساب  : </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <table class="table" >
+                        <tr style="margin-left:20px">
+                            <th class="text-success" style="border:solid ;text-align:center">نوع</th>
+                            <th class="text-success" style="border:solid ;text-align:center">مبلغ</th>
+                            <th class="text-success" style="border:solid ;text-align:center">شرح</th>
+                            <th class="text-success" style="border:solid ;text-align:center">تاریخ</th>
+                        </tr>
+                        @{
+                            List<UserWalletDTO> UserWallets = ViewBag.TableData as List<UserWalletDTO>;
+                        }
+                        @foreach (var item in UserWallets)
+                       {
+                           <tr style="margin-left:20px">
+                               <td  style="border:solid ;text-align:center">
+                                   @if(item.Type == 1)
+                                   {
+                                        <p class="text-success">واریز</p>
+                                   }
+                                    else
+                                    {
+                                        <p class="text-success">برداشت</p>
+                                    }
+                                </td>
+                               <td class="text-danger"  style="border:solid ;text-align:center">@item.Amount.ToString("#,0 تومان")</td>
+                               <td  style="border:solid ;text-align:center">@item.Description</td>
+                               <td  style="border:solid ;text-align:center" >@item.TransactionDate.ToPersianDate()</td>
+                           </tr>
+                       }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

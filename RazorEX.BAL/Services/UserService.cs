@@ -1,11 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RazorEx.DAL.Context;
+using RazorEx.DAL.Entities;
 using RazorEX.BAL.Contracts;
 using RazorEX.BAL.DTOs.UserDTO;
 using RazorEX.BAL.DTOs.UsersDTO;
+using RazorEX.BAL.DTOs.Wallet;
 using RazorEX.BAL.Utilities;
 using RazorEX.BAL.Utilities.Mapper;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace RazorEX.BAL.Services
@@ -155,18 +158,18 @@ namespace RazorEX.BAL.Services
             return OperationResult.Success();
         }
 
-        public bool CheckOldPassExist(string UserName , string oldpassword)
+        public bool CheckOldPassExist(string UserName, string oldpassword)
         {
             return _context.Users.Any(a => a.UserName == UserName && a.Password == oldpassword);
         }
         public OperationResult EditPassUserpanel(EditPassDTO command)
         {
-            var Checkoldpass = CheckOldPassExist(command.UserName,command.OldPassword);
+            var Checkoldpass = CheckOldPassExist(command.UserName, command.OldPassword);
 
             if (!Checkoldpass)
                 return OperationResult.Error("رمز عبور اشتباه است");
 
-            var user = _context.Users.FirstOrDefault(a=>a.UserName == command.UserName);
+            var user = _context.Users.FirstOrDefault(a => a.UserName == command.UserName);
 
             if (user != null)
                 user.Password = command.Password;
@@ -178,6 +181,73 @@ namespace RazorEX.BAL.Services
 
             return OperationResult.Success();
         }
-    }
 
+        public int GetUserIdByUserName(string UserName)
+        {
+            return _context.Users.First(a => a.UserName == UserName).Id;
+        }
+
+        public int UserWalletBalance(string UserName)
+        {
+            var FindedUserId = GetUserIdByUserName(UserName);
+
+            var Deposit = _context.Wallets.Include(a => a.User)
+                .Where(a => a.UserId == FindedUserId && a.TypeId == 1 && a.IsPay)
+                .Select(a => a.Amount).ToList();
+
+            var Harvest = _context.Wallets.Include(a => a.User)
+                .Where(a => a.UserId == FindedUserId && a.TypeId == 2)
+                .Select(a => a.Amount).ToList();
+
+            return Deposit.Sum() - Harvest.Sum();
+        }
+        public List<UserWalletDTO> UserTransactionList(string UserName)
+        {
+            var FindedUserId = GetUserIdByUserName(UserName);
+
+            var UserWallets = _context.Wallets.Include(a => a.User)
+                .Where(a => a.IsPay && a.UserId == FindedUserId)
+                .Select(a=>new UserWalletDTO()
+                {
+                    Amount = a.Amount,
+                    Description = a.Description,
+                    Type = a.TypeId,
+                    TransactionDate = a.CreationDate
+                }).ToList();
+
+            return UserWallets;
+        }
+
+        public OperationResult ChargeWallet(string UserName, int ChargeAmount, string Description, bool IsPay = false)
+        {
+            WalletDTO wallet = new()
+            {
+                Amount = ChargeAmount,
+                CreationDate = DateTime.Now,
+                Description = Description,
+                IsPay = IsPay,
+                TypeId = 1,
+                UserId = GetUserIdByUserName(UserName)
+            };
+            AddTransaction(wallet);
+            return OperationResult.Success();
+        }
+
+        public OperationResult AddTransaction(WalletDTO walletDTO)
+        {
+            Wallet MappedWallet = new()
+            {
+                Amount = walletDTO.Amount,
+                CreationDate = walletDTO.CreationDate,
+                Description = walletDTO.Description,
+                IsPay = walletDTO.IsPay,
+                TypeId = walletDTO.TypeId,
+                UserId = walletDTO.UserId,
+            };
+
+            _context.Wallets.Add(MappedWallet);
+            _context.SaveChanges();
+            return OperationResult.Success();
+        }
+    }
 }

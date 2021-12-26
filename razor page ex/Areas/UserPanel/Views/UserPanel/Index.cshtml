@@ -1,5 +1,7 @@
 ﻿@model RazorEX.BAL.DTOs.UsersDTO.UserDTO
+@using RazorEX.BAL.Contracts
 @using RazorEX.BAL.Utilities
+@inject IUser _userservice;
 @{
     //var id = Model.UserId;
     ViewData["Title"] = User.Identity.Name + "   پنل کاربری   ";
@@ -29,19 +31,7 @@
                                 <span> عضویت : @Model.RegisterDate.ToPersianDate() </span>
                             </div>
                         </div>
-
-                        <section>
-                            <header><h3> میز کار </h3></header>
-                            <div class="inner">
-                                <ul>
-                                    <li><a href=""> مشاهده حساب کابری </a></li>
-                                    <li><a asp-area="userpanel" asp-controller="Userpanel" asp-action="Edit" asp-route-id="@Model.UserId"> ویرایش نام کابری </a></li>
-                                    <li><a asp-area="userpanel" asp-controller="Userpanel" asp-action="EditPass"> تغییر رمز عبور </a></li>
-                                    <li><a href=""> تنظیمات حساب کاربری </a></li>
-                                    <li><a asp-area="userpanel" asp-controller="userpanel" asp-action="LogOut" > خروج از حساب کاربری </a></li>
-                                </ul>
-                            </div>
-                        </section>
+                        <partial name="_PanelSideBar"/>
                     </aside>
                 </div>
                 <div class="col-md-9 col-sm-8 col-xs-12">
@@ -53,8 +43,8 @@
                                 <ul>
                                     <li> <i class=""></i> نام کاربری :  @Model.UserName </li>
                                     <li> <i class=""></i> تاریخ عضویت :@Model.RegisterDate.ToPersianDate() </li>
-@*                                    <li> <i class="zmdi zmdi-account"></i> موجودی حساب : @Model.Wallet تومان </li>
-*@                                </ul>
+                                    <li> <i class="zmdi zmdi-account"></i> موجودی حساب : @_userservice.UserWalletBalance(User.Identity.Name) تومان </li>
+                                </ul>
                             </div>
                         </div>
                     </section>
