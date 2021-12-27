@@ -26,9 +26,11 @@ namespace RazorEX.BAL.Contracts
 
         #region Wallet
         int UserWalletBalance(string UserName);
-        OperationResult ChargeWallet(string UserName, int ChargeAmount, string Description, bool IsPay = false);
+        int ChargeWallet(string UserName, int ChargeAmount, string Description, bool IsPay = false);
         List<UserWalletDTO> UserTransactionList(string UserName);
-        OperationResult AddTransaction(WalletDTO walletDTO);
+        int AddTransaction(WalletDTO walletDTO);
+        WalletDTO GetWalletByWalletId(int id);
+        OperationResult UpdateWallet(WalletDTO walletDTO);
         #endregion
     }
 }

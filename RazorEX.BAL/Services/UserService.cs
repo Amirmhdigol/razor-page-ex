@@ -218,7 +218,7 @@ namespace RazorEX.BAL.Services
             return UserWallets;
         }
 
-        public OperationResult ChargeWallet(string UserName, int ChargeAmount, string Description, bool IsPay = false)
+        public int ChargeWallet(string UserName, int ChargeAmount, string Description, bool IsPay = false)
         {
             WalletDTO wallet = new()
             {
@@ -229,11 +229,10 @@ namespace RazorEX.BAL.Services
                 TypeId = 1,
                 UserId = GetUserIdByUserName(UserName)
             };
-            AddTransaction(wallet);
-            return OperationResult.Success();
+            return AddTransaction(wallet);
         }
 
-        public OperationResult AddTransaction(WalletDTO walletDTO)
+        public int AddTransaction(WalletDTO walletDTO)
         {
             Wallet MappedWallet = new()
             {
@@ -246,6 +245,36 @@ namespace RazorEX.BAL.Services
             };
 
             _context.Wallets.Add(MappedWallet);
+            _context.SaveChanges();
+            return MappedWallet.Id;
+        }
+
+        public WalletDTO GetWalletByWalletId(int id)
+        {
+            var FindedWallet = _context.Wallets.Find(id);
+            var MappedWallet = new WalletDTO()
+            {
+                Amount = FindedWallet.Amount,
+                CreationDate = FindedWallet.CreationDate,
+                Description = FindedWallet.Description,
+                IsPay = FindedWallet.IsPay,
+                TypeId = FindedWallet.TypeId,
+                UserId = FindedWallet.UserId,
+            };
+            return MappedWallet;
+        }
+        public OperationResult UpdateWallet(WalletDTO walletDTO)
+        {
+            var MappedWallet = new Wallet()
+            {
+                Amount = walletDTO.Amount,
+                CreationDate = walletDTO.CreationDate,
+                Description = walletDTO.Description,
+                IsPay = walletDTO.IsPay,
+                TypeId = walletDTO.TypeId,
+                UserId = walletDTO.UserId,
+            };
+            _context.Wallets.Update(MappedWallet);
             _context.SaveChanges();
             return OperationResult.Success();
         }
