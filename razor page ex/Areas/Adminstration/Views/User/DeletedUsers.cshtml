@@ -1,7 +1,10 @@
-﻿@model RazorEX.BAL.DTOs.UserDTO.UserFilterDTO
+﻿@model List<RazorEX.BAL.DTOs.UsersDTO.UserDTO>
 @using RazorEX.BAL.Utilities
+@{
+    ViewData["title"] = "کاربران حذف شده";
+}
 
-<section class="content-header">
+    <section class="content-header">
     <h1>
         @ViewData["title"]
     </h1>
@@ -13,16 +16,6 @@
 <section class="content">
     <div class="box box-danger">
         <div class="box-body">
-            <form>
-                <div class="box-header">
-                    <button type="submit" class="btn btn-info pull-left">فیلتر </button>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 form-group">
-                        <input class="form-control" type="text" value="@Model.UserName" placeholder="عنوان" name="UserName" />
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
     <a class="btn btn-success align-right" asp-page="/Register/SiguUp">Add User</a>
@@ -37,27 +30,21 @@
                         <th>رمز عبور</th>
                         <th>تاریخ ثبت نام </th>
                         <th>نقش</th>
-                        <th>عملبات</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.Users)
+                    @foreach (var item in Model)
                     {
                         <tr>
                             <td>@item.UserId</td>
                             <td>@item.UserName</td>
                             <td>@item.Password</td>
-                            <td>@item.RegisterDate.ToShortDateString()</td>
+                            <td>@item.RegisterDate.ToPersianDate()</td>
                             <td>@item.Role</td>
-                            <td>
-                                <a asp-area="Adminstration" asp-controller="User" asp-action="Edit" asp-route-UId="@item.UserId" class="btn btn-info btn-sm">ویرایش</a>
-                                <a asp-area="Adminstration" asp-controller="User" asp-action="Delete" asp-route-Id="@item.UserId" class="btn btn-danger btn-sm">حذف</a>
-                            </td>
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
-        <partial name="_pagination" model="Model"/>
     </div>
 </section>

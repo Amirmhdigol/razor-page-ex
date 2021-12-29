@@ -68,5 +68,11 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
             _userService.Delete(Id);
             return RedirectToAction("Index");
         }
+
+        public IActionResult DeletedUsers()
+        {
+            var model = _userService.DeletedUsers();
+            return View(model);
+        }
     }
 }

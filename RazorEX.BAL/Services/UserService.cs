@@ -28,16 +28,9 @@ namespace RazorEX.BAL.Services
 
             if (FindedUser == null)
                 return null;
-            try
-            {
-                _context.Users.Remove(FindedUser);
-                _context.SaveChanges();
-            }
-            catch (Exception)
-            {
-                return OperationResult.Error();
 
-            }
+            FindedUser.IsDelete = true;
+            _context.SaveChanges();
             return OperationResult.Success();
         }
 
@@ -207,7 +200,7 @@ namespace RazorEX.BAL.Services
 
             var UserWallets = _context.Wallets.Include(a => a.User)
                 .Where(a => a.IsPay && a.UserId == FindedUserId)
-                .Select(a=>new UserWalletDTO()
+                .Select(a => new UserWalletDTO()
                 {
                     Amount = a.Amount,
                     Description = a.Description,
@@ -277,6 +270,24 @@ namespace RazorEX.BAL.Services
             _context.Wallets.Update(MappedWallet);
             _context.SaveChanges();
             return OperationResult.Success();
+        }
+
+        public List<UserDTO> DeletedUsers()
+        {
+            var model = _context.Users
+                .IgnoreQueryFilters()
+                .OrderByDescending(a => a.CreationDate)
+                .Where(u => u.IsDelete == true)
+                .Select(u => new UserDTO()
+                {
+                    UserId = u.Id,
+                    UserName = u.UserName,
+                    Password = u.Password,
+                    RegisterDate = u.CreationDate,
+                    Role = u.Role
+                }).ToList();
+
+            return model;
         }
     }
 }

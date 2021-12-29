@@ -35,11 +35,11 @@ namespace razor_page_ex.Areas.UserPanel.Controllers
                 ViewBag.TableData = _UserService.UserTransactionList(User.Identity.Name);
                 return View(viewModel);
             }
-            var WalletId = _UserService.ChargeWallet(User.Identity.Name, viewModel.Amount , "شارژ حساب");
+            var WalletId = _UserService.ChargeWallet(User.Identity.Name, viewModel.Amount, "شارژ حساب");
 
             var payment = new ZarinpalSandbox.Payment(viewModel.Amount);
-            var res = payment.PaymentRequest("شارژ کیف پول", "https://localhost:44339/OnlinePayment" + WalletId,"amirgolpa45@gmail.com","+989305312307");
-            if (res.Result.Status == 100)
+            var res = payment.PaymentRequest("شارژ کیف پول", "https://localhost:44339/OnlinePayment/" + WalletId, "amirgolpa45@gmail.com", "+989305312307");
+             if (res.Result.Status == 100)
                 return Redirect("https://sandbox.zarinpal.com/pg/StartPay/" + res.Result.Authority);
             return RedirectToAction("Index");
         }

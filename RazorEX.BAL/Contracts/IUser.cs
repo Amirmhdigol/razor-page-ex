@@ -18,6 +18,7 @@ namespace RazorEX.BAL.Contracts
         UserFilterDTO GetUsersByFilter(int pageId, int take, string UserName);
         bool IsUserNameExist(string Username);
         int GetUserIdByUserName(string UserName);
+        List<UserDTO> DeletedUsers();
 
         #region UserPanel
         OperationResult EditPassUserpanel(EditPassDTO command);

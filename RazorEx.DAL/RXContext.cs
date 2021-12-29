@@ -19,6 +19,9 @@ namespace RazorEx.DAL.Context
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfigurations());
             modelBuilder.ApplyConfiguration(new PostsConfigurations());
+            
+            //Filters Users by IsDelete
+            modelBuilder.Entity<User>().HasQueryFilter(u => !u.IsDelete);
 
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(s => s.GetForeignKeys()))
             {

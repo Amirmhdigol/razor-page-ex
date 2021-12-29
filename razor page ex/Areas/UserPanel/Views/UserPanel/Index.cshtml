@@ -43,7 +43,7 @@
                                 <ul>
                                     <li> <i class=""></i> نام کاربری :  @Model.UserName </li>
                                     <li> <i class=""></i> تاریخ عضویت :@Model.RegisterDate.ToPersianDate() </li>
-                                    <li> <i class="zmdi zmdi-account"></i> موجودی حساب : @_userservice.UserWalletBalance(User.Identity.Name) تومان </li>
+                                    <li> <i class="zmdi zmdi-account"></i> موجودی حساب : @_userservice.UserWalletBalance(User.Identity.Name).ToString("#,0 تومان")</li>
                                 </ul>
                             </div>
                         </div>

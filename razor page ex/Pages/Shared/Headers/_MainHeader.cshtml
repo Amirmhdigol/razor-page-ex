@@ -3,7 +3,7 @@
 @{
     if (User.Identity.IsAuthenticated)
     {
-        ViewData["UserName"] =  $"پنل کاربری سلام {User.Identity.Name}";
+        ViewData["UserName"] =  $"پنل کاربری {User.Identity.Name}";
     }
 }
 
