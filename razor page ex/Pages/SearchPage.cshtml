@@ -24,7 +24,7 @@
 }
 @section MetaTags
 {
-    @if (category != null)
+    @if (FiCategory != null)
     {
         <meta name="description" content="@FiCategory.MetaDescription">
         <meta name="og:description" content="@FiCategory.MetaDescription">
@@ -51,29 +51,29 @@
 </div>
 
 @section Scripts{
-    <script>
-        function ajaxPagination(pageId) {
-            const params = new URLSearchParams(window.location.search);
-            var categorySlug = '';
-            var q = '';
-            if (params.has('categorySlug')) {
-                categorySlug = params.get("categorySlug");
-            }
-            if (params.has('q')) {
-                q = params.get("q");
-            }
-            $.ajax({
-                url: `/searchpage/Pagination?pageId=${pageId}&q=${q}&categorySlug=${categorySlug}`,
-                type: "get",
-                beforeSend: function () {
-                    $(".loading").show();
-                },
-                complete: function () {
-                    $(".loading").hide();
-                }
-            }).done(function (data) {
-                $("#ajaxSearch").html(data);
-            });
+<script>
+    function ajaxPagination(pageId) {
+        const params = new URLSearchParams(window.location.search);
+        var categorySlug = '';
+        var q = '';
+        if (params.has('categorySlug')) {
+            categorySlug = params.get("categorySlug");
         }
-    </script>
+        if (params.has('q')) {
+            q = params.get("q");
+        }
+        $.ajax({
+            url: `/searchpage/Pagination?pageId=${pageId}&q=${q}&categorySlug=${categorySlug}`,
+            type: "get",
+            beforeSend: function () {
+                $(".loading").show();
+            },
+            complete: function () {
+                $(".loading").hide();
+            }
+        }).done(function (data) {
+            $("#ajaxSearch").html(data);
+        });
+    }
+</script>
 }

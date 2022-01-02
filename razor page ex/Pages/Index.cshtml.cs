@@ -12,8 +12,6 @@ using System.Threading.Tasks;
 
 namespace razor_page_ex.Pages
 {
-
-    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;

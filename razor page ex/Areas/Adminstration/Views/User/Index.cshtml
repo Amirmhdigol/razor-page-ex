@@ -1,14 +1,18 @@
 ﻿@model RazorEX.BAL.DTOs.UserDTO.UserFilterDTO
 @using RazorEX.BAL.Utilities
-
+@{
+    ViewData["Title"] = "مدیریت کاربران " ;
+}
 <section class="content-header">
     <h1>
         @ViewData["title"]
     </h1>
-    <ol class="breadcrumb">
-        <li><a asp-area="Adminstration" asp-controller="user" asp-action="Index"><i class="fa fa-dashboard"></i> خانه</a></li>
-        <li class="active">@ViewData["title"]</li>
-    </ol>
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a asp-area="Adminstration" asp-controller="user" asp-action="Index"><i class="fa fa-dashboard"></i> خانه</a></li>
+            <li class="active">@ViewData["title"]</li>
+        </ol>
+    </div>
 </section>
 <section class="content">
     <div class="box box-danger">
@@ -25,9 +29,9 @@
             </form>
         </div>
     </div>
-    <a class="btn btn-success align-right" asp-page="/Register/SiguUp">Add User</a>
+    <a class="btn btn-success align-right" asp-page="/Register/SiguUp">افزودن کاربر جدید</a>
     <a class="btn btn-success align-right" asp-area="Adminstration" asp-controller="User" asp-action="DeletedUsers">کاربران حذف شده </a>
-    <div class="box box-primary ">
+    <div class="box box-primary " style = "margin-top:10px ">
         <div class="box-body p-0">
             <table class="table table-bordered table-hover">
                 <thead>
@@ -58,6 +62,6 @@
                 </tbody>
             </table>
         </div>
-        <partial name="_pagination" model="Model"/>
+        <partial name="_pagination" model="Model" />
     </div>
 </section>
