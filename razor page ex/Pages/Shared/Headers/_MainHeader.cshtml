@@ -26,6 +26,10 @@
                         <li>
                             <a asp-page="Index"> اصلی</a>
                         </li>
+                        <li>
+                            <a asp-page="Shop">فروشگاه</a>
+                        </li>
+
                         @foreach (var ThisCategory in Model.Where(a => a.ParentId == null))
                         {
                             if (Model.Any(p => p.ParentId == ThisCategory.Id))

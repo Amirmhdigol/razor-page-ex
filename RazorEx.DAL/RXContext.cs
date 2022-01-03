@@ -37,5 +37,9 @@ namespace RazorEx.DAL.Context
         public DbSet<PostComment> PostComments { get; set; }
         public DbSet<Wallet> Wallets { get; set; }
         public DbSet<WalletType> WalletTypes { get; set; }
+        public DbSet<Products> Products { get; set; }
+        public DbSet<ProductEpisodes> ProductEpisodes { get; set; }
+        public DbSet<ProductStatus> ProductStatuses { get; set; }
+        public DbSet<ProductLevel> ProductLevels { get; set; }
     }
 }

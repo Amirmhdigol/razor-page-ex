@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RazorEx.DAL.Context;
 
 namespace RazorEx.DAL.Migrations
 {
     [DbContext(typeof(RXContext))]
-    partial class RXContextModelSnapshot : ModelSnapshot
+    [Migration("20220103073434_Shop-Level-Status")]
+    partial class ShopLevelStatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -187,7 +189,7 @@ namespace RazorEx.DAL.Migrations
 
                     b.HasKey("LevelId");
 
-                    b.ToTable("ProductLevels");
+                    b.ToTable("ProductLevel");
                 });
 
             modelBuilder.Entity("RazorEx.DAL.Entities.ProductStatus", b =>
@@ -204,7 +206,7 @@ namespace RazorEx.DAL.Migrations
 
                     b.HasKey("StatusId");
 
-                    b.ToTable("ProductStatuses");
+                    b.ToTable("ProductStatus");
                 });
 
             modelBuilder.Entity("RazorEx.DAL.Entities.Products", b =>

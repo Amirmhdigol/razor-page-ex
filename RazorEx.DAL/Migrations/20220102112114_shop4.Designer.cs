@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RazorEx.DAL.Context;
 
 namespace RazorEx.DAL.Migrations
 {
     [DbContext(typeof(RXContext))]
-    partial class RXContextModelSnapshot : ModelSnapshot
+    [Migration("20220102112114_shop4")]
+    partial class shop4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,40 +175,6 @@ namespace RazorEx.DAL.Migrations
                     b.ToTable("ProductEpisodes");
                 });
 
-            modelBuilder.Entity("RazorEx.DAL.Entities.ProductLevel", b =>
-                {
-                    b.Property<int>("LevelId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("LevelTitle")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.HasKey("LevelId");
-
-                    b.ToTable("ProductLevels");
-                });
-
-            modelBuilder.Entity("RazorEx.DAL.Entities.ProductStatus", b =>
-                {
-                    b.Property<int>("StatusId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("StatusTitle")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.HasKey("StatusId");
-
-                    b.ToTable("ProductStatuses");
-                });
-
             modelBuilder.Entity("RazorEx.DAL.Entities.Products", b =>
                 {
                     b.Property<int>("Id")
@@ -234,7 +202,7 @@ namespace RazorEx.DAL.Migrations
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
-                    b.Property<int>("LevelId")
+                    b.Property<int>("Levels")
                         .HasColumnType("int");
 
                     b.Property<int>("Price")
@@ -244,13 +212,7 @@ namespace RazorEx.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProductLevelLevelId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProductStatusStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StatusId")
+                    b.Property<int>("Statuses")
                         .HasColumnType("int");
 
                     b.Property<int?>("SubCategoryId")
@@ -269,10 +231,6 @@ namespace RazorEx.DAL.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("ProductLevelLevelId");
-
-                    b.HasIndex("ProductStatusStatusId");
 
                     b.HasIndex("SubCategoryId");
 
@@ -434,16 +392,6 @@ namespace RazorEx.DAL.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("RazorEx.DAL.Entities.ProductLevel", "ProductLevel")
-                        .WithMany("Products")
-                        .HasForeignKey("ProductLevelLevelId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("RazorEx.DAL.Entities.ProductStatus", "ProductStatus")
-                        .WithMany("Products")
-                        .HasForeignKey("ProductStatusStatusId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("RazorEx.DAL.Entities.Category", "SubCategory")
                         .WithMany()
                         .HasForeignKey("SubCategoryId")
@@ -456,10 +404,6 @@ namespace RazorEx.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("MainCategory");
-
-                    b.Navigation("ProductLevel");
-
-                    b.Navigation("ProductStatus");
 
                     b.Navigation("SubCategory");
 
@@ -495,16 +439,6 @@ namespace RazorEx.DAL.Migrations
             modelBuilder.Entity("RazorEx.DAL.Entities.Post", b =>
                 {
                     b.Navigation("PostComments");
-                });
-
-            modelBuilder.Entity("RazorEx.DAL.Entities.ProductLevel", b =>
-                {
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("RazorEx.DAL.Entities.ProductStatus", b =>
-                {
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("RazorEx.DAL.Entities.Products", b =>
