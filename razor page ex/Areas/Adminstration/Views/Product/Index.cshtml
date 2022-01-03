@@ -33,6 +33,7 @@
         </div>
     </div>
     <a class="btn btn-success" style="margin-bottom: 5px" asp-area="Adminstration" asp-controller="product" asp-action="Add">افزودن محصول</a>
+    <a class="btn btn-danger" style="margin-bottom: 5px" asp-area="Adminstration" asp-controller="product" asp-action="DeletedProducts">محصولات حذف شده </a>
     <div class="box box-primary ">
         <div class="box-body p-0">
             <table class="table table-bordered table-hover">
@@ -41,6 +42,7 @@
                         <th>عکس</th>
                         <th>عنوان</th>
                         <th>مدرس - فروشنده</th>
+                        <th>قیمت</th>
                         <th>گروه</th>
                         <th>عملیات</th>
                     </tr>
@@ -50,17 +52,16 @@
                     {
                         <tr>
                             <td>
-                                <img style="max-width: 150px" src="@Directories.GetPostImage(item.ProductImageName)" />
+                                <img style="max-width: 300px" src="@Directories.GetProductImage(item.ProductImageName)" />
                             </td>
                             <td>@item.Title</td>
                             <td>@item.Teacher</td>
-                            <td>
-                                @item.Category
-                            </td>
+                            <td>@item.Price.ToString("#,0 تومان")</td>
+                            <td>@item.Category</td>
                             <td>
                                 <a asp-area="Adminstration" asp-controller="Product" asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-info btn-sm">ویرایش</a>
-                            <a asp-area="Adminstration" asp-controller="Product" asp-action="Delete" asp-route-Id="@item.ProductId" class="btn btn-danger btn-sm">حذف</a></td>
-                        </tr>
+                                <a asp-area="Adminstration" asp-controller="Product" asp-action="Delete" asp-route-Id="@item.ProductId" class="btn btn-danger btn-sm">حذف</a></td>
+                            </tr>
                     }
                 </tbody>
             </table>

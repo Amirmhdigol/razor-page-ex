@@ -22,6 +22,8 @@ namespace RazorEx.DAL.Context
             
             //Filters Users by IsDelete
             modelBuilder.Entity<User>().HasQueryFilter(u => !u.IsDelete);
+            modelBuilder.Entity<Products>().HasQueryFilter(u => !u.IsDelete);
+            modelBuilder.Entity<Post>().HasQueryFilter(u => !u.IsDelete);
 
             foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(s => s.GetForeignKeys()))
             {

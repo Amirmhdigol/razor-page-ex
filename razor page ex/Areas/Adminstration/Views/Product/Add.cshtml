@@ -25,20 +25,27 @@
                     <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
             </div>
-        <div class="col-md-6 ">
-            <div class="form-group">
-                <label asp-for="TeacherId"></label>
-                <select class="form-control" asp-for="TeacherId" asp-items="@(ViewData["Teachers"] as SelectList)">
-                                        <option value="null">انتخاب کنید</option>
-
-                </select>
-                <span asp-validation-for="TeacherId"></span>
+            <div class="col-md-6 ">
+                <div class="form-group">
+                    <label asp-for="TeacherId"></label>
+                    <select class="form-control" asp-for="TeacherId" asp-items="@(ViewData["Teachers"] as SelectList)">
+                        <option value="null">انتخاب کنید</option>
+                    </select>
+                    <span asp-validation-for="TeacherId"></span>
+                </div>
             </div>
-        </div>
             <div class="col-md-12">
                 @Html.EditorFor(m => m.Description)
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" type="number" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
         <div class="col-md-6 ">
             <div class="form-group">
                 <label asp-for="CategoryId"></label>
@@ -46,7 +53,7 @@
                     <option value="null">انتخاب کنید</option>
                     @foreach (var item in categories.Where(c => c.ParentId == null))
                     {
-                        <option value="@item.Id">@item.Title</option>   
+                        <option value="@item.Id">@item.Title</option>
                     }
                 </select>
                 <span asp-validation-for="CategoryId"></span>

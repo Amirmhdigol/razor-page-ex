@@ -1,5 +1,126 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model razor_page_ex.Areas.Adminstration.Models.ProductM.EditProductViewModel
+@using RazorEX.BAL.Contracts;
+@inject ICategory _categoreyService;
 @{
+    var categories = _categoreyService.GetAllCategory();
+    ViewData["title"] = "ویرایش محصول";
+}
+<section class="content-header">
+    <h1>
+        @ViewData["title"]
+    </h1>
+</section>
+<section class="content">
+    <ol class="breadcrumb">
+        <li><a asp-area="Adminstration" asp-controller="Home" asp-action="Index"><i class="fa fa-dashboard"></i> خانه</a></li>
+        <li><a asp-area="Adminstration" asp-controller="products" asp-action="Index">محصولات</a></li>
+        <li class="active">@ViewData["title"]</li>
+    </ol>
+    <form class="box box-danger" method="post" asp-area="Adminstration" asp-controller="Product" asp-action="Edit" enctype="multipart/form-data">
+        <div class="box-body row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <div class="form-group">
+                    <label asp-for="TeacherId"></label>
+                    <select class="form-control" asp-for="TeacherId" asp-items="@(ViewData["Teachers"] as SelectList)">
+                        <option value="null">انتخاب کنید</option>
+                    </select>
+                    <span asp-validation-for="TeacherId"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                @Html.EditorFor(m => m.Description)
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" type="number" class="form-control" value="@Model.Price"/>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6 ">
+            <div class="form-group">
+                <label asp-for="CategoryId"></label>
+                <select asp-for="CategoryId" class="form-control">
+                    <option value="null">انتخاب کنید</option>
+                    @foreach (var item in categories.Where(c => c.ParentId == null))
+                    {
+                        <option value="@item.Id">@item.Title</option>
+                    }
+                </select>
+                <span asp-validation-for="CategoryId"></span>
+            </div>
+        </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="SubCategoryId"></label>
+                    <select asp-for="SubCategoryId" class="form-control">
+                        <option value="0">انتخاب کنید</option>
+                        @foreach (var item in categories.Where(c => c.ParentId == Model.CategoryId))
+                        {
+                            <option value="@item.Id">@item.Title</option>
+                        }
+                    </select>
+                    <span asp-validation-for="SubCategoryId"></span>
+                </div>
+            </div>
+        <div class="col-md-6 ">
+            <div class="form-group">
+                <label asp-for="LevelId"></label>
+                <select class="form-control" asp-for="LevelId" asp-items="@(ViewData["Levels"] as SelectList)"></select>
+                <span asp-validation-for="LevelId"></span>
+            </div>
+        </div>
+        <div class="col-md-6 ">
+            <div class="form-group">
+                <label asp-for="StatusId"></label>
+                <select class="form-control" asp-for="StatusId" asp-items="@(ViewData["Statuses"] as SelectList)"></select>
+                <span asp-validation-for="StatusId"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="ProductImageName"></label>
+                <input asp-for="ProductImageName" class="form-control" />
+                <span asp-validation-for="ProductImageName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="DemoFileName"></label>
+                <input asp-for="DemoFileName" class="form-control" />
+                <span asp-validation-for="DemoFileName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="box-footer">
+            <button class="btn btn-success" type="submit">ثبت اطلاعات</button>
+        </div>
+    </form>
+</section>
+
+@section scripts{
+<script>
+    $("#CategoryId").change(function () {
+        var categoryId = $(this).val();
+        $.ajax({
+            url: "/adminstration/category/GetChildCategory?parentid=" + categoryId,
+            type: "get"
+        }).done(function (data) {
+            $("#SubCategoryId").html(`<option value='0'>انتخاب کنید</option>`);
+
+            for (var i in data) {
+                var category = data[i];
+                $("#SubCategoryId").append(`<option value='${category.id}'>${category.title}</option>`);
+            }
+        });
+    })
+</script>
 }

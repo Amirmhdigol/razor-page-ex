@@ -8,7 +8,7 @@
     <div class="container">
         <section class="terms-items">
             <header>
-                <h2 style="margin:10px"> دوره های محبوب تاپ لرن </h2>
+                <h2 style="margin:10px"> دوره ها و محصولات محبوب سایت </h2>
                 <a href="" style="margin:10px"> مشاهده همه دوره ها </a>
             </header>
             <div class="row">
@@ -16,9 +16,9 @@
                 {
                     <div class="featured-posts-grid__item featured-posts-grid__item--sm col-lg-4">
                         <article class="entry card post-list featured-posts-grid__entry">
-                            <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(/images/posts/b55f96f5-342d-41ca-8655-fc6a432f0d96backiee-110983.jpg);padding:5px,5px">
+                            <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(@Directories.GetProductImage(item.ProductImageName));padding:5px,5px">
                                 <a href="single-post.html" class="thumb-url"></a>
-                                <img src="/images/posts/b55f96f5-342d-41ca-8655-fc6a432f0d96backiee-110983.jpg" alt="" class="entry__img d-none">
+                                <img src="@Directories.GetProductImage(item.ProductImageName)" alt="" class="entry__img d-none">
                                 <a asp-page="SearchPage" asp-route-categorySlug="@item.CategorySlug" class="entry__meta-category entry__meta-category--label 
                                     entry__meta-category--align-in-corner entry__meta-category--purple">@item.Category</a>
                             </div>

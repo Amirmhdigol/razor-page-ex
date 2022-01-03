@@ -4,6 +4,7 @@ using RazorEx.DAL.Context;
 using RazorEx.DAL.Entities;
 using RazorEX.BAL.Contracts;
 using RazorEX.BAL.DTOs.ProductDTOs;
+using RazorEX.BAL.Utilities;
 using RazorEX.BAL.Utilities.Mapper;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,119 @@ namespace RazorEX.BAL.Services
 {
     public class ProductService : IProduct
     {
+        private readonly IFileManager _fileManager;
         private readonly RXContext _context;
-        public ProductService(RXContext context)
+        public ProductService(RXContext context, IFileManager FileManager)
         {
             _context = context;
+            _fileManager = FileManager;
+        }
+
+        public OperationResult AddProduct(AddProductDTO command)
+        {
+            if (command.ProductImageName == null || command.DemoFileName == null)
+                return OperationResult.Error();
+
+            _context.Products.Add(new Products()
+            {
+                Title = command.Title,
+                StatusId = command.StatusId,
+                SubCategoryId = command.SubCategoryId,
+                CategoryId = command.CategoryId,
+                CreationDate = DateTime.Now,
+                Description = command.Description,
+                IsDelete = false,
+                Price = command.Price,
+                LevelId = command.LevelId,
+                TeacherId = command.TeacherId,
+                Tags = command.Tags,
+                DemoFileName = _fileManager.SaveFile2(command.DemoFileName, Directories.Products),
+                ProductImageName = _fileManager.SaveFile2(command.ProductImageName, Directories.Products)
+            });
+            _context.SaveChanges();
+            return OperationResult.Success();
+        }
+
+        public OperationResult DeleteProduct(int Id)
+        {
+            var FindedProduct = _context.Products.Find(Id);
+            FindedProduct.IsDelete = true;
+            return OperationResult.Success();
+        }
+
+        public OperationResult EditProduct(EditProductDTO command)
+        {
+            var FindedProduct = _context.Products.Include(a => a.Teacher)
+                .Include(a => a.MainCategory)
+                .FirstOrDefault(a => a.Id == command.ProductId);
+
+            var oldImage = FindedProduct.ProductImageName;
+            var oldDemoFile = FindedProduct.DemoFileName;
+
+            if (FindedProduct == null)
+                return OperationResult.NotFound();
+
+            var NewTitle = command.Title;
+
+            if (FindedProduct.Title != NewTitle)
+                if (_context.Products.Any(a => a.Title == NewTitle))
+                    return OperationResult.Error("عنوان تکراری است");
+
+            FindedProduct.Title = command.Title;
+            FindedProduct.Description = command.Description;
+            FindedProduct.CategoryId = command.CategoryId;
+            FindedProduct.Tags = command.Tags;
+            FindedProduct.TeacherId = command.TeacherId;
+            FindedProduct.StatusId = command.StatusId;
+            FindedProduct.Id = command.ProductId;
+            FindedProduct.SubCategoryId = command.SubCategoryId;
+            FindedProduct.LevelId = command.LevelId;
+
+            if (command.ProductImageName != null)
+                FindedProduct.ProductImageName = _fileManager.SaveFile2(command.ProductImageName, Directories.Products);
+
+            if (command.DemoFileName != null)
+                FindedProduct.DemoFileName = _fileManager.SaveFile2(command.DemoFileName, Directories.Products);
+
+            _context.Products.Update(FindedProduct);
+            _context.SaveChanges();
+
+            if (command.ProductImageName != null)
+                _fileManager.DeleteFile(oldImage, Directories.Products);
+
+            if (command.DemoFileName != null)
+                _fileManager.DeleteFile(oldImage, Directories.Products);
+
+            return OperationResult.Success();
+        }
+
+        public List<ProductDTO> GetDeletedProduct()
+        {
+            var product = _context.Products.IgnoreQueryFilters()
+                                .OrderByDescending(a => a.CreationDate)
+                                .Where(a => a.IsDelete)
+                                .Select(a => new ProductDTO()
+                                {
+                                    Title = a.Title,
+                                    CategoryId = a.CategoryId,
+                                    CreationDate = a.CreationDate,
+                                    DemoFileName = a.DemoFileName,
+                                    Description = a.Description,
+                                    IsDelete = a.IsDelete,
+                                    LevelId = a.LevelId,
+                                    StatusId = a.StatusId,
+                                    Price = a.Price,
+                                    Teacher = a.Teacher.UserName,
+                                    CategorySlug = a.MainCategory.Slug,
+                                    Category = a.MainCategory.Title,
+                                    //ProductEpisodes = product.ProductEpisodes == null ? null : ProductEpisodetoDTO.Map(a.ProductEpisodes),
+                                    ProductId = a.Id,
+                                    ProductImageName = a.ProductImageName,
+                                    Tags = a.Tags,
+                                    SubCategoryId = a.SubCategoryId,
+                                    TeacherId = a.TeacherId
+                                }).ToList();
+            return product;
         }
 
         public List<SelectListItem> GetLevels()
@@ -76,6 +186,38 @@ namespace RazorEX.BAL.Services
             return model;
         }
 
+        public ProductDTO GetProductById(int Id)
+        {
+            var FindedProduct = _context.Products.Include(a => a.Teacher)
+                .Include(a => a.MainCategory)
+                .FirstOrDefault(a => a.Id == Id);
+
+            if (FindedProduct == null)
+                return null;
+
+            return new ProductDTO()
+            {
+                Title = FindedProduct.Title,
+                CategoryId = FindedProduct.CategoryId,
+                CreationDate = FindedProduct.CreationDate,
+                DemoFileName = FindedProduct.DemoFileName,
+                Description = FindedProduct.Description,
+                IsDelete = FindedProduct.IsDelete,
+                LevelId = FindedProduct.LevelId,
+                StatusId = FindedProduct.StatusId,
+                Price = FindedProduct.Price,
+                Teacher = FindedProduct.Teacher.UserName,
+                CategorySlug = FindedProduct.MainCategory.Slug,
+                Category = FindedProduct.MainCategory.Title,
+                //ProductEpisodes = product.ProductEpisodes == null ? null : ProductEpisodetoDTO.Map(a.ProductEpisodes),
+                ProductId = FindedProduct.Id,
+                ProductImageName = FindedProduct.ProductImageName,
+                Tags = FindedProduct.Tags,
+                SubCategoryId = FindedProduct.SubCategoryId,
+                TeacherId = FindedProduct.TeacherId
+            };
+        }
+
         public List<SelectListItem> GetStatuses()
         {
             return _context.ProductStatuses.Select(l => new SelectListItem()
@@ -129,6 +271,8 @@ namespace RazorEX.BAL.Services
             {
                 AllProducts = Products,
             };
+
         }
+
     }
 }

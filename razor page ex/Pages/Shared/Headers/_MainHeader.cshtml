@@ -1,8 +1,11 @@
-﻿@model List<RazorEX.BAL.DTOs.CategoryDTO.CategoryDto>
+﻿@using RazorEX.BAL.Contracts
+@model List<RazorEX.BAL.DTOs.CategoryDTO.CategoryDto>
+@inject IUser _UserService;
 @{
     if (User.Identity.IsAuthenticated)
     {
         ViewData["UserName"] = $"پنل کاربری {User.Identity.Name}";
+        ViewData["WalletBalance"] = _UserService.UserWalletBalance(User.Identity.Name).ToString("#,0 تومان");
     }
     else
     {
@@ -70,13 +73,14 @@
                 </div>
                 @if (User.Identity.IsAuthenticated)
                 {
+                    <a style="margin:10px"> موجودی :  @ViewData["WalletBalance"] </a>
                     <a asp-area="Userpanel" asp-controller="userpanel" asp-action="index"
-                   style="margin-top:10px;margin-right:10px;color:dodgerblue">@ViewData["UserName"]</a>
+                   style="margin:10px;color:black">@ViewData["UserName"]</a>
                 }
                 else
                 {
-                    <a asp-page="Register/SignIn" style="margin-top:10px;margin-right:10px;color:dodgerblue">ورود</a>
-                    <a asp-page="Register/SignUp" style="margin-top:10px;margin-right:10px;color:dodgerblue">/  ثبت نام</a>
+                    <a asp-page="Register/SignIn" style="margin:10px">ورود</a>
+                    <a asp-page="Register/SignUp" style="margin:10px">/  ثبت نام</a>
                 }
             </div> <!-- end flex-parent -->
         </div> <!-- end container -->

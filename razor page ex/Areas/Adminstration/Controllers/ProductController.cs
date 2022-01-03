@@ -45,18 +45,84 @@ namespace razor_page_ex.Areas.Adminstration.Controllers
         [HttpPost]
         public IActionResult Add(AddProductViewModel productViewModel)
         {
-            return View();
+            var product = new AddProductDTO()
+            {
+                CategoryId = productViewModel.CategoryId,
+                StatusId = productViewModel.StatusId,
+                SubCategoryId = productViewModel.SubCategoryId,
+                Title = productViewModel.Title,
+                DemoFileName = productViewModel.DemoFileName,
+                Description = productViewModel.Description,
+                LevelId = productViewModel.LevelId,
+                Price = productViewModel.Price,
+                ProductImageName = productViewModel.ProductImageName,
+                Tags = productViewModel.Tags,
+                TeacherId = productViewModel.TeacherId,
+            };
+            _IProduct.AddProduct(product);
+            return RedirectToAction("Index");
         }
 
-        public IActionResult Edit()
+        public IActionResult Edit(int Id)
         {
-            return View();
+            var a = _IProduct.GetStatuses();
+            ViewData["Statuses"] = new SelectList(a, "Value", "Text");
+
+            var b = _IProduct.GetLevels();
+            ViewData["Levels"] = new SelectList(b, "Value", "Text");
+
+            var c = _IProduct.GetUsers();
+            ViewData["Teachers"] = new SelectList(c, "Value", "Text");
+
+            var model = _IProduct.GetProductById(Id);
+            var model1 = new EditProductViewModel()
+            {
+                CategoryId = model.CategoryId,
+                StatusId = model.StatusId,
+                SubCategoryId = model.SubCategoryId,
+                LevelId = model.LevelId,
+                Description = model.Description,
+                Price = model.Price,
+                Tags = model.Tags,
+                Title = model.Title,
+                TeacherId = model.TeacherId,
+            };
+            return View(model1);
         }
 
-        //[HttpPost]
-        //public IActionResult Edit()
-        //{
-        //    return View();
-        //}
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public IActionResult Edit(int Id , EditProductViewModel viewModel)
+        {
+            if (!ModelState.IsValid)
+                return View(viewModel);
+           _IProduct.EditProduct(new EditProductDTO()
+           {
+               ProductId = Id,
+               CategoryId =viewModel.CategoryId,
+               Description=viewModel.Description,
+               LevelId=viewModel.LevelId,
+               DemoFileName = viewModel.DemoFileName,
+               Price = viewModel.Price,
+               ProductImageName = viewModel.ProductImageName,
+               StatusId=viewModel.StatusId,
+               SubCategoryId=viewModel.SubCategoryId,
+               Tags = viewModel.Tags,
+               TeacherId=viewModel.TeacherId,
+               Title = viewModel.Title,
+           });
+            return RedirectToAction("Index");
+        }
+
+        public void Delete(int Id)
+        {
+            _IProduct.DeleteProduct(Id);
+        }
+
+        public IActionResult DeletedProducts()
+        {
+            var model = _IProduct.GetDeletedProduct();
+            return View(model);
+        }
     }
 }
