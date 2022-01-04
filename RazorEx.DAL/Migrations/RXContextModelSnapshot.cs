@@ -142,6 +142,38 @@ namespace RazorEx.DAL.Migrations
                     b.ToTable("PostComments");
                 });
 
+            modelBuilder.Entity("RazorEx.DAL.Entities.ProductComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ProductComments");
+                });
+
             modelBuilder.Entity("RazorEx.DAL.Entities.ProductEpisodes", b =>
                 {
                     b.Property<int>("EpisodeId")
@@ -221,7 +253,6 @@ namespace RazorEx.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DemoFileName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
@@ -265,6 +296,9 @@ namespace RazorEx.DAL.Migrations
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Visit")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -411,6 +445,25 @@ namespace RazorEx.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Post");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RazorEx.DAL.Entities.ProductComment", b =>
+                {
+                    b.HasOne("RazorEx.DAL.Entities.Products", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RazorEx.DAL.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Product");
 
                     b.Navigation("User");
                 });

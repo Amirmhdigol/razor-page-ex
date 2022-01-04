@@ -27,7 +27,7 @@ namespace razor_page_ex.Pages
         [Required]
         [BindProperty]
         public string Text { get; set; }
-        [BindProperty]        
+        [BindProperty]
         public int PostId { get; set; }
 
         public List<PostCommentDTO> PostComments { get; set; }

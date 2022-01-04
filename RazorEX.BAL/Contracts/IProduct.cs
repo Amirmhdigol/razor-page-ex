@@ -19,10 +19,13 @@ namespace RazorEX.BAL.Contracts
         OperationResult EditProduct(EditProductDTO command);
         OperationResult DeleteProduct(int Id);
         List<ProductDTO> GetDeletedProduct();
+        ProductDTO GetProductByTitle(string Title);
         ProductDTO GetProductById(int Id);
         ProductFilterDTO GetProductByFilter(ProductFilterParams filterParams);
+        List<ProductDTO> GetRelatedProducts(int CategoryId);
         List<SelectListItem> GetStatuses();
         List<SelectListItem> GetLevels();
         List<SelectListItem> GetUsers();
+        public void IncreaseVisit(int ProductID);
     }
 }

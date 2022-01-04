@@ -46,6 +46,7 @@ namespace razor_page_ex
             services.AddTransient<IUser, UserService>();
             services.AddTransient<IViewRenderService, RenderViewToString>();
             services.AddTransient<IProduct, ProductService>();
+            services.AddTransient<IProductComment, ProductCommentService>();
             services.AddAuthorization(option =>
             {
                 option.AddPolicy("AdminPolicy",

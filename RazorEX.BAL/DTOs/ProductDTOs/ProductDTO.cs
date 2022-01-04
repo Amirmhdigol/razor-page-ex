@@ -12,11 +12,14 @@ namespace RazorEX.BAL.DTOs.ProductDTOs
         public int ProductId { get; set; }
         public bool IsDelete { get; set; }
         public DateTime CreationDate { get; set; }
+        public int Visit { get; set; }
         public string Title { get; set; }
         public ProductEpisodesDTO ProductEpisodes { get; set; }
         public string Teacher { get; set; }
         public string Category { get; set; }
         public string CategorySlug { get; set; }
+        public string SubCategory { get; set; }
+        public string SubCategorySlug { get; set; }
         public int Price { get; set; }
         public string Description { get; set; }
         public string Tags { get; set; }

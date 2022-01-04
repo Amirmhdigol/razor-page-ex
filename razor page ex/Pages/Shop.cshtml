@@ -14,13 +14,23 @@
             <div class="row">
                 @foreach (var item in Model.MainPageData.AllProducts)
                 {
-                    <div class="featured-posts-grid__item featured-posts-grid__item--sm col-lg-4">
+                    <div class="featured-posts-grid__item featured-posts-grid__item--sm col-lg-6">
                         <article class="entry card post-list featured-posts-grid__entry">
                             <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(@Directories.GetProductImage(item.ProductImageName));padding:5px,5px">
                                 <a href="single-post.html" class="thumb-url"></a>
                                 <img src="@Directories.GetProductImage(item.ProductImageName)" alt="" class="entry__img d-none">
-                                <a asp-page="SearchPage" asp-route-categorySlug="@item.CategorySlug" class="entry__meta-category entry__meta-category--label 
-                                    entry__meta-category--align-in-corner entry__meta-category--purple">@item.Category</a>
+                                    @if (item.SubCategory != null)
+                                    {
+                                        <a asp-page="SearchPage" asp-route-categorySlug="@item.SubCategorySlug" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">
+                                            @item.SubCategory
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a asp-page="SearchPage" asp-route-categorySlug="@item.CategorySlug" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">
+                                            @item.Category
+                                        </a>
+                                    }
                             </div>
 
                             <div class="entry__body post-list__body card__body">
@@ -29,7 +39,7 @@
                                 </h2>
                                 <ul class="entry__meta">
                                     <li class="entry__meta-author">
-                                        <span>نویسنده: </span>
+                                        <span>فروشنده: </span>
                                         <a>@item.Teacher</a>
                                     </li>
                                     <li class="entry__meta-date">

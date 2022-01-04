@@ -22,11 +22,11 @@ namespace RazorEx.DAL.Entities
         public string Description { get; set; }
 
         public string Tags { get; set; }
+        public int Visit { get; set; }
 
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public string ProductImageName { get; set; }
 
-        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         public string DemoFileName { get; set; }
 
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]

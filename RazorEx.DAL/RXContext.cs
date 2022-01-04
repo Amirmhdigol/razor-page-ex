@@ -43,5 +43,6 @@ namespace RazorEx.DAL.Context
         public DbSet<ProductEpisodes> ProductEpisodes { get; set; }
         public DbSet<ProductStatus> ProductStatuses { get; set; }
         public DbSet<ProductLevel> ProductLevels { get; set; }
+        public DbSet<ProductComment> ProductComments { get; set; }
     }
 }

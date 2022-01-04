@@ -26,14 +26,14 @@ namespace RazorEX.BAL.Services
 
         public OperationResult AddProduct(AddProductDTO command)
         {
-            if (command.ProductImageName == null || command.DemoFileName == null)
+            if (command.ProductImageName == null)
                 return OperationResult.Error();
 
-            _context.Products.Add(new Products()
+            var product = new Products()
             {
                 Title = command.Title,
                 StatusId = command.StatusId,
-                SubCategoryId = command.SubCategoryId,
+                SubCategoryId = command.SubCategoryId == 0 ? null : command.SubCategoryId,
                 CategoryId = command.CategoryId,
                 CreationDate = DateTime.Now,
                 Description = command.Description,
@@ -42,9 +42,11 @@ namespace RazorEX.BAL.Services
                 LevelId = command.LevelId,
                 TeacherId = command.TeacherId,
                 Tags = command.Tags,
-                DemoFileName = _fileManager.SaveFile2(command.DemoFileName, Directories.Products),
-                ProductImageName = _fileManager.SaveFile2(command.ProductImageName, Directories.Products)
-            });
+                ProductImageName = _fileManager.SaveFile2(command.ProductImageName, Directories.Products),
+                DemoFileName = command.DemoFileName == null ? null :
+                        _fileManager.SaveFile2(command.DemoFileName, Directories.Products)
+            };
+            _context.Products.Add(product);
             _context.SaveChanges();
             return OperationResult.Success();
         }
@@ -79,9 +81,10 @@ namespace RazorEX.BAL.Services
             FindedProduct.CategoryId = command.CategoryId;
             FindedProduct.Tags = command.Tags;
             FindedProduct.TeacherId = command.TeacherId;
+            FindedProduct.Price = command.Price;
             FindedProduct.StatusId = command.StatusId;
             FindedProduct.Id = command.ProductId;
-            FindedProduct.SubCategoryId = command.SubCategoryId;
+            FindedProduct.SubCategoryId = command.SubCategoryId == 0 ? null : command.SubCategoryId;
             FindedProduct.LevelId = command.LevelId;
 
             if (command.ProductImageName != null)
@@ -218,6 +221,78 @@ namespace RazorEX.BAL.Services
             };
         }
 
+        public ProductDTO GetProductByTitle(string Title)
+        {
+            if(string.IsNullOrEmpty(Title))
+                return null;
+
+            var FindedProduct = _context.Products
+                .Include(a=>a.MainCategory)
+                .Include(a=>a.Teacher)
+                .Include(a=>a.SubCategory)
+                .OrderByDescending(a=>a.CreationDate)
+                .FirstOrDefault(a=>a.Title==Title);
+
+            var ProductDTO = new ProductDTO()
+            {
+                Title = FindedProduct.Title,
+                CategoryId = FindedProduct.CategoryId,
+                CreationDate = FindedProduct.CreationDate,
+                DemoFileName = FindedProduct.DemoFileName,
+                Description = FindedProduct.Description,
+                IsDelete = FindedProduct.IsDelete,
+                LevelId = FindedProduct.LevelId,
+                Visit = FindedProduct.Visit,
+                StatusId = FindedProduct.StatusId,
+                Price = FindedProduct.Price,
+                Teacher = FindedProduct.Teacher.UserName,
+                CategorySlug = FindedProduct.MainCategory.Slug,
+                Category = FindedProduct.MainCategory.Title,
+                //ProductEpisodes = product.ProductEpisodes == null ? null : ProductEpisodetoDTO.Map(a.ProductEpisodes),
+                ProductId = FindedProduct.Id,
+                ProductImageName = FindedProduct.ProductImageName,
+                Tags = FindedProduct.Tags,
+                SubCategoryId = FindedProduct.SubCategoryId,
+                TeacherId = FindedProduct.TeacherId
+            };
+            return ProductDTO;
+        }
+
+        public List<ProductDTO> GetRelatedProducts(int CategoryId)
+        {
+            var FindedProduct = _context.Products
+                .Include(a => a.MainCategory)
+                .Include(a => a.Teacher)
+                .Include(a => a.SubCategory)
+                .Where(a => a.CategoryId == CategoryId || a.SubCategoryId == CategoryId)
+                .OrderByDescending(a => a.CreationDate)
+                .Take(6)
+                .Select(a => new ProductDTO()
+                {
+                    Title = a.Title,
+                    CategoryId = a.CategoryId,
+                    CreationDate = a.CreationDate,
+                    DemoFileName = a.DemoFileName,
+                    Description = a.Description,
+                    IsDelete = a.IsDelete,
+                    LevelId = a.LevelId,
+                    StatusId = a.StatusId,
+                    Price = a.Price,
+                    Teacher = a.Teacher.UserName,
+                    CategorySlug = a.MainCategory.Slug,
+                    Category = a.MainCategory.Title,
+                    //ProductEpisodes = a.ProductEpisodes == null ? null : ProductEpisodetoDTO.Map(a.ProductEpisodes),
+                    ProductId = a.Id,
+                    ProductImageName = a.ProductImageName,
+                    Tags = a.Tags,
+                    SubCategoryId = a.SubCategoryId,
+                    TeacherId = a.TeacherId
+
+                }).ToList();
+
+            return FindedProduct;
+        }
+
         public List<SelectListItem> GetStatuses()
         {
             return _context.ProductStatuses.Select(l => new SelectListItem()
@@ -244,7 +319,7 @@ namespace RazorEX.BAL.Services
                .Include(a => a.SubCategory)
                .Include(a => a.ProductEpisodes)
                .OrderByDescending(a => a.CreationDate)
-               .Take(6)
+               .Take(15)
                .Select(a => new ProductDTO()
                {
                    Title = a.Title,
@@ -259,6 +334,8 @@ namespace RazorEX.BAL.Services
                    Teacher = a.Teacher.UserName,
                    CategorySlug = a.MainCategory.Slug,
                    Category = a.MainCategory.Title,
+                   SubCategory = a.SubCategory.Title,
+                   SubCategorySlug = a.SubCategory.Slug,
                    //ProductEpisodes = a.ProductEpisodes == null ? null : ProductEpisodetoDTO.Map(a.ProductEpisodes),
                    ProductId = a.Id,
                    ProductImageName = a.ProductImageName,
@@ -273,6 +350,11 @@ namespace RazorEX.BAL.Services
             };
 
         }
-
+        public void IncreaseVisit(int ProductID)
+        {
+            var Product = _context.Products.FirstOrDefault(a => a.Id == ProductID);
+            Product.Visit += 1;
+            _context.SaveChanges();
+        }
     }
 }
