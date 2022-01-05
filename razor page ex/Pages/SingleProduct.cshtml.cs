@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorEX.BAL.Contracts;
 using RazorEX.BAL.DTOs.ProductCommentDTOs;
 using RazorEX.BAL.DTOs.ProductDTOs;
+using RazorEX.BAL.Utilities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -21,6 +22,7 @@ namespace razor_page_ex.Pages
 
         public ProductDTO Product { get; set; }
         public List<ProductDTO> RelatedProducts { get; set; }
+        public List<ProductDTO> PopularProducts { get; set; }
         public List<ProductCommentDTO> ProductComments { get; set; }
 
         [Required]
@@ -42,9 +44,36 @@ namespace razor_page_ex.Pages
 
             var FindedRelatedProducts = _IProduct.GetRelatedProducts(Product.SubCategoryId ?? Product.CategoryId);
             RelatedProducts = FindedRelatedProducts;
+            PopularProducts = _IProduct.GetPopularProducts();
 
             _IProduct.IncreaseVisit(Product.ProductId);
             return Page();
+        }
+        public IActionResult OnPost(string Title)
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToPage("SingleProduct", new { Title });
+
+            if (!ModelState.IsValid)
+            {
+                var FindedProduct = _IProduct.GetProductByTitle(Title);
+                Product = FindedProduct;
+                ProductComments = _productComment.GetProductComments(Product.ProductId);
+                var FindedRelatedProducts = _IProduct.GetRelatedProducts(Product.SubCategoryId ?? Product.CategoryId);
+                RelatedProducts = FindedRelatedProducts;
+                return Page();
+            }
+            _productComment.CreateProductComment(new CreateProductCommentDTO()
+            {
+                ProductId = ProductId,
+                Text = Text,
+                UserId = User.Getid()
+            });
+            return RedirectToPage("SingleProduct", new { Title });
+        }
+        public IActionResult OnGetPopularProducts()
+        {
+            return Partial("_PopularProducts", _IProduct.GetPopularProducts());
         }
     }
 }

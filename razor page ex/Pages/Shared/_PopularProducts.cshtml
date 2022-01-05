@@ -1,0 +1,40 @@
+﻿@model IEnumerable<RazorEX.BAL.DTOs.ProductDTOs.ProductDTO>;
+@using RazorEX.BAL.Utilities
+
+@if(Model.Any())
+{
+    <aside class="widget widget-popular-posts">
+        <h4 class="widget-title">محبوب ترین محصولات</h4>
+        <ul class="post-list-small">
+
+            @foreach (var item in Model)
+            {
+                <li class="post-list-small__item">
+                    <article class="post-list-small__entry clearfix">
+                        <div class="post-list-small__img-holder">
+                            <div class="thumb-container thumb-100">
+                                <a asp-page="SingleProduct" asp-route-title="@item.Title">
+                                    <img data-src="@Directories.GetProductImage(item.ProductImageName)" src="img/empty.png" alt="" class="post-list-small__img--rounded lazyload">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="post-list-small__body">
+                            <h3 class="post-list-small__entry-title">
+                                <a asp-page="SingleProduct" asp-route-Ttile="@item.Title">@item.Title</a>
+                            </h3>
+                            <ul class="entry__meta">
+                                <li class="entry__meta-author">
+                                    <span>نویسنده:</span>
+                                    <a href="#">@item.Teacher</a>
+                                </li>
+                                <li class="entry__meta-date">
+                                    @item.CreationDate.ToPersianDate()
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                </li>
+            }
+        </ul>
+    </aside>
+}

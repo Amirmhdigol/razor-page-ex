@@ -19,5 +19,10 @@ namespace razor_page_ex.Pages
         {
             MainPageData =  _product.MainPageProducts();
         }
+        public IActionResult OnGetPopularProducts()
+        {
+            return Partial("_PopularProducts", _product.GetPopularProducts());
+        }
+
     }
 }

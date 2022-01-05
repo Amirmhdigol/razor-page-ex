@@ -223,15 +223,15 @@ namespace RazorEX.BAL.Services
 
         public ProductDTO GetProductByTitle(string Title)
         {
-            if(string.IsNullOrEmpty(Title))
+            if (string.IsNullOrEmpty(Title))
                 return null;
 
             var FindedProduct = _context.Products
-                .Include(a=>a.MainCategory)
-                .Include(a=>a.Teacher)
-                .Include(a=>a.SubCategory)
-                .OrderByDescending(a=>a.CreationDate)
-                .FirstOrDefault(a=>a.Title==Title);
+                .Include(a => a.MainCategory)
+                .Include(a => a.Teacher)
+                .Include(a => a.SubCategory)
+                .OrderByDescending(a => a.CreationDate)
+                .FirstOrDefault(a => a.Title == Title);
 
             var ProductDTO = new ProductDTO()
             {
@@ -355,6 +355,38 @@ namespace RazorEX.BAL.Services
             var Product = _context.Products.FirstOrDefault(a => a.Id == ProductID);
             Product.Visit += 1;
             _context.SaveChanges();
+        }
+
+        public List<ProductDTO> GetPopularProducts()
+        {
+            var FindedProducts = _context.Products
+            .Include(s => s.Teacher)
+            .OrderByDescending(a => a.Visit)
+            .Take(4)
+            .Select(a => new ProductDTO()
+            {
+                Title = a.Title,
+                CategoryId = a.CategoryId,
+                CreationDate = a.CreationDate,
+                DemoFileName = a.DemoFileName,
+                Description = a.Description,
+                IsDelete = a.IsDelete,
+                LevelId = a.LevelId,
+                StatusId = a.StatusId,
+                Price = a.Price,
+                Teacher = a.Teacher.UserName,
+                CategorySlug = a.MainCategory.Slug,
+                Category = a.MainCategory.Title,
+                SubCategory = a.SubCategory.Title,
+                SubCategorySlug = a.SubCategory.Slug,
+                //ProductEpisodes = a.ProductEpisodes == null ? null : ProductEpisodetoDTO.Map(a.ProductEpisodes),
+                ProductId = a.Id,
+                ProductImageName = a.ProductImageName,
+                Tags = a.Tags,
+                SubCategoryId = a.SubCategoryId,
+                TeacherId = a.TeacherId
+            }).ToList();
+            return FindedProducts;
         }
     }
 }

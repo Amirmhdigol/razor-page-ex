@@ -102,7 +102,7 @@
                         <div class="entry__article">
                             @Html.Raw(@Model.Product.Description)
                             <a style="margin:10px">قیمت : @Model.Product.Price.ToString("#,0 تومان")</a>
-
+                            <a class="btn btn-success col-md-6"> خرید محصول </a>
                         </div>
                     </div>
                     <!-- Related Posts -->
@@ -121,10 +121,10 @@
                                             <div class="bottom-gradient"></div>
                                             <div class="thumb-text-holder">
                                                 <h2 class="thumb-entry-title">
-                                                    <a asp-page="product" asp-route-Title="@RP.Title ">@RP.Title</a>
+                                                    <a asp-page="SingleProduct" asp-route-Title="@RP.Title ">@RP.Title</a>
                                                 </h2>
                                             </div>
-                                            <a asp-page="Post" asp-route-Title="@RP.Title " class="thumb-url"></a>
+                                            <a asp-page="SingleProduct" asp-route-Title="@RP.Title " class="thumb-url"></a>
                                         </div>
                                     </article>
                                 }
@@ -150,7 +150,7 @@
                                     <div class="comment-text">
                                         <h6 class="comment-author">@comment.UserFullName</h6>
                                         <div class="comment-metadata">
-                                            <a href="#" class="comment-date">@comment.CreationDate.ToShortDateString()</a>
+                                            <a class="comment-date">@comment.CreationDate.GetTimeAgo()</a>
                                         </div>
                                         <p>@comment.Text</p>
                                     </div>
@@ -186,7 +186,21 @@
 
             </div> <!-- end content box -->
         </div>
-        <aside class="col-lg-4 sidebar sidebar--right" id="popular_posts">
+        <aside class="col-lg-4 sidebar sidebar--right" @*id="popular_products"*@>
+                    <partial name="_PopularProducts" model="Model.PopularProducts"/>
         </aside>
     </div>
 </div>
+
+<script>
+    $(document).ready(function (){
+        LoadCkEditor4();
+        $.ajax({
+            url:"/SingleProduct/PopularProducts",
+            type:"get"
+        }).done(function(data) {
+            $("#popular_products").html(data);
+        });
+    });
+</script>
+

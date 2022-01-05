@@ -23,6 +23,7 @@ namespace RazorEX.BAL.Contracts
         ProductDTO GetProductById(int Id);
         ProductFilterDTO GetProductByFilter(ProductFilterParams filterParams);
         List<ProductDTO> GetRelatedProducts(int CategoryId);
+        List<ProductDTO> GetPopularProducts();
         List<SelectListItem> GetStatuses();
         List<SelectListItem> GetLevels();
         List<SelectListItem> GetUsers();
