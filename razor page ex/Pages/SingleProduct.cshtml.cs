@@ -13,9 +13,11 @@ namespace razor_page_ex.Pages
     {
         private readonly IProduct _IProduct;
         private readonly IProductComment _productComment;
+        private readonly IOrder _order;
 
-        public SingleProductModel(IProduct iProduct , IProductComment productComment)
+        public SingleProductModel(IProduct iProduct, IProductComment productComment, IOrder order)
         {
+            _order = order;
             _IProduct = iProduct;
             _productComment = productComment;
         }
@@ -70,6 +72,15 @@ namespace razor_page_ex.Pages
                 UserId = User.Getid()
             });
             return RedirectToPage("SingleProduct", new { Title });
+        }
+        public IActionResult OnGetBuyProduct(int id)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Redirect("Register/Signup");
+            }
+            _order.AddOrder(User.Identity.Name, id);
+            return Redirect("/SingleProduct/" + ProductId);
         }
         public IActionResult OnGetPopularProducts()
         {

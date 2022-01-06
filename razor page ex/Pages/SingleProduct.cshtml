@@ -102,7 +102,7 @@
                         <div class="entry__article">
                             @Html.Raw(@Model.Product.Description)
                             <a style="margin:10px">قیمت : @Model.Product.Price.ToString("#,0 تومان")</a>
-                            <a class="btn btn-success col-md-6"> خرید محصول </a>
+                            <a asp-page="BuyProduct" asp-route-id="@Model.Product.ProductId" asp-route-title="@Model.Product.Title" class="btn btn-success col-md-6"> خرید محصول </a>
                         </div>
                     </div>
                     <!-- Related Posts -->
@@ -191,16 +191,4 @@
         </aside>
     </div>
 </div>
-
-<script>
-    $(document).ready(function (){
-        LoadCkEditor4();
-        $.ajax({
-            url:"/SingleProduct/PopularProducts",
-            type:"get"
-        }).done(function(data) {
-            $("#popular_products").html(data);
-        });
-    });
-</script>
 

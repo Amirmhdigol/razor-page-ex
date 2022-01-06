@@ -42,11 +42,13 @@ namespace razor_page_ex
             services.AddScoped<IPost, PostSs>();
             services.AddTransient<IFileManager, FileManager>();
             services.AddTransient<IPostComment, PostComments>();
+            services.AddScoped<IOrder, OrderService>();
             services.AddTransient<IMainPage, MainPage>();
             services.AddTransient<IUser, UserService>();
             services.AddTransient<IViewRenderService, RenderViewToString>();
             services.AddTransient<IProduct, ProductService>();
             services.AddTransient<IProductComment, ProductCommentService>();
+
             services.AddAuthorization(option =>
             {
                 option.AddPolicy("AdminPolicy",

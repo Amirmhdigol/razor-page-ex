@@ -7,15 +7,6 @@
         $("#popular_posts").html(data);
     });
 });
-$(document).ready(function (){
-    LoadCkEditor4();
-    $.ajax({
-        url:"/SingleProduct/PopularProducts",
-        type:"get"
-    }).done(function(data) {
-        $("#popular_products").html(data);
-    });
-});
 
 
 function LoadCkEditor4() {

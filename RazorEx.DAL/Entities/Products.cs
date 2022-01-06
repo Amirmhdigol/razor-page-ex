@@ -59,6 +59,7 @@ namespace RazorEx.DAL.Entities
         public ProductStatus ProductStatus { get; set; }
 
         public ProductLevel ProductLevel { get; set; }
+        public ICollection<OrderDetail> OrderDetails { get; set; }
         #endregion
 
     }
