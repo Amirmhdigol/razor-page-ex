@@ -28,9 +28,8 @@ namespace razor_page_ex.Pages
 
             Product = FindedProduct;
                 
-            _order.AddOrder(User.Identity.Name, id);
-            return Redirect("/SingleProduct/" + Product.Title);
-
+            int orderid = _order.AddOrder(User.Identity.Name, id);
+            return Redirect("/Userpanel/myorder/Showorder/" + orderid);
         }
     }
 }

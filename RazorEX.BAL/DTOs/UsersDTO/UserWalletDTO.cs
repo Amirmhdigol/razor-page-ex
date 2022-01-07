@@ -8,7 +8,7 @@ namespace RazorEX.BAL.DTOs.UsersDTO
 {
     public class UserWalletDTO
     {
-        public int Amount { get; set; }
+        public Int64 Amount { get; set; }
         public int Type { get; set; }
         public string Description { get; set; }
         public DateTime TransactionDate { get; set; }

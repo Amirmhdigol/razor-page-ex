@@ -1,0 +1,86 @@
+﻿@model IEnumerable<OrderDTO>
+@using RazorEX.BAL.Contracts
+@using RazorEX.BAL.DTOs.OrderDTOs
+@using RazorEX.BAL.DTOs.UsersDTO
+@using RazorEX.BAL.Utilities
+@inject IUser _userservice;
+@{
+    //var id = Model.UserId;
+    ViewData["Title"] = User.Identity.Name + "  تراکنش ها   ";
+}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-page="/Index"> صفحه اصلی </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> تراکنش ها </li>
+        </ul>
+    </nav>
+</div>
+<main>
+    <div class="container">
+        <div class="user-account">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <aside>
+                        <div class="avatar-layer">
+                            <div class="img-layer">
+                                <a href="" class="change-image"><i class="zmdi zmdi-edit"></i></a>
+                            </div>
+                            <div class="detail">
+                            </div>
+                        </div>
+                        <partial name="_PanelSideBar" />
+                    </aside>
+                </div>
+                <div class="col-md-9 col-sm-8 col-xs-12">
+                    <section class="user-account-content">
+                        <header><h1> داشبورد </h1></header>
+                        <div class="inner">
+                            <div class="account-information">
+                                <h3> اطلاعات کیف پول </h3>
+                                <ul>
+                                    <li> <i class=""></i> نام کاربری : </li>
+                                    <li> <i class="zmdi zmdi-account"></i> موجودی حساب : @_userservice.UserWalletBalance(User.Identity.Name).ToString("#,0 تومان")</li>
+                                    <li>
+                                        <i class="zmdi zmdi-account"></i>
+                                        <a asp-area="UserPanel" asp-controller="Wallet" asp-action="ChargeWallet"> شارژ حساب  : </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <table class="table col-lg-10" >
+                        <tr style="margin-left:20px">
+                            <th class="text-success" style="border:solid ;text-align:center">شماره فاکتور</th>
+                            <th class="text-success" style="border:solid ;text-align:center">تاریخ</th>
+                            <th class="text-success" style="border:solid ;text-align:center">جمع</th>
+                            <th class="text-success" style="border:solid ;text-align:center">وضعیت</th>
+                            <th class="text-success" style="border:solid ;text-align:center">عملیات</th>    
+                        </tr>
+                        @foreach (var item in Model)
+                       {
+                           <tr style="margin-left:20px">
+                               <td  style="border:solid ;text-align:center">@item.OrderId</td>
+                               <td class="text-danger" style="border:solid ;text-align:center">@item.CreationDate.ToPersianDate()</td>
+                               <td  style="border:solid ;text-align:center">@item.OrderPriceSum.ToString("#,0 تومان")</td>
+                                <td  style="border:solid ;text-align:center" >
+                                    @if (item.IsFinally)
+                                    {
+                                        <a> پرداخت شده </a>
+                                    }
+                                    else
+                                    {
+                                        <a> پرداخت نشده </a>
+                                    }
+                                </td>
+                                <td  style="border:solid ;text-align:center">
+                                   <a class="btn btn-success btn-block" href="/Userpanel/myorder/Showorder/@item.OrderId"> نمایش </a>
+                               </td>
+                           </tr>
+                       }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

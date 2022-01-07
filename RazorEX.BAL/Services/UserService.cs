@@ -180,7 +180,7 @@ namespace RazorEX.BAL.Services
             return _context.Users.First(a => a.UserName == UserName).Id;
         }
 
-        public int UserWalletBalance(string UserName)
+        public Int64 UserWalletBalance(string UserName)
         {
             var FindedUserId = GetUserIdByUserName(UserName);
 

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorEX.BAL.Contracts;
+using System;
 
 namespace razor_page_ex.Pages
 {
@@ -26,7 +27,7 @@ namespace razor_page_ex.Pages
 
                 var wallet = _userService.GetWalletByWalletId(id);
 
-                var payment = new ZarinpalSandbox.Payment(wallet.Amount);
+                var payment = new ZarinpalSandbox.Payment(Convert.ToInt32(wallet.Amount));
                 var res = payment.Verification(authority).Result;
                 if (res.Status == 100)
                 {

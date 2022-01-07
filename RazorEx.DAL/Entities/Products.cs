@@ -53,13 +53,11 @@ namespace RazorEx.DAL.Entities
 
         [ForeignKey("SubCategoryId")]
         public Category SubCategory { get; set; }
-
         public ICollection<ProductEpisodes> ProductEpisodes { get; set; }
-
         public ProductStatus ProductStatus { get; set; }
-
         public ProductLevel ProductLevel { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
+        public ICollection<UserProducts> UserProducts { get; set; }
         #endregion
 
     }

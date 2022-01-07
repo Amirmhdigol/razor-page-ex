@@ -1,0 +1,167 @@
+﻿@model RazorEX.BAL.DTOs.OrderDTOs.OrderDTO
+@using RazorEX.BAL.Contracts
+@using RazorEX.BAL.DTOs.UsersDTO
+@using RazorEX.BAL.Utilities
+@inject IProduct _product;
+@inject IUser _userservice;
+@{
+    //var id = Model.UserId;
+    ViewData["Title"] = User.Identity.Name + "  جزئیات فاکتور   ";
+    var OrderPriceSum = Model.OrderPriceSum /*Model.OrderDetail.Sum(a => a.Price * a.Count)*/;
+    var Users = @_userservice.GetUserByUserName(User.Identity.Name);
+    string DiscountType = ViewBag.typeDiscount;
+}
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-page="/Index"> صفحه اصلی </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> فاکتور </li>
+        </ul>
+    </nav>
+</div>
+<main>
+    <div class="container">
+        <div class="user-account">
+            <div class="row">
+                <div class="col-md-3 col-sm-4 col-xs-12">
+                    <aside>
+                        <div class="avatar-layer">
+                            <div class="img-layer">
+                                <a href="" class="change-image"><i class="zmdi zmdi-edit"></i></a>
+                                <img src="/wwwroot/images/posts/posts2324dbf3-8a00-4cf0-80fd-e7ab57f2207dbackiee-90779">
+                            </div>
+                            <div class="detail">
+                                <span>@Model.CreationDate</span>
+                            </div>
+                        </div>
+                        <partial name="_PanelSideBar" />
+                    </aside>
+                </div>
+                <div class="col-md-9 col-sm-8 col-xs-12">
+                    <section class="user-account-content">
+                        @*                        <header><h1> داشبورد </h1></header>
+                        *@                        <div class="inner">
+                            <div class="account-information">
+                                <h3> جزئیات فاکتور خرید  </h3>
+                                <ul>
+                                    <li> <i class=""></i> نام کاربری : @Users.UserName </li>
+                                    <li> <i class="zmdi zmdi-account"></i> موجودی کیف پول : @_userservice.UserWalletBalance(User.Identity.Name).ToString("#,0 تومان")</li>
+                                    @*                                    <li>
+                                        <i class="zmdi zmdi-account"></i>
+                                        إ            <a asp-area="UserPanel" asp-controller="Wallet" asp-action="ChargeWallet"> شارژ حساب  : </a>
+                                        </li>
+                                    *@
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    @if (ViewBag.finaly == true)
+                    {
+                        <div class="alert alert-success">
+                            فاکتور با موفقیت پرداخت گردید
+                        </div>
+                    }
+                    <table class="table col-lg-10">
+                        <tr>
+                            <th class="text-success" style="border:solid ;text-align:center">دوره</th>
+                            <th class="text-success" style="border:solid ;text-align:center">تعداد</th>
+                            <th class="text-success" style="border:solid ;text-align:center">قیمت</th>
+                            <th class="text-success" style="border:solid ;text-align:center">جمع</th>
+                        </tr>
+                        <tbody>
+                            @foreach (var item in Model.OrderDetail)
+                            {
+                                <tr>
+                                    @{
+                                        var a = @_product.GetProductById(item.ProductsId);
+                                    }
+                                    <td class="text-danger" style="border:solid ;text-align:center">@a.Title</td>
+                                    <td style="border:solid ;text-align:center">@item.Count</td>
+                                    <td style="border:solid ;text-align:center">@item.Price.ToString("#,0 تومان")</td>
+                                    <td style="border:solid ;text-align:center">@((item.Count*item.Price).ToString("#,0 تومان"))</td>
+                                </tr>
+                            }
+                            <tr>
+                                <td colspan="3" class="text-left" style="border:solid ;text-align:center">جمع کل</td>
+                                <td style="border:solid ;text-align:center">@OrderPriceSum.ToString("#,0 تومان")</td>
+                            </tr>
+                            @if (!Model.IsFinally)
+                            {
+                                <tr>
+                                    <td colspan="3" class="text-left" style="border:solid ;text-align:center">کد تخفیف</td>
+                                    <td style="border:solid ;text-align:center">
+                                        <form action="/UserPanel/Myorder/UseDiscount" method="post">
+                                            <input type="hidden" name="orderid" value="@Model.OrderId" />
+                                            <input type="text" class="form-control" name="Code" />
+                                            <input type="submit" class="btn btn-primary btn-block" value="اعمال" />
+                                        </form>
+                                        @if (DiscountType != "")
+                                        {
+                                            switch (DiscountType)
+                                            {
+                                                case "Success":
+                                                    {
+                                                        <div class="alert alert-success">
+                                                            <p class="text-muted">کد با موفقیت اعمال شد</p>
+                                                        </div>
+                                                        break;
+                                                    }
+                                                case "Expired":
+                                                    {
+                                                        <div class="alert alert-danger">
+                                                            <p class="text-muted">تاریخ کد به اتمام رسیده است</p>
+                                                        </div>
+                                                        break;
+                                                    }
+                                                case "NotFound":
+                                                    {
+                                                        <div class="alert alert-warning">
+                                                            <p class="text-muted">کد معتبر نیست</p>
+                                                        </div>
+                                                        break;
+                                                    }
+                                                case "Finished":
+                                                    {
+                                                        <div class="alert alert-danger">
+                                                            <p class="text-muted">کد به اتمام رسیده است</p>
+                                                        </div>
+                                                        break;
+                                                    }
+                                                case "UserUsed":
+                                                    {
+                                                        <div class="alert alert-info">
+                                                            <p class="text-muted">این کد قبلا توسط شما استفاده شده است</p>
+                                                        </div>
+                                                        break;
+                                                    }
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                            @if (!Model.IsFinally)
+                            {
+                                <tr>
+                                    <td colspan="5" class="text-left" style="border:solid ;text-align:center">
+
+                                        @if (_userservice.UserWalletBalance(User.Identity.Name) >= OrderPriceSum)
+                                        {
+                                            <a class="btn btn-success btn-block" href="/Userpanel/myorder/SubmitOrder/@Model.OrderId">تایید فاکتور</a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn btn-success btn-block disabled">تایید فاکتور</a>
+                                            <div class="alert alert-danger">
+                                                موجودی کافی نمیباشد لطفا از طریق <a href="/userpanel/wallet/ChargeWallet" class="alert-link">این لینک</a> اقدام به شارژ حساب خود کنید
+                                            </div>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

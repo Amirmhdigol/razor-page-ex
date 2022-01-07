@@ -27,6 +27,8 @@ namespace RazorEx.DAL.Entities
         public virtual ICollection<PostComment> PostComments { get; set; }
         public virtual ICollection<Wallet> Wallets { get; set; }
         public ICollection<Order> Orders { get; set; }
+        public ICollection<UserProducts> UserProducts { get; set; }
+        public ICollection<UserDiscounts> UserDiscounts { get; set; }
         #endregion
     }
 

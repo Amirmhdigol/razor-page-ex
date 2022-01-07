@@ -46,5 +46,8 @@ namespace RazorEx.DAL.Context
         public DbSet<ProductComment> ProductComments { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<UserProducts> UserProducts { get; set; }
+        public DbSet<Discount> Discounts { get; set; }
+        public DbSet<UserDiscounts> UserDiscounts { get; set; }
     }
 }

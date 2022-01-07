@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RazorEx.DAL.Context;
 
 namespace RazorEx.DAL.Migrations
 {
     [DbContext(typeof(RXContext))]
-    partial class RXContextModelSnapshot : ModelSnapshot
+    [Migration("20220107192829_Discount")]
+    partial class Discount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -436,28 +438,6 @@ namespace RazorEx.DAL.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("RazorEx.DAL.Entities.UserDiscounts", b =>
-                {
-                    b.Property<int>("UD_Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("DiscountId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UD_Id");
-
-                    b.HasIndex("DiscountId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserDiscounts");
-                });
-
             modelBuilder.Entity("RazorEx.DAL.Entities.UserProducts", b =>
                 {
                     b.Property<int>("UserProductsId")
@@ -675,25 +655,6 @@ namespace RazorEx.DAL.Migrations
                     b.Navigation("Teacher");
                 });
 
-            modelBuilder.Entity("RazorEx.DAL.Entities.UserDiscounts", b =>
-                {
-                    b.HasOne("RazorEx.DAL.Entities.Discount", "Discount")
-                        .WithMany("UserDiscounts")
-                        .HasForeignKey("DiscountId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("RazorEx.DAL.Entities.User", "User")
-                        .WithMany("UserDiscounts")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Discount");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("RazorEx.DAL.Entities.UserProducts", b =>
                 {
                     b.HasOne("RazorEx.DAL.Entities.Products", "product")
@@ -739,11 +700,6 @@ namespace RazorEx.DAL.Migrations
                     b.Navigation("SubPosts");
                 });
 
-            modelBuilder.Entity("RazorEx.DAL.Entities.Discount", b =>
-                {
-                    b.Navigation("UserDiscounts");
-                });
-
             modelBuilder.Entity("RazorEx.DAL.Entities.Order", b =>
                 {
                     b.Navigation("OrderDetail");
@@ -780,8 +736,6 @@ namespace RazorEx.DAL.Migrations
                     b.Navigation("PostComments");
 
                     b.Navigation("Posts");
-
-                    b.Navigation("UserDiscounts");
 
                     b.Navigation("UserProducts");
 
