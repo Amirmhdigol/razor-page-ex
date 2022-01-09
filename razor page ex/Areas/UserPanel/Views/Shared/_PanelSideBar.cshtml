@@ -4,15 +4,15 @@
     var UserName = User.Identity.Name;
     var UserId =_userService.GetUserIdByUserName(UserName);
 }
-<section>
-    <header><h3> میز کار </h3></header>
-    <div class="inner">
-        <ul>
-            <li><a asp-area="userpanel" asp-controller="Userpanel" asp-action="Edit" asp-route-id="@UserId"> ویرایش نام کابری </a></li>
-            <li><a asp-area="userpanel" asp-controller="Userpanel" asp-action="EditPass"> تغییر رمز عبور </a></li>
-            <li><a asp-area="userpanel" asp-controller="Wallet" asp-action="Index"> کیف پول </a></li>
-            <li><a asp-area="userpanel" asp-controller="myorder" asp-action="Index"> سبد خرید </a></li>
-            <li><a asp-area="userpanel" asp-controller="userpanel" asp-action="LogOut"> خروج از حساب کاربری </a></li>
+<section  style="border:2px dotted">
+    <header><h3 style="text-align:center ;margin-right:5px"> میز کار </h3></header>
+    <div class="">
+        <ul style="text-align:center; list-style:none">
+            <li><a style="color:gray" asp-area="userpanel" asp-controller="Userpanel" asp-action="Edit" asp-route-id="@UserId"> ویرایش نام کابری </a></li>
+            <li><a style="color:gray" asp-area="userpanel" asp-controller="Userpanel" asp-action="EditPass"> تغییر رمز عبور </a></li>
+            <li><a style="color:gray" asp-area="userpanel" asp-controller="Wallet" asp-action="Index"> کیف پول </a></li>
+            <li><a style="color:gray" asp-area="userpanel" asp-controller="myorder" asp-action="Index"> سبد خرید </a></li>
+            <li><a style="color:gray" asp-area="userpanel" asp-controller="userpanel" asp-action="LogOut"> خروج از حساب کاربری </a></li>
         </ul>
     </div>
 </section>

@@ -20,7 +20,7 @@ namespace RazorEx.DAL.Context
             modelBuilder.ApplyConfiguration(new CategoryConfigurations());
             modelBuilder.ApplyConfiguration(new PostsConfigurations());
             
-            //Filters Users by IsDelete
+            //Filters Users by IsDelete   ff
             modelBuilder.Entity<User>().HasQueryFilter(u => !u.IsDelete);
             modelBuilder.Entity<Products>().HasQueryFilter(u => !u.IsDelete);
             modelBuilder.Entity<Post>().HasQueryFilter(u => !u.IsDelete);

@@ -17,11 +17,13 @@ namespace RazorEX.BAL.Services
     public class ProductService : IProduct
     {
         private readonly IFileManager _fileManager;
+        private readonly IUser _user;
         private readonly RXContext _context;
-        public ProductService(RXContext context, IFileManager FileManager)
+        public ProductService(RXContext context, IFileManager FileManager ,IUser user)
         {
             _context = context;
             _fileManager = FileManager;
+            _user = user;
         }
 
         public OperationResult AddProduct(AddProductDTO command)
@@ -388,5 +390,15 @@ namespace RazorEX.BAL.Services
             }).ToList();
             return FindedProducts;
         }
+
+        public bool IsUserBuyedThisProduct(string UserName, int ProductsId)
+        {
+            int UserId = _user.GetUserIdByUserName(UserName);
+            return _context.UserProducts.Any(a=>a.UserId == UserId && a.ProductsId == ProductsId);
+        }
     }
 }
+
+
+
+

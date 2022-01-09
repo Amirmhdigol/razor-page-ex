@@ -19,18 +19,18 @@
                             <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(@Directories.GetProductImage(item.ProductImageName));padding:5px,5px">
                                 <a asp-page="SingleProduct" asp-route-Title="@item.Title" class="thumb-url"></a>
                                 <img src="@Directories.GetProductImage(item.ProductImageName)" alt="" class="entry__img d-none">
-                                    @if (item.SubCategory != null)
-                                    {
-                                        <a asp-page="SearchPage" asp-route-categorySlug="@item.SubCategorySlug" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">
-                                            @item.SubCategory
-                                        </a>
-                                    }
-                                    else
-                                    {
-                                        <a asp-page="SearchPage" asp-route-categorySlug="@item.CategorySlug" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">
-                                            @item.Category
-                                        </a>
-                                    }
+                                @if (item.SubCategory != null)
+                                {
+                                    <a asp-page="SearchPage" asp-route-categorySlug="@item.SubCategorySlug" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">
+                                        @item.SubCategory
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a asp-page="SearchPage" asp-route-categorySlug="@item.CategorySlug" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">
+                                        @item.Category
+                                    </a>
+                                }
                             </div>
 
                             <div class="entry__body post-list__body card__body">
@@ -45,9 +45,15 @@
                                     <li class="entry__meta-date">
                                         @item.CreationDate.ToPersianDate("ds dd ms Y")
                                     </li>
-                                     <li class="entry__meta-author">
+                                    <li class="entry__meta-author">
                                         <span>@((@item.Price == 0 ? "رایگان" : "قیمت:"))</span>
                                         <a href="#">@item.Price.ToString("#,0 تومان") </a>
+                                        <a asp-page="BuyProduct" asp-route-id="@item.ProductId" asp-route-title="@item.Title"
+                                       class="entry__meta-category entry__meta-category--white" style="color:white">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/3523/3523887.png"
+                                             style="max-width:30px;margin-right:22px" />
+                                        </a>
+
                                     </li>
                                 </ul>
                             </div>

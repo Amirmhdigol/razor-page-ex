@@ -5,7 +5,7 @@
 @{
     if (User.Identity.IsAuthenticated)
     {
-        ViewData["UserName"] = $"پنل کاربری {User.Identity.Name}";
+        ViewData["UserName"] = $"{User.Identity.Name}";
         ViewData["WalletBalance"] = _UserService.UserWalletBalance(User.Identity.Name).ToString("#,0 تومان");
     }
     else
@@ -40,7 +40,7 @@
                         {
                             if (Model.Any(p => p.ParentId == ThisCategory.Id))
                             {
-                                <li class="nav__dropdown @(url.Value.ToLower() =="/searchpage"?"active":null)">
+                                <li class="nav__dropdown @*@(url.Value.ToLower() ==" /searchpage"?"active":null*@)">
                                     <a asp-page="SearchPage" asp-route-CategorySlug="@ThisCategory.Slug">@ThisCategory.Title</a>
                                     <ul class="nav__dropdown-menu">
                                         @foreach (var child in Model.Where(p => p.ParentId == ThisCategory.Id))
@@ -74,17 +74,21 @@
                         </div>
                     </div>
                 </div>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <a style="margin:10px"> موجودی :  @ViewData["WalletBalance"] </a>
-                    <a asp-area="Userpanel" asp-controller="userpanel" asp-action="index"
-                   style="margin:10px;color:black">@ViewData["UserName"]</a>
-                }
-                else
-                {
-                    <a asp-page="Register/SignIn" style="margin:10px">ورود</a>
-                    <a asp-page="Register/SignUp" style="margin:10px">/  ثبت نام</a>
-                }
+                <ul class="nav--left">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="Userpanel" asp-controller="Wallet" asp-action="index"
+                            style="margin:10px;text-align:center"> @ViewData["WalletBalance"] </a></li>
+                        
+                        <li><a asp-area="Userpanel" asp-controller="userpanel" asp-action="index"
+                       style="margin:10px;margin-right:27px;color:black;">@ViewData["UserName"]</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-page="Register/SignIn" style="margin:10px">ورود</a></li>
+                        <li><a asp-page="Register/SignUp" style="margin:10px">/  ثبت نام</a></li>
+                    }
+                </ul>
             </div> <!-- end flex-parent -->
         </div> <!-- end container -->
     </div>

@@ -28,5 +28,6 @@ namespace RazorEX.BAL.Contracts
         List<SelectListItem> GetLevels();
         List<SelectListItem> GetUsers();
         public void IncreaseVisit(int ProductID);
+        public bool IsUserBuyedThisProduct(string UserName , int ProductsId);
     }
 }

@@ -1,6 +1,8 @@
 ﻿@page "{Title}"
 @model razor_page_ex.Pages.SingleProductModel
+@using RazorEX.BAL.Contracts
 @using RazorEX.BAL.Utilities;
+@inject IProduct _product;
 @{
     var shortDescription = Model.Product.Description.ConvertHtmlToText();
     if (shortDescription.Length > 300)
@@ -9,6 +11,11 @@
     }
     var imageType = @System.IO.Path.GetExtension(Model.Product.ProductImageName).Replace(".", "");
     var imageUrl = @Directories.GetPostImage(Model.Product.ProductImageName);
+    bool UserHasProduct = false;
+    if (User.Identity.IsAuthenticated)
+    {
+        UserHasProduct = _product.IsUserBuyedThisProduct(User.Identity.Name, Model.Product.ProductId);
+    }
 }
 @section MetaLink{
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -102,8 +109,15 @@
                         <div class="entry__article">
                             @Html.Raw(@Model.Product.Description)
                             <a style="margin:10px">قیمت : @Model.Product.Price.ToString("#,0 تومان")</a>
-                            <a asp-page="BuyProduct" asp-route-id="@Model.Product.ProductId" asp-route-title="@Model.Product.Title" class="btn btn-success col-md-6"> افزودن به سبد خرید </a>
+                            <a asp-page="BuyProduct" asp-route-id="@Model.Product.ProductId" 
+                            asp-route-title="@Model.Product.Title" class="btn btn-success col-md-6"> افزودن به سبد </a>
                         </div>
+                        @if (UserHasProduct)
+                        {   
+                            <div class="alert alert-info">
+                                <a> شما یکبار دیگر این دوره را خریدید هههه </a>
+                            </div>
+                        }
                     </div>
                     <!-- Related Posts -->
                     @if (Model.RelatedProducts.Any())
@@ -187,7 +201,7 @@
             </div> <!-- end content box -->
         </div>
         <aside class="col-lg-4 sidebar sidebar--right" @*id="popular_products"*@>
-                    <partial name="_PopularProducts" model="Model.PopularProducts"/>
+            <partial name="_PopularProducts" model="Model.PopularProducts" />
         </aside>
     </div>
 </div>
