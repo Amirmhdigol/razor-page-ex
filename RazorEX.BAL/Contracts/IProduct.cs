@@ -29,5 +29,8 @@ namespace RazorEX.BAL.Contracts
         List<SelectListItem> GetUsers();
         public void IncreaseVisit(int ProductID);
         public bool IsUserBuyedThisProduct(string UserName , int ProductsId);
+        public void AddVote(int productId, int userId, bool vote);
+        Tuple<int, int> GetProductVotes(int productId);
+        bool IsFree(int productId);
     }
 }

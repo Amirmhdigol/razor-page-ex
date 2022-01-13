@@ -321,6 +321,34 @@ namespace RazorEx.DAL.Migrations
                     b.ToTable("ProductStatuses");
                 });
 
+            modelBuilder.Entity("RazorEx.DAL.Entities.ProductVote", b =>
+                {
+                    b.Property<int>("ProductVoteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("ProductsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Vote")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("VoteDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ProductVoteId");
+
+                    b.HasIndex("ProductsId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ProductVotes");
+                });
+
             modelBuilder.Entity("RazorEx.DAL.Entities.Products", b =>
                 {
                     b.Property<int>("Id")
@@ -635,6 +663,25 @@ namespace RazorEx.DAL.Migrations
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("RazorEx.DAL.Entities.ProductVote", b =>
+                {
+                    b.HasOne("RazorEx.DAL.Entities.Products", "Products")
+                        .WithMany("ProductVotes")
+                        .HasForeignKey("ProductsId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RazorEx.DAL.Entities.User", "User")
+                        .WithMany("ProductVotes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Products");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("RazorEx.DAL.Entities.Products", b =>
                 {
                     b.HasOne("RazorEx.DAL.Entities.Category", "MainCategory")
@@ -770,6 +817,8 @@ namespace RazorEx.DAL.Migrations
 
                     b.Navigation("ProductEpisodes");
 
+                    b.Navigation("ProductVotes");
+
                     b.Navigation("UserProducts");
                 });
 
@@ -780,6 +829,8 @@ namespace RazorEx.DAL.Migrations
                     b.Navigation("PostComments");
 
                     b.Navigation("Posts");
+
+                    b.Navigation("ProductVotes");
 
                     b.Navigation("UserDiscounts");
 

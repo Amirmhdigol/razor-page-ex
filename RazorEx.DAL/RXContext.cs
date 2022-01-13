@@ -49,5 +49,6 @@ namespace RazorEx.DAL.Context
         public DbSet<UserProducts> UserProducts { get; set; }
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<UserDiscounts> UserDiscounts { get; set; }
+        public DbSet<ProductVote> ProductVotes { get; set; }
     }
 }

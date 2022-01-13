@@ -29,6 +29,7 @@ namespace RazorEx.DAL.Entities
         public ICollection<Order> Orders { get; set; }
         public ICollection<UserProducts> UserProducts { get; set; }
         public ICollection<UserDiscounts> UserDiscounts { get; set; }
+        public ICollection<ProductVote> ProductVotes { get; set; }
         #endregion
     }
 

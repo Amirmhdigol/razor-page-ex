@@ -19,7 +19,7 @@ namespace RazorEX.BAL.Services
         private readonly IFileManager _fileManager;
         private readonly IUser _user;
         private readonly RXContext _context;
-        public ProductService(RXContext context, IFileManager FileManager ,IUser user)
+        public ProductService(RXContext context, IFileManager FileManager, IUser user)
         {
             _context = context;
             _fileManager = FileManager;
@@ -46,7 +46,7 @@ namespace RazorEX.BAL.Services
                 Tags = command.Tags,
                 ProductImageName = _fileManager.SaveFile2(command.ProductImageName, Directories.Products),
                 DemoFileName = command.DemoFileName == null ? null :
-                        _fileManager.SaveFile2(command.DemoFileName, Directories.Products)
+                        _fileManager.SaveFile2(command.DemoFileName, Directories.ProductsDemo)
             };
             _context.Products.Add(product);
             _context.SaveChanges();
@@ -394,11 +394,38 @@ namespace RazorEX.BAL.Services
         public bool IsUserBuyedThisProduct(string UserName, int ProductsId)
         {
             int UserId = _user.GetUserIdByUserName(UserName);
-            return _context.UserProducts.Any(a=>a.UserId == UserId && a.ProductsId == ProductsId);
+            return _context.UserProducts.Any(a => a.UserId == UserId && a.ProductsId == ProductsId);
+        }
+
+        public void AddVote(int productId, int userId, bool vote)
+        {
+            var UserVoted = _context.ProductVotes.FirstOrDefault(a => a.UserId == userId && a.ProductsId == productId);
+            if (UserVoted != null)
+            {
+                UserVoted.Vote = vote;
+            }
+            else
+            {
+                UserVoted = new ProductVote()
+                {
+                    ProductsId = productId,
+                    UserId = userId,
+                    Vote = vote
+                };
+                _context.ProductVotes.Add(UserVoted);
+            }
+            _context.SaveChanges();
+        }
+
+        public Tuple<int, int> GetProductVotes(int productId)
+        {
+            var votes = _context.ProductVotes.Where(v => v.ProductsId == productId).Select(v => v.Vote).ToList();
+            return Tuple.Create(votes.Count(c => c), votes.Count(c => !c));
+        }
+
+        public bool IsFree(int productId)
+        {
+            return _context.Products.Where(a => a.Id == productId).Select(c => c.Price).First() == 0;
         }
     }
 }
-
-
-
-

@@ -43,8 +43,9 @@ namespace RazorEX.BAL.Services
         {
             if (file == null)
                 throw new Exception("file is null");
+            var FileName = $"{Guid.NewGuid()}{file.FileName}";
 
-            var isImage = file.Validate();
+            var isImage = FileName.Validate();  
 
             if (!isImage)
                 throw new Exception("Not an Image");

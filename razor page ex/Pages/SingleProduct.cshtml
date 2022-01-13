@@ -109,16 +109,24 @@
                         <div class="entry__article">
                             @Html.Raw(@Model.Product.Description)
                             <a style="margin:10px">قیمت : @Model.Product.Price.ToString("#,0 تومان")</a>
-                            <a asp-page="BuyProduct" asp-route-id="@Model.Product.ProductId" 
-                            asp-route-title="@Model.Product.Title" class="btn btn-success col-md-6"> افزودن به سبد </a>
+                            <a asp-page="BuyProduct" asp-route-id="@Model.Product.ProductId"
+                               asp-route-title="@Model.Product.Title" class="btn btn-success col-md-6"> افزودن به سبد </a>
                         </div>
                         @if (UserHasProduct)
-                        {   
+                        {
                             <div class="alert alert-info">
                                 <a> شما یکبار دیگر این دوره را خریدید هههه </a>
                             </div>
                         }
                     </div>
+                    <div id="vote">
+                    </div>
+                    @if (!string.IsNullOrEmpty(Model.Product.DemoFileName))
+                    {
+                        <video style="width:100%;border-radius:7px" controls>
+                            <source src="/images/products/demoes/@Model.Product.DemoFileName" />
+                        </video>
+                    }
                     <!-- Related Posts -->
                     @if (Model.RelatedProducts.Any())
                     {
@@ -205,4 +213,19 @@
         </aside>
     </div>
 </div>
+@section scripts
+{
+<script src="/js/jquery.unobtrusive-ajax.min.js"> </script>
+<script>
+    $(function(){
+        $("#vote").load("/Vote/" + @Model.Product.ProductId);
+    });
+
+     function vote(vote) {
+        $("#vote").fadeOut('slow');
+        $("#vote").load("/Vote/AddVote/" + @Model.Product.ProductId + "/" + vote);
+        $("#vote").fadeIn('slow');
+    };
+</script>
+}
 

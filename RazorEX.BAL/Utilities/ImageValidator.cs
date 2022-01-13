@@ -33,7 +33,7 @@ namespace RazorEX.BAL.Utilities
 
             var Extension = Path.GetExtension(Filename);
             
-            if (Extension.ToLower() == ".png" || Extension.ToLower() == ".jpg" || Extension.ToLower() == ".jpeg")
+            if (Extension.ToLower() == ".png" || Extension.ToLower() == ".jpg" || Extension.ToLower() == ".jpeg"|| Extension.ToLower() == ".mp4")
                 return true;
             
             return false;

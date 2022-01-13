@@ -58,6 +58,7 @@ namespace RazorEx.DAL.Entities
         public ProductLevel ProductLevel { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
         public ICollection<UserProducts> UserProducts { get; set; }
+        public ICollection<ProductVote> ProductVotes { get; set; }
         #endregion
 
     }
