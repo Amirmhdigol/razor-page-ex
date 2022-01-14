@@ -65,8 +65,8 @@
                             <i class="ui-search nav__search-trigger-icon"></i>
                         </a>
                         <div class="nav__search-box" id="nav__search-box">
-                            <form action="/SearchPage" class="nav__search-form">
-                                <input type="text" name="q" placeholder="جستجو مقالات" class="nav__search-input">
+                            <form action="/SearchPage" class="nav__search-form" method="get">
+                                <input type="text" name="SearchQ" id="AutoFilter" placeholder="جستجو مقالات" class="nav__search-input">
                                 <button type="submit" class="search-button btn btn-lg btn-color btn-button">
                                     <i class="ui-search nav__search-icon"></i>
                                 </button>
@@ -77,11 +77,15 @@
                 <ul class="nav--left">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li><a asp-area="Userpanel" asp-controller="Wallet" asp-action="index"
-                            style="margin:10px;text-align:center"> @ViewData["WalletBalance"] </a></li>
-                        
-                        <li><a asp-area="Userpanel" asp-controller="userpanel" asp-action="index"
-                       style="margin:10px;margin-right:27px;color:black;">@ViewData["UserName"]</a></li>
+                        <li>
+                            <a asp-area="Userpanel" asp-controller="Wallet" asp-action="index"
+                           style="margin:10px;text-align:center"> @ViewData["WalletBalance"] </a>
+                        </li>
+
+                        <li>
+                            <a asp-area="Userpanel" asp-controller="userpanel" asp-action="index"
+                           style="margin:10px;margin-right:27px;color:black;">@ViewData["UserName"]</a>
+                        </li>
                     }
                     else
                     {
@@ -92,4 +96,15 @@
             </div> <!-- end flex-parent -->
         </div> <!-- end container -->
     </div>
-</header> 
+</header>
+@section Scripts
+{
+
+<script>
+    $(document).ready(function() {
+            $("AutoFilter").autocomplete({
+                source: 'api/Productapi/search'
+            });
+    });
+</script>
+}

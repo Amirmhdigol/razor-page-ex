@@ -1,0 +1,49 @@
+﻿@using RazorEX.BAL.Contracts
+@using RazorEX.BAL.Utilities
+@model RazorEX.BAL.DTOs.MainPageDTO.PageDTO
+@inject IMainPage _mainpage;
+
+@{
+    var Posts = _mainpage.GetData();
+    var bigPost = Posts.SpecialPosts.First();
+    var SmallPosts = Posts.SpecialPosts.Where(r => r.PostId != bigPost.PostId);
+}
+
+@foreach (var item in SmallPosts)
+{
+    <div class="featured-posts-grid__item featured-posts-grid__item--sm">
+        <article class="entry card post-list featured-posts-grid__entry">
+            <div class="entry__img-holder post-list__img-holder card__img-holder" style="background-image: url(@Directories.GetPostImage(item.ImageName))">
+                <a href="/Post/@item.Slug" class="thumb-url"></a>
+                <img src="@Directories.GetPostImage(item.ImageName)" alt="@item.Title" class="entry__img d-none">
+                @if (item.SubCategory != null)
+                {
+                    <a href="/SearchPage?categoryslug=@item.SubCategory.Slug" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">
+                        @item.SubCategory.Title
+                    </a>
+                }
+                else
+                {
+                    <a href="/SearchPage?categoryslug=@item.Category.Slug" class="entry__meta-category entry__meta-category--label entry__meta-category--align-in-corner entry__meta-category--violet">
+                        @item.Category.Title
+                    </a>
+                }
+            </div>
+            <div class="entry__body post-list__body card__body">
+                <h2 class="entry__title">
+                    <a href="/Post/@item.Slug">@item.Title</a>
+                </h2>
+                <ul class="entry__meta">
+                    <li class="entry__meta-author">
+                        <span>نویسنده:</span>
+                        <a href="#">@item.UserName</a>
+                    </li>
+                    <li class="entry__meta-date">
+                        @item.CreationDate.GetTimeAgo()
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </div>
+}
+

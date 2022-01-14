@@ -48,5 +48,4 @@ namespace razor_page_ex.Pages
             return Partial("_PopularPosts", _postservice.GetPopularPosts());
         }
     }
-
 }
