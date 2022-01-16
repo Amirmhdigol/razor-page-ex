@@ -1,0 +1,110 @@
+﻿@using Microsoft.AspNetCore.Http
+@using RazorEX.BAL.Contracts
+@model List<RazorEX.BAL.DTOs.CategoryDTO.CategoryDto>
+@inject IUser _UserService;
+@{
+    if (User.Identity.IsAuthenticated)
+    {
+        ViewData["UserName"] = $"{User.Identity.Name}";
+        ViewData["WalletBalance"] = _UserService.UserWalletBalance(User.Identity.Name).ToString("#,0 تومان");
+    }
+    else
+    {
+
+    }
+    var selected = ViewData["selected"]?.ToString()?.ToLower();
+    var url = Context.Request.Path;
+}
+
+<header class="nav">
+    <div class="nav__holder nav--sticky">
+        <div class="container relative">
+            <div class="flex-parent">
+                <button class="nav-icon-toggle" id="nav-icon-toggle" aria-label="Open side menu">
+                    <span class="nav-icon-toggle__box">
+                        <span class="nav-icon-toggle__inner"></span>
+                    </span>
+                </button>
+                <a href="" class="logo">
+                </a>
+                <nav class="flex-child nav__wrap d-none d-lg-block">
+                    <ul class="nav__menu">
+                        <li class=" @(url.Value == "/" ?"active":null)">
+                            <a asp-page="Index"> اصلی</a>
+                        </li>
+                        <li class=" @(url.Value.ToLower() =="/shop"?"active":null)">
+                            <a asp-page="Shop">فروشگاه</a>
+                        </li>
+
+                        @foreach (var ThisCategory in Model.Where(a => a.ParentId == null))
+                        {
+                            if (Model.Any(p => p.ParentId == ThisCategory.Id))
+                            {
+                                <li class="nav__dropdown @*@(url.Value.ToLower() ==" /searchpage"?"active":null*@)">
+                                    <a asp-page="SearchPage" asp-route-CategorySlug="@ThisCategory.Slug">@ThisCategory.Title</a>
+                                    <ul class="nav__dropdown-menu">
+                                        @foreach (var child in Model.Where(p => p.ParentId == ThisCategory.Id))
+                                        {
+                                            <li><a asp-page="SearchPage" asp-route-CategorySlug="@ThisCategory.Slug">@child.Title</a></li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a asp-page="SearchPage" asp-route-CategorySlug="@ThisCategory.Slug">@ThisCategory.Title</a>
+                                </li>
+                            }
+                        }
+                    </ul> <!-- end menu -->
+                </nav> <!-- end nav-wrap -->
+                <div class="nav__right">
+                    <div class="nav__right-item nav__search">
+                        <a class="nav__search-trigger" id="nav__search-trigger">
+                            <i class="ui-search nav__search-trigger-icon"></i>
+                        </a>
+                        <div class="nav__search-box" id="nav__search-box">
+                            <form action="/SearchPage" class="nav__search-form" method="get">
+                                <input type="text" name="SearchQ" id="AutoFilter" placeholder="جستجو مقالات" class="nav__search-input">
+                                <button type="submit" class="search-button btn btn-lg btn-color btn-button">
+                                    <i class="ui-search nav__search-icon"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav--left">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a asp-area="Userpanel" asp-controller="Wallet" asp-action="index"
+                           style="margin:10px;text-align:center"> @ViewData["WalletBalance"] </a>
+                        </li>
+
+                        <li>
+                            <a asp-area="Userpanel" asp-controller="userpanel" asp-action="index"
+                           style="margin:10px;margin-right:27px;color:black;">@ViewData["UserName"]</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li><a asp-page="Register/SignIn" style="margin:10px">ورود</a></li>
+                        <li><a asp-page="Register/SignUp" style="margin:10px">/  ثبت نام</a></li>
+                    }
+                </ul>
+            </div> <!-- end flex-parent -->
+        </div> <!-- end container -->
+    </div>
+</header>
+@section Scripts
+{
+
+<script>
+    $(document).ready(function() {
+            $("AutoFilter").autocomplete({
+                source: 'api/Productapi/search'
+            });
+    });
+</script>
+}

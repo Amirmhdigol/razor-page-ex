@@ -34,6 +34,5 @@ namespace RazorEx.DAL.Entities
         [ForeignKey("SubCategoryId")]
         public Category SubCategory { get; set; }
         public ICollection<PostComment> PostComments { get; set; }
-
     }
 }

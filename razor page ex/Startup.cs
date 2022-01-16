@@ -48,6 +48,7 @@ namespace razor_page_ex
             services.AddTransient<IViewRenderService, RenderViewToString>();
             services.AddTransient<IProduct, ProductService>();
             services.AddTransient<IProductComment, ProductCommentService>();
+            services.AddTransient<IForum, ForumService>();
 
             services.AddAuthorization(option =>
             {

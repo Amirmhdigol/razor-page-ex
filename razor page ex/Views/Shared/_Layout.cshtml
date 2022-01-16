@@ -1,0 +1,83 @@
+﻿@using RazorEX.BAL.Contracts
+@using RazorEX.BAL.DTOs.PostDTO
+@using RazorEX.BAL.DTOs.ProductDTOs
+@inject IProduct _product;
+@inject IPost _post;
+@inject ICategory Category;
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="">
+    <meta name="robots" content="index, follow">
+    @await RenderSectionAsync("MetaTags", false)
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,600,700%7CSource+Sans+Pro:400,600,700' rel='stylesheet'>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-icons.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/noUiSlider/nouislider.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    @await RenderSectionAsync("MetaLink", false)
+
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/apple-icon.png">
+
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+    <script src="/js/lazysizes.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+</head>
+<body class="bg-light style-default style-rounded">
+        <div class="loading">
+        <img src="/loading.svg" alt="loading...">
+        </div>
+        <div class="loader-mask">
+        <div class="loader">
+        <div></div>
+        </div>
+        </div>
+    
+    <div class="content-overlay"></div>
+    <main class="main oh" id="main">
+        <partial name="Headers/_TopHeader" />
+        @RenderBody()
+        <div id="back-to-top">
+            <a href="#top" aria-label="Go to top"><i class="ui-arrow-up"></i></a>
+        </div>
+    </main>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/easing.min.js"></script>
+    <script src="/js/owl-carousel.min.js"></script>
+    <script src="/js/flickity.pkgd.min.js"></script>
+    <script src="/js/twitterFetcher_min.js"></script>
+    <script src="/js/jquery.newsTicker.min.js"></script>
+    <script src="/js/jquery.sticky-kit.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/modernizr.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="/js/Custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+    <partial name="_ValidationScriptsPartial" />
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

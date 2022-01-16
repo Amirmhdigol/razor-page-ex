@@ -1,0 +1,35 @@
+﻿@model RazorEX.BAL.DTOs.ForumDTOs.AddQuestionDTO
+@using RazorEX.BAL.Contracts;
+@{
+    ViewData["title"] = "پرسش جدید";
+}
+<section class="content-header">
+    <h1>
+        @ViewData["title"]
+    </h1>
+    <ol class="breadcrumb">
+        <li><a asp-area="Admin" asp-controller="Home" asp-action="Index"><i class="fa fa-dashboard"></i> خانه</a></li>
+        <li><a asp-area="Admin" asp-controller="Category" asp-action="Index">پرسش ها</a></li>
+        <li class="active">@ViewData["title"]</li>
+    </ol>
+</section>
+<section class="content ">
+    <form method="post" asp-action="AddQuestion" class="box box-danger">
+        <input asp-for="ProductsId" type="hidden" class="form-control" />
+        <div class="box-body row col-md-9">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                @Html.EditorFor(m => m.Body)
+            </div>
+        </div>
+        <div class="box-footer">
+            <button class="btn btn-success" type="submit">ثبت اطلاعات</button>
+        </div>
+    </form>
+</section>

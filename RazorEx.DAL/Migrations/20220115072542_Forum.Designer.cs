@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RazorEx.DAL.Context;
 
 namespace RazorEx.DAL.Migrations
 {
     [DbContext(typeof(RXContext))]
-    partial class RXContextModelSnapshot : ModelSnapshot
+    [Migration("20220115072542_Forum")]
+    partial class Forum
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,9 +34,6 @@ namespace RazorEx.DAL.Migrations
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsTheTrueAnswer")
-                        .HasColumnType("bit");
 
                     b.Property<int>("QuestionId")
                         .HasColumnType("int");
@@ -474,7 +473,7 @@ namespace RazorEx.DAL.Migrations
                     b.Property<DateTime>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ProductsId")
+                    b.Property<int>("PostId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -486,7 +485,7 @@ namespace RazorEx.DAL.Migrations
 
                     b.HasKey("QuestionId");
 
-                    b.HasIndex("ProductsId");
+                    b.HasIndex("PostId");
 
                     b.HasIndex("UserId");
 
@@ -811,9 +810,9 @@ namespace RazorEx.DAL.Migrations
 
             modelBuilder.Entity("RazorEx.DAL.Entities.Question", b =>
                 {
-                    b.HasOne("RazorEx.DAL.Entities.Products", "Products")
+                    b.HasOne("RazorEx.DAL.Entities.Post", "Post")
                         .WithMany("Questions")
-                        .HasForeignKey("ProductsId")
+                        .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -823,7 +822,7 @@ namespace RazorEx.DAL.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Products");
+                    b.Navigation("Post");
 
                     b.Navigation("User");
                 });
@@ -905,6 +904,8 @@ namespace RazorEx.DAL.Migrations
             modelBuilder.Entity("RazorEx.DAL.Entities.Post", b =>
                 {
                     b.Navigation("PostComments");
+
+                    b.Navigation("Questions");
                 });
 
             modelBuilder.Entity("RazorEx.DAL.Entities.ProductLevel", b =>
@@ -924,8 +925,6 @@ namespace RazorEx.DAL.Migrations
                     b.Navigation("ProductEpisodes");
 
                     b.Navigation("ProductVotes");
-
-                    b.Navigation("Questions");
 
                     b.Navigation("UserProducts");
                 });
