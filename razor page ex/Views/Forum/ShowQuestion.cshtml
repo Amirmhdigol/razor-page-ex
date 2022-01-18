@@ -1,8 +1,11 @@
-﻿@using RazorEX.BAL.Utilities
+﻿@using RazorEX.BAL.Contracts
+@using RazorEX.BAL.Utilities
 @using System.Security.Claims
 @model RazorEX.BAL.DTOs.ForumDTOs.ShowQuestionDTO
+@inject IProduct _productservice;
 @{
     ViewData["title"] = " پرسش و پاسخ ";
+    var ThisProduct = _productservice.GetProductById(Model.Question.ProductsId);
 }
 <style>
     .IsTrue {
@@ -13,10 +16,13 @@
 <div class="Siner">
     <ul class="breadcrumbs">
         <li class="breadcrumbs__item">
-            <a class="breadcrumbs__url">خانه</a>
+            <a href="/Shop" class="breadcrumbs__url">خانه</a>
         </li>
         <li class="breadcrumbs__item">
-            <a class="breadcrumbs__url">تمامی پرسش ها</a>
+            <a href="/SingleProduct/@ThisProduct.Title" class="breadcrumbs__url"> @ThisProduct.Title</a>
+        </li>
+        <li class="breadcrumbs__item">
+            <a asp-action="Index" asp-route-productid="@Model.Question.ProductsId" class="breadcrumbs__url">تمامی پرسش های @ThisProduct.Title </a>
         </li>
         <li class="breadcrumbs__item breadcrumbs__item--current">
             @Model.Question.Title

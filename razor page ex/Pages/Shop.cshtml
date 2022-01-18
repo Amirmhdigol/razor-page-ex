@@ -2,14 +2,13 @@
 @using RazorEX.BAL.Utilities
 @model razor_page_ex.Pages.ShopModel
 @{
-
+    ViewData["title"] = "فروشگاه";
 }
 <main id="home-page">
     <div class="container">
         <section class="terms-items">
             <header>
-                <h2 style="margin:10px"> دوره ها و محصولات محبوب سایت </h2>
-                <a href="" style="margin:10px"> مشاهده همه دوره ها </a>
+                <h2 style="margin:10px">  </h2>
             </header>
             <div class="row">
                 @foreach (var item in Model.MainPageData.AllProducts)
@@ -42,6 +41,7 @@
                                         <span>فروشنده: </span>
                                         <a>@item.Teacher</a>
                                     </li>
+                                    <br>
                                     <li class="entry__meta-date">
                                         @item.CreationDate.ToPersianDate("ds dd ms Y")
                                     </li>
@@ -50,7 +50,7 @@
                                         <a href="#">@item.Price.ToString("#,0 تومان") </a>
                                         <a asp-page="BuyProduct" asp-route-id="@item.ProductId" asp-route-title="@item.Title"
                                        class="entry__meta-category entry__meta-category--white" style="color:white">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/3523/3523887.png"
+                                            <img title="خرید این محصول" src="https://cdn-icons-png.flaticon.com/512/3523/3523887.png"
                                              style="max-width:30px;margin-right:22px" />
                                         </a>
 

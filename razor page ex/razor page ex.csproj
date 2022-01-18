@@ -1064,6 +1064,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Htmlsanitizer" Version="7.0.473" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

@@ -14,5 +14,6 @@ namespace RazorEX.BAL.Contracts
         ShowQuestionDTO ShowQuestion(int questionid);
         void AddAnswer(AddAnswerDTO addAnswer);
         void ChangeIsTrueAnswer(int questionId, int answerId);
+        IEnumerable<Question> GetAllQuestionById(int? productId , string filter="");
     }
 }

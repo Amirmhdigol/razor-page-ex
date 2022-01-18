@@ -2,6 +2,7 @@
 @model razor_page_ex.Pages.PostModel
 @using RazorEX.BAL.Utilities;
 @{
+    ViewData["title"] = @Model.Post.Title;
     var shortDescription = Model.Post.Description.ConvertHtmlToText();
     if (shortDescription.Length > 300)
     {

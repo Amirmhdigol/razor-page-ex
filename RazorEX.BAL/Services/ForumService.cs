@@ -60,6 +60,16 @@ namespace RazorEX.BAL.Services
             _context.SaveChanges();
         }
 
+        public IEnumerable<Question> GetAllQuestionById(int? productId, string filter = "")
+        {
+            IQueryable<Question> result = _context.Questions.Include(a=>a.User).Include(a=>a.Answers).Include(a=>a.Products).Where(a => EF.Functions.Like(a.Title, $"%{filter}%"));
+            if (productId != null)
+            {
+                result = result.Where(a => a.ProductsId == productId);
+            }
+            return result.ToList();
+        }
+
         public ShowQuestionDTO ShowQuestion(int questionid)
         {
             var Question = _context.Questions.Include(a => a.User)
@@ -67,9 +77,9 @@ namespace RazorEX.BAL.Services
             var QuestionAnsewers = new ShowQuestionDTO()
             {
                 Question = QuestionToDTO.Map(Question),
-                Answers = _context.Answers.Include(a=>a.User).Where(a=>a.QuestionId==questionid).ToList(),
+                Answers = _context.Answers.Include(a => a.User).Where(a => a.QuestionId == questionid).ToList(),
             };
             return QuestionAnsewers;
-        }   
+        }
     }
 }

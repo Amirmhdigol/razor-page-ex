@@ -1,0 +1,122 @@
+﻿@using RazorEX.BAL.Contracts
+@using RazorEX.BAL.Utilities
+@using System.Security.Claims
+@model IEnumerable<RazorEx.DAL.Entities.Question>
+@inject IOrder _orderservice;
+@inject IProduct _productservice;
+@{
+    ViewData["title"] = "پرسش ها";
+    var ProductTitle = "";
+    var ProductPrice = 0;
+    if (ViewBag.productid != null)
+    {
+        var Product = _productservice.GetProductById((int)ViewBag.productid);
+        ProductTitle = Product.Title;
+        ProductPrice = Product.Price;
+    }
+}
+
+<div class="Siner">
+    <ul class="breadcrumbs">
+        <li class="breadcrumbs__item">
+            <a href="/Shop" class="breadcrumbs__url">خانه</a>
+        </li>
+        <li class="breadcrumbs__item">
+            <a asp-action="Index" class="breadcrumbs__url">تمامی پرسش ها</a>
+        </li>
+        <li class="breadcrumbs__item">
+            <a href="/SingleProduct/@ProductTitle" class="breadcrumbs__url">  @ProductTitle</a>
+        </li>
+        <li class="breadcrumbs__item breadcrumbs__item--current">
+           سوالات @ProductTitle
+        </li>
+    </ul>
+</div>
+<div class="main-container container" id="main-container">
+    <div class="row">
+        <div class="col-lg-12 blog__content mb-72">
+            <div class="content-box">
+                <a class="btn" style="background-color:blue;color:white;padding:4px;margin-bottom:10px" href="javascript:history.back()">بازگشت   </a>
+                @if (ViewBag.productid != null)
+                {
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (ProductPrice == 0 && _productservice.IsUserBuyedThisProduct(User.Identity.Name, (int)ViewBag.productid))
+                        {
+                            <a class="btn btn-block" style="background-color:green;padding:4px;margin-bottom:10px" href="/Forum/AddQuestion/@ViewBag.productid"> پرسیدن سوال</a>
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger"> امکان افزودن پرسش نیست یا محصول رایگان است یا شما آن را خریداری نکرده اید</div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger">برای پرسیدن سوال باید وارد سایت شوید</div>
+                    }
+                }
+                <form method="get" asp-action="Index" style="padding:10px;border:1px solid;border-color:gray;border-radius:8px;margin-bottom:25px">
+                    <label><h4>جستجو در پرسش ها</h4></label>
+                    <input name="filter" type="text" placeholder="عنوان سوال را وارد کنید" />
+                    <button class="btn" style="background-color:green;" type="submit">
+                        <img src="/img/magnifier.png" style="max-width:25px;padding:2px" /> جستجو
+                    </button>
+                    <button class="btn" href="/Forum/Index?productId=@ViewBag.productid" style="background-color:red;padding:4px">پاک کردن فیلتر</button>
+                    <input type="hidden" name="productId" value="@ViewBag.productId" />
+                </form>
+                @{
+                    var counter = 1;
+                }
+                @if (Model.Count() == 0)
+                {
+                    <div class="alert alert-danger"> برای این محصول هنوز سوالی ثبت نشده است </div>
+                }
+                else
+                {
+                    foreach (var item in Model)
+                    {
+                        <article class="entry mb-0">
+                            <div class="single-post__entry-header entry__header">
+                                <a class="entry__meta-category entry__meta-category--label entry__meta-category--orange">سوال (@counter) </a>
+                                <h1 class="single-post__entry-title">
+                                    <a asp-controller="Forum" asp-action="ShowQuestion" asp-route-id="@item.QuestionId">@item.Title</a>
+                                </h1>
+                                <div class="entry__meta-holder">
+                                    <ul class="entry__meta">
+                                        <li class="entry__meta-author">
+                                            <span>پرسنده  </span>
+                                            <a href="#">@item.User.UserName</a>
+                                        </li>
+                                        <li class="entry__meta-date">
+                                            @item.CreationDate.ToPersianDate("ds dd ms Y")
+                                        </li>
+                                        <li class="entry__meta-price">
+                                            @item.Products.Title
+                                        </li>
+                                    </ul>
+                                    <ul class="entry__meta">
+                                        <li class="entry__meta-views">
+                                            <i class="ui-eye"></i>
+                                            <span></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="entry__article-wrap">
+                                <div class="entry__article">
+                                    @Html.Raw(@item.Body)
+                                </div>
+                            </div>
+                        </article>
+                        counter += 1;
+                        <hr />
+                    }
+                }
+            </div>
+        </div>
+        <aside class="col-lg-4 sidebar sidebar--right" @*id="popular_products"*@>
+            @*            <partial name="_PopularProducts" model="Model.PopularProducts" />
+            *@
+        </aside>
+    </div>
+</div>

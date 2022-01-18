@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Ganss.XSS;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RazorEx.DAL.Entities;
 using RazorEX.BAL.Contracts;
@@ -18,12 +19,16 @@ namespace razor_page_ex.Controllers
         {
             _service = service;
         }
-
-        public IActionResult Index()
+        [Route("/Forum/Index")]
+        public IActionResult Index(int? productId, string filter = "")
         {
-            return View();
+            if (productId != null)
+            {
+                ViewBag.productid = productId;
+            }
+            return View(_service.GetAllQuestionById(productId, filter));
         }
- 
+
         [Route("/Forum/AddQuestion/{id}")]
         public IActionResult AddQuestion(int id)
         {
@@ -45,7 +50,7 @@ namespace razor_page_ex.Controllers
             }
             question.UserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier).ToString());
             int QId = _service.AddQuestion(QuestionToDTO.MapAdd(question));
-            return View($"/Forum/ShowQuestion/{QId}");
+            return Redirect($"/Forum/ShowQuestion/{QId}");
         }
         [Route("/Forum/ShowQuestion/{id}")]
         public IActionResult ShowQuestion(int id)
@@ -56,6 +61,8 @@ namespace razor_page_ex.Controllers
         [Route("/Forum/ShowQuestion/")]
         public IActionResult AddAnswer(int id, string body)
         {
+            var SanitizedBody = new HtmlSanitizer();
+            body = SanitizedBody.Sanitize(body);
             if (!string.IsNullOrEmpty(body))
             {
                 _service.AddAnswer(new AddAnswerDTO()

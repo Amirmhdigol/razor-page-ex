@@ -1,3 +1,4 @@
+using Ganss.XSS;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorEX.BAL.Contracts;
@@ -65,6 +66,8 @@ namespace razor_page_ex.Pages
                 RelatedProducts = FindedRelatedProducts;
                 return Page();
             }
+            var SanitizedText = new HtmlSanitizer();
+            Text = SanitizedText.Sanitize(Text);
             _productComment.CreateProductComment(new CreateProductCommentDTO()
             {
                 ProductId = ProductId,

@@ -4,6 +4,7 @@
 @using RazorEX.BAL.Utilities;
 @inject IProduct _product;
 @{
+    ViewData["title"] = @Model.Product.Title.ToString();
     var shortDescription = Model.Product.Description.ConvertHtmlToText();
     if (shortDescription.Length > 300)
     {
@@ -127,7 +128,8 @@
                             <source src="/images/products/demoes/@Model.Product.DemoFileName" />
                         </video>
                     }
-                    <!-- Related Posts -->
+                      <a asp-controller="Forum" asp-action="index" asp-route-productId="@Model.Product.ProductId" style="background-color:darkorange;color:darkblue;padding:7px;margin-right:20px;border-radius:20px" 
+                                class="btn btn-block btn-warning"> پرسش و پاسخ </a>
                     @if (Model.RelatedProducts.Any())
                     {
                         <section class="section related-posts mt-40 mb-0">
